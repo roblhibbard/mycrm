@@ -1,0 +1,58 @@
+  
+  <p id="notice"><%= notice %></p>
+  <%= form_tag({controller => "labtickets", :action => "c_tickets" }, method: "get") %>
+
+<div class="container p-4 pdf_body" > 
+	<div class="row align-items-start align-center"><h3>Get Client Open Tickets</h3> </div>
+	<div class="row align-items-start align-center"> 
+      <form class="form-inline m-2">
+   
+       <%= text_field_tag(:c, "", placeholder: 'Enter ClientID', class: 'ml-1 p-2 m-1', style: 'height: 31px')%>
+     
+       <%= submit_tag "Get Tickets", class: "btn btn-primary form-control ml-3", style: "width: 150px" %> 
+       
+      </form>
+   </div>
+	
+  <div class="container p-4 pdf_body"> 
+	<h3>Client Open Tickets</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	
+      <th>ID</th>
+       <th>Name</th>
+        <th>TicketID</th>
+        <th>Subject</th>
+         
+         
+   </tr>
+  </thead>
+  
+  <tbody>
+    <% @results.each do |row| %>
+     <tr>
+        <%if row["dne"]%>
+         <td><%= row["dne"] %></t   
+        
+         <% else %>
+         <td><%= row['ClientID'] %></td>
+           <td><%= row['Name'] %></td>
+           <td><%= row['TicketID'] %></td>
+            <td><%=  row['Subject']%></td> 
+            <% end%>
+            
+          
+      </tr>
+     <% end %>
+   </tbody>
+</table>
+	</div>
+
+</div>
+   
+   <div class="align-center m-1"><%= link_to "download",  download_tickets_labtickets_path(@results), class: "btn btn-primary" %>
+</div>
+
+  </div>

@@ -1,0 +1,1 @@
+json.partial! "labtech_clients/labtech_client", labtech_client: @labtech_client

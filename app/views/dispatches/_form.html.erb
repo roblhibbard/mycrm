@@ -1,0 +1,17 @@
+<%= simple_form_for(@dispatch) do |f| %>
+  <%= f.error_notification %>
+
+
+  	
+    <%= f.input :phone %>
+    <%= f.association :client, label: "Client", label_method: :full_name, prompt: "Choose Client" %>
+    <%= f.input :details %>
+    <%= f.input :ticket %>
+    <%= f.association :user, selected: "8", label: "Tech", label_method: :email, prompt: "Choose Tech" %>
+  
+  <div class="form-actions m-2">
+    <%= f.button :submit, class: "btn btn-primary", style: "width: 150px" %>
+  </div>
+  
+
+<% end %>

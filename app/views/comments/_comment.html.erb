@@ -1,0 +1,8 @@
+	
+	<div class="table-row">
+	   <div class="col-xs-4 col-md"><%= comment.body %></div>
+       <div class="col-xs-4 col-md"> <%= comment.created_at.strftime("%m-%d-%Y") %></div>
+       <div class="col-xs-4 col-md"> <%= comment.created_at.strftime("%I:%M:%S %p")%> </div>
+    </div>
+
+    <div class="hidden-xs-down"> <%= render partial: 'comments/comment', collection: comment.comments %> </div>

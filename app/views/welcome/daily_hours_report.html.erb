@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<h3>Billable Time by Tech</h3>
+
+
+<table class="table table-sm table table-striped">
+  <thead>
+    <tr>
+	  
+     
+      <th>Name</th>
+      
+      <th>Hours</th>
+      <th>Mins</th>
+      <th>TTL Hours</th>
+      <th>Percent </th>
+      <th>Users Reported </th>
+       
+   </tr>
+  </thead>
+  
+  <tbody>
+    <% @time_by_tech.each do |row| %>
+           
+     <tr>
+     	    <td><%= row['Username'] %></td>
+     	    
+            <td><%= row['Hours'] %></td>
+            
+            <td><%= row['Mins'] %></td>
+            <% ttl = ((row['Hours']*60 + row['Mins'])/60) %>
+            <td><%= number_with_precision(ttl, precision: 2) %></td>
+            <% bil_percent = (ttl/8)*100 %>
+            <td><%= number_to_percentage(bil_percent, precision: 2) %></td>
+      
+     <% end %> 
+      </tbody> 
+   <tbody>
+    <% @ttl_hours.each do |row| %>
+           
+     <tr>
+     	    <td> Total </td>
+     	    
+            <td><%= row['Hours'] %></td>
+            
+            <td><%= row['Mins'] %></td>
+            <% ttl = ((row['Hours']*60 + row['Mins'])/60) %>
+            <td><%= number_with_precision(ttl, precision: 2) %></td>
+            <% @ucount = row['ucount'] %>
+            <% bil_percent = (ttl/(8* @ucount))*100 %>
+            <td><%= number_to_percentage(bil_percent, precision: 2) %></td>
+             <td><%= row['ucount'] %></td>
+     <% end %> 
+      </tbody> 
+      </table>
+      
+      <div><%= render partial: 'non_billable_time_by_tech' %> </div>
+    
+ <div class="align-center m-1"> <%= link_to 'Download', daily_hours_report_welcome_index_path("", format: :pdf), 
+            download: "", class: "btn btn-primary" %> </div>       	
+ </div>
+		

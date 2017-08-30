@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Labtech Client Other Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lclient</th>
+      <th>Name</th>
+      <th>Contract rep</th>
+      <th>Monthly billable time</th>
+      <th>Monthly emergency time</th>
+      <th>Monthly non billable time</th>
+      <th>Servers under contract</th>
+      <th>Workstations under contract</th>
+      <th>Labtech client</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labtech_client_other_data.each do |labtech_client_other_datum| %>
+      <tr>
+        <td><%= labtech_client_other_datum.lclient_id %></td>
+        <td><%= labtech_client_other_datum.name %></td>
+        <td><%= labtech_client_other_datum.contract_rep %></td>
+        <td><%= labtech_client_other_datum.monthly_billable_time %></td>
+        <td><%= labtech_client_other_datum.monthly_emergency_time %></td>
+        <td><%= labtech_client_other_datum.monthly_non_billable_time %></td>
+        <td><%= labtech_client_other_datum.servers_under_contract %></td>
+        <td><%= labtech_client_other_datum.workstations_under_contract %></td>
+        <td><%= labtech_client_other_datum.labtech_client %></td>
+        <td><%= link_to 'Show', labtech_client_other_datum %></td>
+        <td><%= link_to 'Edit', edit_labtech_client_other_datum_path(labtech_client_other_datum) %></td>
+        <td><%= link_to 'Destroy', labtech_client_other_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labtech Client Other Datum', new_labtech_client_other_datum_path %>

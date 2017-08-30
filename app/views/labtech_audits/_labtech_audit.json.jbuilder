@@ -1,0 +1,2 @@
+json.extract! labtech_audit, :id, :labtech_ticket, :date, :description, :technician, :category, :time, :cal_ticket, :cal_time, :time_dif, :upadted, :complete, :details, :created_at, :updated_at
+json.url labtech_audit_url(labtech_audit, format: :json)

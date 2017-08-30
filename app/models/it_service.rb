@@ -1,0 +1,2 @@
+class ItService < ApplicationRecord
+end

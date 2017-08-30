@@ -1,0 +1,2 @@
+module LabtechClientOtherDataHelper
+end

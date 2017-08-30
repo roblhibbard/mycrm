@@ -1,0 +1,1 @@
+json.partial! "client_antiviri/client_antivirus", client_antivirus: @client_antivirus

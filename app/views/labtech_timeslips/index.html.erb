@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Labtech Timeslips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Labtime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labtech_timeslips.each do |labtech_timeslip| %>
+      <tr>
+        <td><%= labtech_timeslip.name %></td>
+        <td><%= labtech_timeslip.labtime %></td>
+        <td><%= link_to 'Show', labtech_timeslip %></td>
+        <td><%= link_to 'Edit', edit_labtech_timeslip_path(labtech_timeslip) %></td>
+        <td><%= link_to 'Destroy', labtech_timeslip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labtech Timeslip', new_labtech_timeslip_path %>

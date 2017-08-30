@@ -1,0 +1,1 @@
+json.partial! "labtech_client_other_data/labtech_client_other_datum", labtech_client_other_datum: @labtech_client_other_datum

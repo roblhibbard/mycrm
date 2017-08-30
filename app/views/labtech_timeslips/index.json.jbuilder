@@ -1,0 +1,1 @@
+json.array! @labtech_timeslips, partial: 'labtech_timeslips/labtech_timeslip', as: :labtech_timeslip

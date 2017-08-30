@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid p-4">
+	
+<h3>Printer Low Consumables</h3>
+
+
+<table class="table table table-striped">
+  <thead>
+    <tr>
+	
+     <th>Device ID</th>
+      <th>Computer Name</th>
+      <th>Location</th>
+      <th>Phone</th>
+       <th>Test Value</th>
+      <th>Supply Name</th>
+      
+      
+   </tr>
+  </thead>
+  <tbody>
+    <% @printer_tickets.each do |row| %>
+     <tr>
+          <td><%= row['DeviceID'] %></td>
+          <td><%= row['ComputerName'] %></td>
+          <td><%= row['Location'] %></td>
+          <td><%= row['Phone'] %></td>
+         <td><%= row['TestValue'] %></td>
+          <td><%= row['Supply Name'] %></td>
+         
+      </tr>
+     <% end %>
+	</tbody>
+</table>	
+
+</div>

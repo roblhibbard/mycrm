@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Service Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email note1</th>
+      <th>Email note2</th>
+      <th>Email note3</th>
+      <th>Email note4</th>
+      <th>Client</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_types.each do |service_type| %>
+      <tr>
+        <td><%= service_type.name %></td>
+        <td><%= service_type.email_note1 %></td>
+        <td><%= service_type.email_note2 %></td>
+        <td><%= service_type.email_note3 %></td>
+        <td><%= service_type.email_note4 %></td>
+        <td><%= service_type.client %></td>
+        <td><%= link_to 'Show', service_type %></td>
+        <td><%= link_to 'Edit', edit_service_type_path(service_type) %></td>
+        <td><%= link_to 'Destroy', service_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service Type', new_service_type_path %>

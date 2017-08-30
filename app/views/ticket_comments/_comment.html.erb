@@ -1,0 +1,13 @@
+<li>
+  
+0
+  <%= form_for [ticket_comment, Ticket_comment.new] do |f| %>
+      <%= f.text_area :content, placeholder: "Add a Reply" %><br/>
+      <%= f.submit "Reply"  %>
+      <% end %>
+
+  <ul>
+      <%= render partial: 'ticket_comments/comment', collection: ticket_comment.ticket.comments %>
+  </ul>
+
+</li>

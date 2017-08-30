@@ -1,0 +1,1 @@
+json.partial! "contract_services/contract_service", contract_service: @contract_service

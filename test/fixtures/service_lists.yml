@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  charge: 9.99
+  workstation: 1
+  server: 1
+  antivirus: 1
+  backup: 1
+  hours: 1
+  email: 1
+  office: 1
+  reoccurrence: 1
+  monthly: false
+  yearly: false
+  2year: false
+  one_time: false
+
+two:
+  charge: 9.99
+  workstation: 1
+  server: 1
+  antivirus: 1
+  backup: 1
+  hours: 1
+  email: 1
+  office: 1
+  reoccurrence: 1
+  monthly: false
+  yearly: false
+  2year: false
+  one_time: false

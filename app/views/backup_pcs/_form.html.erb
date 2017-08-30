@@ -1,0 +1,22 @@
+<%= simple_form_for(@backup_pc) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :notes %>
+    <%= f.input :active %>
+    <%= f.input :labtech_computer %>
+    
+    <%= f.input :labtech_client %>
+  
+    <%= f.input :labtech_computer %>
+  
+    <%= f.input :service_list %>
+  
+    <%= f.input :contract_service %>
+   
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

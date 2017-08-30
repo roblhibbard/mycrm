@@ -1,0 +1,45 @@
+
+ <%= simple_form_for(@ticket, layout: :horizontal) do |f| %>
+
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+        <ul>
+    </div>
+      <% @ticket.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+ 		</ul>
+    </div>
+  	  <% end %>
+  	  
+	<div class="form-group">
+		<div class="col-sm-3">
+     
+  	<%= f.hidden_field :client_id, :value => params[:client_id] %>
+    <%= f.hidden_field :computer_id, :value => :computer_id %>
+    <%= f.input :ticket_title, label: "Ticket Title"%> 
+    <%= f.association :client, selected: session[:client], label: "Client", label_method: :full_name, prompt: "Choose Client"%>
+    
+    
+    
+    <%= f.hint "Core PC Number" %> <%= f.text_field :computer_corepc, data: {autocomplete_source: computers_path} %>
+    <%= f.hint " Hint:Enter last Three Digits of Number"%> 
+    
+    <%= f.association :issue, prompt: "Choose Issue" %>
+    <%= f.association :priority, prompt: "Choose Priority" %>
+    <%= f.input :description, label: "Description" %><br /><br />
+    <%= f.date_select :due_date %>
+    <%= f.association :status, label: "Ticket Status", label_method: :name %>
+    <%= f.association :user, selected: :current_user, label_method: :email, value_method: :id, 
+        prompt: "Choose Tech", include_blank: false %>
+    
+    
+ <br></br>
+    <%= f.button :submit %>
+     </div>
+     </div>
+
+ 
+   <% end %>
+   

@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Contract Services</h3>
+
+<div class="table-responsive">
+  <table class="table table-sm">
+  	<thead>
+    <tr>
+      
+      
+      <th>ID</th>
+      <th>Service list</th>
+      <th>Licence #</th>
+      <th>Total Charge</th>
+      <th>Service Date</th>
+      <th>Next Service Date</th>
+      
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contract_services.each do |contract_service| %>
+      <tr>
+        
+          <td><%= contract_service.id %></td> 
+          <td><%= contract_service.service_list.name %></td>
+          <td><%= contract_service.licence_number %></td>
+          <td><%= number_to_currency(contract_service.licence_number.to_i * contract_service.service_list.charge) %></td>
+          <td><%= contract_service.service_date %></td>
+          <td><%= contract_service.next_service_date %></td>
+        
+        <td><%= link_to 'Show', [contract_service.client, contract_service] %></td>
+        <td><%= link_to 'Edit', edit_contract_service_path(contract_service.client, contract_service) %></td>
+            <% if current_user.admin? %>  
+        <td><%= link_to 'Destroy', [contract_service.client, contract_service] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+      </tr>
+   <% end %>   
+  </tbody>
+</table>
+</div>
+<br>
+<div class="flex-center"> Total Monthly $ = <%= number_to_currency(@total) %></div>
+<%= link_to 'New Contract Service', new_client_contract_service_path(params[:id]) %>

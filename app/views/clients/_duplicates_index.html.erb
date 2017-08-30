@@ -1,0 +1,36 @@
+
+ <div class="container-fluid container-margin" style="margin-top: 60px">
+  
+	
+	<p id="notice"><%= notice %></p>	
+	
+   
+      
+      
+      <div class="table-row header"> 
+    
+		      
+		      <div class="text1 width3">First Name</div>
+		      <div class="text1 width1">Last Name</div>
+		      <div class="text1 width1">email</div>
+		    </div>  
+		   
+	    <% @duplicate_clients.each do |client| %>
+	      <div class="table-row">
+	      	<div class="text1 width3"><%= client.first_name %></div>
+	      	<div class="text1 width3"><%= client.last_name %></div>
+	      	<div class="text1 width3"><%= client.email %></div>
+	      	
+	        
+	       
+	
+	</div>
+	       
+	     
+    <% end %>
+ 	  
+	 </div>
+	
+	
+	
+		

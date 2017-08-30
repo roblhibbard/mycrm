@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contract Service Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contract_service_lines.each do |contract_service_line| %>
+      <tr>
+        <td><%= link_to 'Show', contract_service_line %></td>
+        <td><%= link_to 'Edit', edit_contract_service_line_path(contract_service_line) %></td>
+        <td><%= link_to 'Destroy', contract_service_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contract Service Line', new_contract_service_line_path %>

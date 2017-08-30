@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lclient:</strong>
+  <%= @labtech_client_other_datum.lclient_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @labtech_client_other_datum.name %>
+</p>
+
+<p>
+  <strong>Contract rep:</strong>
+  <%= @labtech_client_other_datum.contract_rep %>
+</p>
+
+<p>
+  <strong>Monthly billable time:</strong>
+  <%= @labtech_client_other_datum.monthly_billable_time %>
+</p>
+
+<p>
+  <strong>Monthly emergency time:</strong>
+  <%= @labtech_client_other_datum.monthly_emergency_time %>
+</p>
+
+<p>
+  <strong>Monthly non billable time:</strong>
+  <%= @labtech_client_other_datum.monthly_non_billable_time %>
+</p>
+
+<p>
+  <strong>Servers under contract:</strong>
+  <%= @labtech_client_other_datum.servers_under_contract %>
+</p>
+
+<p>
+  <strong>Workstations under contract:</strong>
+  <%= @labtech_client_other_datum.workstations_under_contract %>
+</p>
+
+<p>
+  <strong>Labtech client:</strong>
+  <%= @labtech_client_other_datum.labtech_client %>
+</p>
+
+<%= link_to 'Edit', edit_labtech_client_other_datum_path(@labtech_client_other_datum) %> |
+<%= link_to 'Back', labtech_client_other_data_path %>

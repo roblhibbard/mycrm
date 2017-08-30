@@ -1,0 +1,2 @@
+module LabtechClientsHelper
+end

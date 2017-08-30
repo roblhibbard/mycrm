@@ -1,0 +1,51 @@
+// Place all the styles related to the diagnostics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.flex-wrap {
+  
+  margin-top: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+.diagnostic-item {
+  padding: 5px;
+  height: 65px;
+  margin-top: 10px;
+  line-height: 20px;
+  color: blue;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+}
+.width-100 {
+  width: 100px;
+}
+.width-300  {
+  width: 300px;
+
+}
+.diagnostic input  {
+  width: 150px;
+ 
+  color: black;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+.diagnostic textarea {
+  
+  resize: vertical;
+  width: 280px;
+  color: black;
+}
+.button-position {
+  position: absolute;
+}

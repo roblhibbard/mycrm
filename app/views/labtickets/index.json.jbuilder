@@ -1,0 +1,1 @@
+json.array! @labtickets, partial: 'labtickets/labticket', as: :labticket

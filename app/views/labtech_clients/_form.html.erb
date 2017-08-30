@@ -1,0 +1,23 @@
+<%= simple_form_for(@labtech_client) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+  	<div class="col-sm-4">
+    <%= f.input :company_name %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone %>
+    
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+    <%= f.input :city %> <%= f.input :state %>  <%= f.input :zip_code %>
+    <%= f.button :submit, class: "btn btn-primary form-control" %> </br></br>
+  </div>
+    
+    <div class="flex-center col-sm-12">
+  <%= link_to 'Back', labtech_clients_path %>
+  </div>
+    
+  </div>
+  
+<% end %>

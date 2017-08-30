@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<div class="align-center h3"> <%= link_to 'New Labtech Audit', new_labtech_audit_path %> </div><br>
+<div class="align-center">
+	  <%= form_tag import_labtech_audits_path, multipart: true do %>
+	    <%= file_field_tag :file %>
+	    <%= submit_tag "Import CSV" %>
+	  <% end %>
+	 </div><br>
+
+<div class="align-center h3">Labtech Audits</div>
+
+ <div class="table-row header"> 
+      <div class="text1 width2">L.Ticket</div>
+      <div class="text1 width2">Date</div>
+      <div class="text1 width4">Description</div>
+      <div class="text1 width2">Technician</div>
+      <div class="text1 width5">Category</div>
+      <div class="text1 width5">Time</div>
+      <div class="text1 width5">C.Ticket</div>
+      <div class="text1 width5">C.Time</div>
+      <div class="text1 width5">Dif</div>
+      <div class="text1 width5">Upadted</div>
+      <div class="text1 width2">Complete</div>
+      <div class="text1 width4">Details</div>
+      <div class="text1 width5">Show</div>
+      <div class="text1 width5">Edit</div>
+</div>
+  
+    <% @labtech_audits.each do |labtech_audit| %>
+      <div class="table-row">
+        <div class="text1 width2"><%= labtech_audit.labtech_ticket %></div>
+        <div class="text1 width2"><%= labtech_audit.date %></div>
+        <div class="text1 width4"><%= labtech_audit.description %></div>
+        <div class="text1 width2"><%= labtech_audit.technician %></div>
+        <div class="text1 width5"><%= labtech_audit.category %></div>
+        <div class="text1 width5"><%= labtech_audit.time %></div>
+        <div class="text1 width5"><%= labtech_audit.cal_ticket %></div>
+        <div class="text1 width5"><%= labtech_audit.cal_time %></div>
+        <div class="text1 width5"><%= labtech_audit.time_dif %></div>
+        <div class="text1 width5"><%= labtech_audit.upadted %></div>
+        <div class="text1 width2"><%= labtech_audit.complete %></div>
+        <div class="text1 width4"><%= labtech_audit.details %></div>
+        <div class="text1 width5"><%= link_to 'Show', labtech_audit %></div>
+        <div class="text1 width5"><%= link_to 'Edit', edit_labtech_audit_path(labtech_audit) %></div>
+        
+      </div>
+    <% end %>
+
+<br>
+
+

@@ -1,0 +1,33 @@
+<div class="container-fluid mt-4">
+ <p id="notice"><%= notice %></p>
+
+  <div class="align-center"> <h2>Task </h2></div>
+  <div class="align-center"> <h2>Created: <%= @todo_list.created_at.strftime("%m-%d-%Y") %> for
+  	<% if @todo_list.backup_id.present? %> 
+  	<%= @todo_list.backup.full_name %>
+  	<% else if @client_id.present? %>
+  	<%= @todo_list.client_full_name %>
+  	<% end %>
+  	<% end %>
+  	 </h2></div>
+  <div class="table-row header">
+  	<div class="col-xs-2 col-md-2">Name</div>
+  	<div class="col-xs-2 col-md-3">Description</div>
+  	<div class="col-xs-2 col-md-2">Done</div>
+  	
+  </div> 	
+  	
+  	<% @todo_list.tasks.each do |tasks| %>
+     <div class="table-row">
+        <div class="col-xs-2 col-md-2"><%= tasks.todo_list.name %></div>
+        <div class="col-xs-2 col-md-3"><%= tasks.description %></div>
+        <div class="col-xs-2 col-md-2"><%= tasks.done %></div>
+       
+     </div> 
+    <% end %> 
+    <div class="col-12">
+    <div class="align-center"><%= link_to 'Edit', edit_todo_list_path(@todo_list), class: 'btn btn-primary' %> | 
+     <%= link_to 'Back', todo_lists_path, class: 'btn btn-primary' %> 
+    </div>
+    </div>
+</div>

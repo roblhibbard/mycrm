@@ -1,0 +1,39 @@
+<h1>Listing anti_viri</h1>
+
+<table>
+  <tr>
+  	<th>ID</th>
+    <th>Rep</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Lic number</th>
+    <th>Computer</th>
+    <th>Computer</th>
+    <th>Service type</th>
+    <th>Service list</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @anti_viri.each do |anti_virus| %>
+  <tr>
+  	 <td><%= anti_virus.id %></td>
+    <td><%= anti_virus.rep %></td>
+    <td><%= anti_virus.username %></td>
+    <td><%= anti_virus.rim_password %></td>
+    <td><%= anti_virus.lic_number %></td>
+    <td><%= anti_virus.computer.corepc_number %></td>
+    
+    <td><%= anti_virus.service_type.name %></td>
+    <td><%= anti_virus.service_list.nam %></td>
+    <td><%= link_to 'Show', [anti_virus.client, anti_virus] %></td>
+    <td><%= link_to 'Edit', edit_client_anti_virus_path(anti_virus.client, anti_virus) %></td>
+    <td><%= link_to 'Destroy', [anti_virus.client, anti_virus], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Anti virus', new_client_anti_virus_path(params[:client_id]) %>

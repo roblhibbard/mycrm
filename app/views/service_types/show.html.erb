@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service_type.name %>
+</p>
+
+<p>
+  <strong>Email note1:</strong>
+  <%= @service_type.email_note1 %>
+</p>
+
+<p>
+  <strong>Email note2:</strong>
+  <%= @service_type.email_note2 %>
+</p>
+
+<p>
+  <strong>Email note3:</strong>
+  <%= @service_type.email_note3 %>
+</p>
+
+<p>
+  <strong>Email note4:</strong>
+  <%= @service_type.email_note4 %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @service_type.client %>
+</p>
+
+<%= link_to 'Edit', edit_service_type_path(@service_type) %> |
+<%= link_to 'Back', service_types_path %>

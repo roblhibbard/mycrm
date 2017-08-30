@@ -1,0 +1,45 @@
+<div class="container"> 
+	<div class="m-1"><h2>New Account Backup Setup for <%= @client.first_name %> <%= @client.last_name%></h2></div>
+<%= simple_form_for [@backup.client, @backup] do |f| %>
+  <%= f.error_notification %>
+ 
+ <%= f.association :client, selected: session[:client], label: false, 
+                               label_method: :full_name, as: :hidden %> 
+ <div class="form-group row bot-border">
+ 
+     <div class="col-sm-2 col-md-3"> <%= f.input :backup_account,  placeholder: 'Backup Account', label: false %></div>
+     
+      <div class="form-group row col-sm-2 col-md-4 m-2"> <%= f.input :backup_size, placeholder: 'Backup Size', label: false %></div>
+     <div class="col-xs-3 col-md-4 col-form-label m-2" >  <%= f.datetime_local_field :signup_date, placeholder: 'Signup Date' %> </div>
+  
+      <div class="col-xs-1 col-md-2 col-form-label m-2" ><%= f.input :residential  %></div>
+       <div class="col-xs-1 col-md-2 col-form-label m-2" ><%= f.input :business%></div>
+       <div class="col-xs-1 col-md-3 col-form-label" ><%= f.input :user_name,  placeholder: 'UserName', label: false %></div>
+       <div class="col-xs-1 col-md-3 col-form-label " ><%= f.input :password, placeholder: 'PWD', label: false %></div>
+   
+  </div>
+  
+  	  <div class="col-xs-12 col-md-12 p-2" > 
+          <div class="lines">
+          <div class="table-row"> 
+             <%= f.simple_fields_for :backup_pcs do |backup_pc| %>
+             <%= render "backup_pc_fields", f: backup_pc %>
+            
+             <% end %>
+ 	   </div>	  
+       </div>
+       </div>
+
+        
+        <div class="form-actions">
+            <%= f.button :submit, class: "btn btn-primary m-1" %>
+
+           <div class="links"><%= link_to_add_association 'Add Computer', f, :backup_pcs, class: 'btn btn-primary m-1',
+             data: { association_insertion_node: '.lines', association_insertion_method: :append} %>
+           </div>
+        </div>   
+        	    
+            
+       </div> 
+     
+<% end %>

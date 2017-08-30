@@ -1,0 +1,26 @@
+        <div class="col-sm-8 offset-sm-3 col-md-8 offset-md-2 pt-3">
+        			<div class="align-center m-1">
+        				<h2> Welcome to The CorePC App</h2></div>
+        				<div class="align-center m-1">
+        			    <h2> Ticket Reports</h2> </div>
+<div class="col-md-12 p-1"><%= link_to 'print open_tickets', open_tickets_labtickets_path, object: @open_tickets, class: "btn btn-primary" %>
+<%= link_to 'print QBR_tickets', qbr_tickets_labtickets_path, object: @qbr_tickets, class: "btn btn-primary" %>
+<%= link_to 'print Critical Drives', critical_drive_labtickets_path, object: @critical_drive, class: "btn btn-primary" %>
+<%= link_to 'Print Printer Tickets', printer_tickets_labtickets_path, object: @printer_tickets, class: "btn btn-primary" %>	
+<%= link_to 'Extra Client Data', extra_data_labtickets_path, object: @results, class: "btn btn-primary" %>    
+<%= link_to 'Get Client Labtickets', c_tickets_labtickets_path, object: @results, class: "btn btn-primary" %></div>
+
+	
+<div class="col-md-12 p-1"><%= link_to 'Get New Labtickets', new_tickets_labtickets_path, object: @new_tickets, class: "btn btn-primary" %>		   
+ 
+ 
+  <%= link_to 'Dialy Hours Report', daily_hours_report_welcome_index_path, object: @results, class: "btn btn-primary" %>
+  <%= link_to 'Get Detected Monitors', monitors_labtickets_path, object: @results, class: "btn btn-primary" %></div>
+  			 </div>     
+      
+<div><%= render partial: 'time_by_tech' %> </div>
+</div> 
+   
+        	
+        		
+		

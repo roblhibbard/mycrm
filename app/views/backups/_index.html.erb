@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<%= will_paginate @backups %>
+<h2 class="sub-header">Backups</h2>
+  <div class="table-responsive">
+  	<table class="table table-striped">
+      <thead>
+	    <tr>
+	      	      
+	      <th>Backup Acct</th>
+	      <th>BackupID</th>
+	      <th>Client Name</th>
+	      <th>Client Name</th>
+	      <th>Size</th>
+	      <th>used</th>
+	      <th>Used Percent</th>
+	      <th>Signup Date</th>
+	      <th>alerts</th>
+	      <th>devices</th>
+	      <th>Client_ID</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+  <tbody>
+    <% @backups.each do |backup| %>
+      <tr>  
+      	<td><%= backup.backup_account %></td>
+      	<td><%= link_to backup.id, backup  %></td>
+      	
+      	<td><%= link_to backup.full_name, client_path(backup.client_id) %></td>    
+        <td><%= mail_to @backup.client.email %></td>
+        <td><%= backup.backup_size %></td>
+        <td><%= backup.size_used %></td>
+        <td><%= backup.used_percent %></td>
+        <td><%= backup.signup_date %></td>
+        <td><%= backup.alerts %></td>
+        <td><%= backup.devices %></td>
+        <td><%= backup.client_id  %></td> 
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= will_paginate @backups %>
+
+

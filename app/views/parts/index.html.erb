@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Cost</th>
+      <th>Price</th>
+      <th>Parts on order</th>
+      <th>Parts in</th>
+      <th>Date ordered</th>
+      <th>Date received</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parts.each do |part| %>
+      <tr>
+        <td><%= part.name %></td>
+        <td><%= part.description %></td>
+        <td><%= part.cost %></td>
+        <td><%= part.price %></td>
+        <td><%= part.parts_on_order %></td>
+        <td><%= part.parts_in %></td>
+        <td><%= part.date_ordered %></td>
+        <td><%= part.date_received %></td>
+        <td><%= link_to 'Show', part %></td>
+        <td><%= link_to 'Edit', edit_part_path(part) %></td>
+        <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part', new_part_path %>

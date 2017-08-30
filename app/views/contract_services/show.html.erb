@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+  
+  
+ <div class="container-fluid mt-2">
+ 	
+ <div class="align-center"> <h3>Contract Services for <%= @contract_service.client.try(:full_name) %></h3></div>
+  <div class="align-center"> Created <%= @contract_service.created_at %></div>
+
+  <div class="table-row header">
+      
+      <div class="text1 width2">Name</div>
+      <div class="text1 width2">Comments</div>
+      <div class="text1 width6">Licences</div>
+      
+      
+      <div class="text1 width6">Charge</div>
+      
+      
+      <div class="text1 width6">Total</div>
+      
+      
+  </div>
+         <% contract_service_lines.each do |lines| %>
+         <div class="table-row">
+      	 
+          <div class="text1 width2"><%= lines.service_list.name %></div>
+          <div class="text1 width2"><%= lines.line_comment %></div>
+          <div class="text1 width6"><%= lines.qty %></div>
+          
+          <div class="text1 width6"><%= number_to_currency lines.price %></div>
+          
+          
+          <div class="text1 width6"><%= number_to_currency lines.total_price %></div>
+    </div>
+    
+            <% end %> <br/>
+ 
+       
+      <div class="align-center"> Total = <%= number_to_currency @contract_service.contract_sub_totals %></div> </div>
+  
+ <div class="align-center">
+<%= link_to 'Edit', edit_client_contract_service_path(@contract_service.client, @contract_service) %> |
+<%= link_to 'Back', client_contract_services_path(@contract_service.client) %></div><br/><br/>
+<div class="align-center"> <%= link_to 'New Contract', new_client_contract_service_path(@client = @contract_service.client_id, @contract_service), class: "btn btn-primary" %> </div>
+
+</div>

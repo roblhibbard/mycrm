@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  backup: one
+  date: 2016-07-28 04:25:41
+  last_backup: 2016-07-28 04:25:41
+  client_items_id: 1
+  client_id: 1
+  notes: MyString
+
+two:
+  backup: two
+  date: 2016-07-28 04:25:41
+  last_backup: 2016-07-28 04:25:41
+  client_items_id: 1
+  client_id: 1
+  notes: MyString

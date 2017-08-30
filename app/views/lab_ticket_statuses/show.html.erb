@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lab_ticket_status.name %>
+</p>
+
+<p>
+  <strong>Lab status:</strong>
+  <%= @lab_ticket_status.lab_status %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_lab_ticket_status_path(@lab_ticket_status) %> |
+<%= link_to 'Back', lab_ticket_statuses_path %>

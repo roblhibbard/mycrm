@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+ 	<div class="flex-margin">
+  		<div class="align-center"><h4>client_asset</h4></div>
+		    <table class="table table-striped">
+		    	
+              <thead> 
+                <tr>  
+                <th>Make</th>
+                <th>Model</th>
+                <th>Operating System</th>
+                <th>User login</th>
+                <th>User password</th>
+                
+                <th>Computer</th>
+                <th>Labtech name</th>
+                </tr>
+              </thead>
+            <tbody>
+                <tr>      
+                                    
+  				<td><%= @client_asset.make %></td>
+ 				<td><%= @client_asset.model %></td>
+  				<td><%= @client_asset.operating_client_asset %></td>
+  				<td><%= @client_asset.user_login %></td>
+  				<td><%= @client_asset.user_password %></td>
+  				
+  				<td><%= @client_asset.computer_id %></td>
+  				<td><%= @client_asset.labtech_name %></td>
+  				</tr>
+             </tbody>
+    		</table>
+    	</div>
+ 	<div class="align-center">
+		<%= link_to 'Edit', edit_client_client_asset_path(@client_asset.client, @client_asset) %> |
+		<%= link_to 'Back', client_client_assets_path(@client_asset.client) %>
+		</div>
+

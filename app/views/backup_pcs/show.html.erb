@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @backup_pc.notes %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @backup_pc.active %>
+</p>
+
+<p>
+  <strong>Labtech computer:</strong>
+  <%= @backup_pc.labtech_computer %>
+</p>
+
+<p>
+  <strong>Labtech client:</strong>
+  <%= @backup_pc.labtech_client %>
+</p>
+
+<p>
+  <strong>Labtech computer:</strong>
+  <%= @backup_pc.labtech_computer %>
+</p>
+
+<p>
+  <strong>Service list:</strong>
+  <%= @backup_pc.service_list %>
+</p>
+
+<p>
+  <strong>Contract service:</strong>
+  <%= @backup_pc.contract_service %>
+</p>
+
+<%= link_to 'Edit', edit_backup_pc_path(@backup_pc) %> |
+<%= link_to 'Back', backup_pcs_path %>

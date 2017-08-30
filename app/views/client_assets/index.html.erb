@@ -1,0 +1,37 @@
+<h1>Listing client_assets</h1>
+
+<table>
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Operating client_asset</th>
+    <th>User login</th>
+    <th>User password</th>
+    <th>Other items</th>
+    <th>Computer</th>
+    <th>Labtech name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @client_assets.each do |client_asset| %>
+  <tr>
+    <td><%= client_asset.make %></td>
+    <td><%= client_asset.model %></td>
+    <td><%= client_asset.operating_client_asset %></td>
+    <td><%= client_asset.user_login %></td>
+    <td><%= client_asset.user_password %></td>
+    <td><%= client_asset.other_items %></td>
+    <td><%= client_asset.computer_id %></td>
+    <td><%= client_asset.labtech_name %></td>
+    <td><%= link_to 'Show', [client_asset.client, client_asset] %></td>
+    <td><%= link_to 'Edit', edit_client_client_asset_path(client_asset.client, client_asset) %></td>
+    <td><%= link_to 'Destroy', [client_asset.client, client_asset], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New client_asset', new_client_client_asset_path(params[:client_id]) %>

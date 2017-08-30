@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @computer.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @computer.model %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @computer.serial_number %>
+</p>
+
+<p>
+  <strong>User login:</strong>
+  <%= @computer.user_login %>
+</p>
+
+<p>
+  <strong>User password:</strong>
+  <%= @computer.user_password %>
+</p>
+
+<p>
+  <strong>Other items:</strong>
+  <%= @computer.other_items %>
+</p>
+
+<p>
+  <strong>System type:</strong>
+  <%= @computer.system_type %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_computer_path(@computer) %> |
+<%= link_to 'Back', computers_path %>

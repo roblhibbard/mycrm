@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  labtech_ticket: 1
+  date: 
+  description: MyText
+  technician: MyString
+  category: MyString
+  time: 9.99
+  cal_ticket: 1
+  cal_time: 9.99
+  time_dif: 9.99
+  upadted: false
+  complete: false
+  details: MyText
+
+two:
+  labtech_ticket: 1
+  date: 
+  description: MyText
+  technician: MyString
+  category: MyString
+  time: 9.99
+  cal_ticket: 1
+  cal_time: 9.99
+  time_dif: 9.99
+  upadted: false
+  complete: false
+  details: MyText

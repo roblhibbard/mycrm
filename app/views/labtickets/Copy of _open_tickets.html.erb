@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid p-4">
+	
+<h3>Open Tickets over 30 Days</h3>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	
+      <th>TicketID</th>
+      <th>Client</th>
+      <th>ClientID</th>
+      <th>Computer</th>
+      <td>ID</th>
+      <th>Subject</th>
+      <th>Tech</th>
+      <th>Submitted</th>
+      
+   </tr>
+  </thead>
+  <tbody>
+    <% @ticket_open['value'].each do |key| %>
+     <div class="table-row">	
+          <td><%= key['TicketID'] %></td>
+          <td><%= key['Client'] %></td>
+          <td><%= key['ClientID'] %></td>
+          <td><%= key['Computer'] %></td>
+          <td><%= key['ComputerID'] %></td>
+          <td><%= key['Subject'] %></td>
+          <td><%= key['AssignedTo'] %></td>
+          <td><%= Date.parse(key['Submitted']).strftime("%b-%e-%y") %></td>
+        </td>
+      </tr>
+     <% end %>
+   </tbody>
+</table>	
+<div class="align-center m-1"><%= link_to 'Download', labticket_path  format: :pdf, download: "", class: "btn btn-primary" %></div>
+</div>

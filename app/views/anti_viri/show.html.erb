@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+ <div class="table-row header"> 
+  <div class="text1 width3"> Rep </div>
+  <div class="text1 width4"> Username </div>
+  <div class="text1 width3"> Password </div>
+  <div class="text1 width5"> Licence Key </div>
+  <div class="text1 width3"> Licence Number</div>
+  <div class="text1 width3"> Computer</div>
+  <div class="text1 width3"> Licence Number</div>
+  <div class="text1 width3"> Service Type </div>
+  <div class="text1 width3"> Service List</div>
+  </div>
+  
+   <div class="table-row">  
+  <div class="text1 width3">  <%= @anti_virus.rep %> </div>
+  <div class="text1 width4">  <%= @anti_virus.username %> </div>
+  <div class="text1 width3">  <%= @anti_virus.rim_password %> </div>
+  <div class="text1 width5">  <%= @anti_virus.licence_key %> </div>
+  <div class="text1 width3">  <%= @anti_virus.licence_number %> </div>
+  <div class="text1 width3">  <%= @anti_virus.computer %>  </div>
+  <div class="text1 width3">  <%= @anti_virus.service_type %>  </div>
+  <div class="text1 width3">  <%= @anti_virus.service_list %>  </div>
+  </div>
+
+<div class="col-md-4">
+<%= link_to 'Edit', edit_client_anti_virus_path(@anti_virus.client, @anti_virus) %> |
+
+</div>
+
+
+

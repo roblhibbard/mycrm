@@ -1,0 +1,45 @@
+<div class="container-fluid">
+<p id="notice"><%= notice %></p>
+    <div class="align-center m-2 p-2">
+  	  <h4> Task Submitted On <%= @b_task.created_at.strftime("%m-%d-%Y") %> at <%= @b_task.created_at.strftime("%I:%M:%S %p") %></h4>
+    </div>
+	
+	<div class="col-xs col-md-12">	
+	<div class="table-row header">
+  
+  <div class="col-xs col-md-2">Backup account</div>
+  <div class="col-xs col-md-2">Email</div>
+  <div class="col-xs col-md-1">Status</div>
+  <div class="col-xs col-md-1">Communication</div>
+  <div class="col-xs col-md-3">Details</div>
+  <div class="col-xs col-md-2">System</div>
+  <div class="col-xs col-md-1">Time Spent</div>
+   </div>
+  <div class="table-row">
+    <div class="col-xs col-md-2"><%= @b_task.backup.backup_account %></div>
+    <div class="col-xs col-md-2"><%= mail_to @b_task.backup.client.email %></div>
+    <div class="col-xs col-md-1"><%= @b_task.status.name %></div>
+    <div class="col-xs col-md-1"><%= @b_task.communication.name %></div>
+    <div class="col-xs col-md-3"><%= @b_task.details %></div>
+  
+    <div class="col-xs col-md-2"><%= @b_task.system %></div>
+    <div class="col-xs col-md-1"><%= @b_task.task_time %></div>
+  </div>
+  <div class="align-center m-1"><%= link_to 'Edit', edit_backup_b_task_path(@b_task.backup, @b_task), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', backup_b_tasks_path(@b_task.backup), class: 'btn btn-primary' %></div>
+
+       <div class="align-center mt-2"> <h4>Activity </h4> </div>
+     			<ul>
+		  <%= render(partial: 'comments/comment', collection: @b_task.backup.comments) %>
+		</ul>
+
+       <div class="col-xs col-md-12">
+      	  <h3>Comments</h3>
+		  <%= form_for [@b_task.backup, Comment.new] do |f| %>
+		  <%= f.text_area :body, placeholder: "Add a comment" %><br/>
+		  <%= f.submit "Add Comment" %>
+     <% end %>
+	   </div>     
+     </div>	
+  </div>
+</div>

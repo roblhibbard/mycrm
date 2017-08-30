@@ -1,0 +1,23 @@
+<%= simple_form_for(@service_list) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :charge %>
+    <%= f.input :workstation %>
+    <%= f.input :server %>
+    <%= f.input :antivirus %>
+    <%= f.input :backup %>
+    <%= f.input :hours %>
+    <%= f.input :email %>
+    <%= f.input :office %>
+    <%= f.input :reoccurrence %>
+    <%= f.input :monthly %>
+    <%= f.input :yearly %>
+    <%= f.input :2year %>
+    <%= f.input :one_time %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<div class="row">
+     	 	
+<%= form_for([@diagnostic.ticket, @diagnostic]) do |f| %>
+  <% if @diagnostic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@diagnostic.errors.count, "error") %> prohibited this diagnostic from being saved:</h2>
+
+      <ul>
+      <% @diagnostic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+    <%= f.check_box :hard_drive %>
+    <%= f.check_box :mem_test %>
+    <%= f.check_box :mobo %>
+    <%= f.number_field :dumps %>
+    </div>
+    <div class="row">
+    	<div class="col-md-3">
+    <%= f.number_field :scans %>
+    <%= f.text_field :temp %>
+    <%= f.number_field :chkdsk %>
+    <%= f.number_field :policies %>
+   <%= f.text_area :details %>
+   </div>
+
+    <%= f.button :submit, "Submit Task", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+

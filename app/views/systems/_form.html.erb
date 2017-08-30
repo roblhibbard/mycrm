@@ -1,0 +1,19 @@
+<%= simple_form_for(@system) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :make %>
+    <%= f.input :model %>
+    <%= f.input :serial_number %>
+    <%= f.input :user_login %>
+    <%= f.input :user_password %>
+    <%= f.input :other_items %>
+    <%= f.input :system_type %>
+    <%= f.association :client %>
+    <%= f.association :ticket %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

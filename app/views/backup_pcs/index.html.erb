@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Backup Pcs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notes</th>
+      <th>Active</th>
+      <th>Labtech computer</th>
+      
+   
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backup_pcs.each do |backup_pc| %>
+      <tr>
+        <td><%= backup_pc.notes %></td>
+        <td><%= backup_pc.active %></td>
+        <td><%= backup_pc.labtech_computer %></td>
+        <td><%= backup_pc.labtech_client %></td>
+        <td><%= backup_pc.labtech_computer %></td>
+        <td><%= backup_pc.service_list %></td>
+        <td><%= backup_pc.contract_service %></td>
+        <td><%= link_to 'Show', backup_pc %></td>
+        <td><%= link_to 'Edit', edit_backup_pc_path(backup_pc) %></td>
+        <td><%= link_to 'Destroy', backup_pc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Backup Pc', new_backup_pc_path %>

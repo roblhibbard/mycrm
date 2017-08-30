@@ -1,0 +1,34 @@
+<%= simple_form_for([@anti_virus.client, @anti_virus]) do |f| %>
+  <% if @anti_virus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anti_virus.errors.count, "error") %> prohibited this anti_virus from being saved:</h2>
+
+      <ul>
+      <% @anti_virus.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="form-group">
+		<div class="col-sm-3">
+   
+    <%= f.input :rep %>
+    <%= f.input :username %>
+    <%= f.input :password %>
+    <%= f.input :licence_key %>
+    <%= f.input :licence_number %>
+   
+    
+    
+    <%= f.association :computer, label: "computer", label_method: :corepc_number, prompt: "Choose Computer" %>
+    <%= f.hidden_field :service_type, :value => ServiceType.where(:name => "antivirus") %>
+    <%= f.association :service_type, selected: ServiceType.where(:name => "antivirus"), label: "Service Type", label_method: :name, prompt: "Choose Service Type" %>
+    <%= f.association :service_list, label: "Service List", label_method: :name, prompt: "Choose Service" %>
+    </br>
+ 
+    <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

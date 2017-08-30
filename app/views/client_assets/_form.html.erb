@@ -1,0 +1,36 @@
+
+
+<%= form_for([@client_asset.client, @client_asset], layout: :horizontal) do |f| %>
+  <% if @client_asset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client_asset.errors.count, "error") %> prohibited this system from being saved:</h2>
+
+      <ul>
+      <% @system.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ 	
+	<ul class="flex-container-center">	
+			
+			
+    <li class="flex-item-center"><%= f.text_field :make, class: 'form-control', placeholder: 'Make' %>
+	<li class="flex-item-center"><%= f.text_field :model, class: 'form-control', placeholder: 'Model' %>
+    <li class="flex-item-center"><%= f.text_field :operating_system, class: 'form-control', placeholder: 'Operating System' %>
+    <li class="flex-item-center"><%= f.text_field :user_login, class: 'form-control', placeholder: 'User Login' %>
+    	</ul>
+    	<ul class="flex-container-center">
+    <li class="flex-item-center"><%= f.text_field :user_password, class: 'form-control', placeholder: 'Password' %>
+    <li class="flex-item-center"><%= f.text_field :other_items, class: 'form-control', placeholder: 'Other Items' %>
+    <li class="flex-item-center"><%= f.number_field :computer_id, class: 'form-control', placeholder: 'Computer ID' %>
+    <li class="flex-item-center"><%= f.text_field :labtech_name, class: 'form-control', placeholder: 'Labtech Name' %>
+    
+        </ul>
+  
+<div class="align-center">
+    <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<% end %>

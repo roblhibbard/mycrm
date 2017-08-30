@@ -1,0 +1,1 @@
+json.array! @client_anti_viri, partial: 'client_anti_viri/client_anti_virus', as: :client_anti_virus

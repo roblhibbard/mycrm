@@ -1,0 +1,57 @@
+ <div class="container-fluid container-margin" style="margin-top: 60px">
+  <div class="align-center"> <h4> New Tickets</h4> </div>
+  
+  
+	<p id="notice"><%= notice %></p>
+	<div class="table-row header"> 
+	      <div class="text2 width1">Client</div>
+	      <div class="text1 width4">Description</div>
+	      <div class="text2 width3">Priority</div>
+	      <div class="text2 width5">Issue</div>
+	      <div class="text2 width2">Due date</div>
+	      <div class="text2 width5">Show</div>
+
+	 </div>
+	    <% @parts_tickets.each do |ticket| %>
+	    
+	     <div class="table-row"> 
+	         <div class="text2 width1"><%= link_to ticket.client.full_name, client_path(ticket.client.id) %></div>
+	         <div class="text2 width5"><%= 
+	          if @computer.present?
+	             @computer
+	        else
+	        	"none" 
+	        end
+	         %></div>      
+	        <div class="text1 width4"><%= 
+	        if ticket.description.present?
+	        ticket.description.truncate(200) 
+	        else
+	        "N/A"
+	        end
+	        %></div>
+	        <div class="text2 width3"><%= 
+	        if ticket.priority.present?
+	        ticket.priority.name 
+	        else
+	        "N/A"
+	        end	
+	        %></div>
+	        <div class="text2 width5"><%= 
+	        if ticket.issue.blank?
+	        "N/A"
+	        else
+	         ticket.issue.name 
+	        
+	        end
+	        %></div>
+	        <div class="text2 width2"><%= ticket.due_date  %></div>
+	        <div class="text2 width2"> <%= ticket.due_date  %></div>
+	        <div class="text2 width5"><%= link_to 'Show', ticket %></div>
+	        
+	        
+	     </div> 
+	    
+	    <% end %>
+	
+ 	 	  </div>

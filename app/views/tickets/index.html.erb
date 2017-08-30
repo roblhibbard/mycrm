@@ -1,0 +1,124 @@
+ 
+  <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#All" role="tab">All Tickets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#New" role="tab">New Tickets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Diagnostic" role="tab">Diagnostics</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Progress" role="tab">In Progress</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Waiting" role="tab">Client Reply</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Parts" role="tab">Waiting on Parts</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Completed" role="tab">Completed</a>
+  </li>
+  
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+	<div class="tab-pane active" id="All" role="tabpanel">
+   <div class="container-fluid container-margin" style="margin-top: 60px">
+  <div class="align-center"><%= link_to 'New Ticket', new_ticket_path, class: "btn btn-primary" %> </div>
+  <div class="align-center">
+	  
+      <%= form_tag(tickets_path, method: "get" , id: "search-form") do %>
+      <%= label_tag(:search, "Search for:") %>
+      <%= text_field_tag :search, params[:search], palceholder: "Search Tickets" %>
+      <%= submit_tag "Search", :name => nil %>
+      <% end %> </div>
+      
+	<p id="notice"><%= notice %></p>
+        <div class="align-center"> Open Ticket Count = <%= @open_tickets %></div></br>
+        <div class="align-center"> <%= paginate @tickets %>  </div>
+	<div class="table-row header"> 
+	      <div class="text2 width1">Client</div>
+	      <div class="text2 width5">System</div>
+	      <div class="text1 width4">Description</div>
+	      
+	      <div class="text2 width5">Issue</div>
+	      <div class="text2 width2">Due date</div>
+	      <div class="text2 width2">Expected Date</div>
+	      <div class="text2 width5">Show</div>
+
+	 </div>
+	    
+	    <% @tickets.each do |ticket| %>
+	   
+	    
+	     <div class="table-row"> 
+	     	
+	        <div class="text2 width1"><%= link_to ticket.client.full_name, client_path(ticket.client.id) %></div>
+	         <div class="text2 width5"><%= 
+	        if @computers.present?
+	             @computers
+	        else
+	        	"none" 
+	        end
+	         %></div>      
+	        <div class="text1 width4"><%= 
+	        if ticket.description.present?
+	        ticket.description.truncate(200) 
+	        else
+	        "N/A"
+	        end
+	        %></div>
+	        
+	        <div class="text2 width5"><%= 
+	        if ticket.issue.blank?
+	        "N/A"
+	        else
+	         ticket.issue.name 
+	        
+	        end
+	        %></div>
+	        <div class="text2 width2"><%= ticket.due_date  %></div>
+	        <div class="text2 width2"> <%= ticket.due_date  %></div>
+	        <div class="text2 width5"><%= link_to 'Show', ticket %></div>
+	        
+	        
+	     </div> 
+	    
+	    <% end %>
+	<div class="align-center"> <%= paginate @tickets %>  </div>
+ 	 	  </div>
+ 	 	  </div>
+
+
+  
+  <div class="tab-pane" id="New" role="tabpanel">
+  	<%= render partial: "new_ticket" %>
+  	</div>
+    <div class="tab-pane" id="Diagnostic" role="tabpanel">
+  <%= render partial: "diagnostic_tickets" %>
+  </div>
+  <div class="tab-pane" id="Progress" role="tabpanel">
+  	 <%= render partial: "in_progress_tickets" %>
+  </div>
+  <div class="tab-pane" id="Waiting" role="tabpanel">
+  	 <%= render partial: "waiting_tickets" %>
+  </div>
+  <div class="tab-pane" id="Parts" role="tabpanel">
+  	 <%= render partial: "parts_tickets" %>
+  </div>
+  
+  <div class="tab-pane" id="Completed" role="tabpanel">
+  <%= render partial: "completed_ticket" %>
+  </div>
+ 
+</div>
+    
+    
+    
+
+

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @system.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @system.model %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @system.serial_number %>
+</p>
+
+<p>
+  <strong>User login:</strong>
+  <%= @system.user_login %>
+</p>
+
+<p>
+  <strong>User password:</strong>
+  <%= @system.user_password %>
+</p>
+
+<p>
+  <strong>Other items:</strong>
+  <%= @system.other_items %>
+</p>
+
+<p>
+  <strong>System type:</strong>
+  <%= @system.system_type %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @system.client %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @system.ticket %>
+</p>
+
+<%= link_to 'Edit', edit_system_path(@system) %> |
+<%= link_to 'Back', systems_path %>

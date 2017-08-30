@@ -1,0 +1,25 @@
+<%= simple_form_for(@issue) do |f| %>
+  <% if @issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+      <% @issue.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      
+      </ul>
+    </div>
+    <% end %>
+    <form class="form-inline">
+	<div class="form-group col-sm-3">
+    <%= f.input :name %>
+   
+
+
+  
+    <%= f.button :submit, "Submit issue", class: "btn btn-primary form-control" %><br></br>
+      </div>
+  </div>
+  </form>
+<% end %>

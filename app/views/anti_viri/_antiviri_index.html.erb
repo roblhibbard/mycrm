@@ -1,0 +1,59 @@
+ 
+ 	 <h3>Nod32</h3>
+
+<div class="table-responsive">
+  <table class="table table-sm">
+  	<thead>
+  <tr>
+    <th>Rep</th>
+    <th>Username</th>
+    <th>Password</th>
+   
+    <th>Lic Number</th>
+    <th>Computer</th>
+    <th>Service type</th>
+    <th>Service list</th>
+    <th>Charge</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ </thead>
+ <tbody>
+<% @anti_viri.each do |anti_virus| %>
+  <tr>
+    <td><%= anti_virus.rep %></td>
+    <td><%= anti_virus.username %></td>
+    <td><%= anti_virus.rim_password %></td>
+    <td><%= anti_virus.licence_number %></td>
+    <td> <% if anti_virus.computer_id.present?%>
+    	 <%=anti_virus.computer.corepc_number%>
+    	<%else%>
+    	<%=anti_virus.rim_computer%>
+    	<%end%>
+    	</td>
+    <td><%= anti_virus.service_type.name %></td>
+    <td><%= anti_virus.service_list.name %></td>
+    <td><% if anti_virus.licence_number.present? %>
+    	<%= anti_virus.service_list.charge * anti_virus.licence_number %>
+    	<% else %>
+    	N/A
+    	<%end%>
+    	</td>
+    <td><%= link_to 'Show', [anti_virus.client, anti_virus] %></td>
+    <td><%= link_to 'Edit', edit_client_anti_virus_path(anti_virus.client, anti_virus) %></td>
+    <% if current_user.admin? %>
+    <td><%= link_to 'Destroy', [anti_virus.client, anti_virus], :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<div class="align-center"><%= link_to 'New Anti virus', new_client_anti_virus_path(params[:id]), class: "btn btn-primary" %></div>

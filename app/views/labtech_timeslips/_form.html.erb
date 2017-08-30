@@ -1,0 +1,22 @@
+<%= simple_form_for(@labtech_timeslip) do |f| %>
+  <%= f.error_notification %>
+
+   <div class="form-group">
+
+  		<%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+                     "Choose Client", include_blank: false %>
+        <%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+        <%= f.input :labtime, collection: LabtechTimeslip.all, label_method: :name, value_method: :labtime, prompt: "Choose Categorie", include_blank: false %>
+        <%= f.input :started_date %>
+        <%= f.input :lab_ticketid %>            
+        <%= f.input :subject %>
+        <%= f.input :hours %>
+        <%= f.input :mins %>
+        
+  
+ <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+ </div>
+    
+
+<% end %>

@@ -1,0 +1,41 @@
+<div class="container-fluid">
+<%= form_tag({controller => "labtickets", action: "save_labticket" }, method: "get") do |f| %>
+  <%= f.error_notification %>
+
+ <div class="row">
+  
+  	<div class="col-xs px-5">
+    <%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+                     "Choose Client", include_blank: false %>
+                     
+    <%= f.text_field_tag :requestor_email %>
+    <%= f.text_field_tag :labtechloc %> 
+    <%= f.text_field_tag :labtechpc %>                
+    <%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+        <%= f.text_field_tag :started_date %>
+        <%= f.text_field_tag :subject %>
+         
+  
+   </div>
+  <div class="col-xs px-5">
+  	   
+        <%= f.text_field_tag :lab_request %> 
+        <%= f.text_field_tag :time_subject %> 
+        <%= f.association :labtech_timeslip, label_method: :name, value_method: :labtime, prompt:
+                     "Choose Categorie", include_blank: false %>
+                     
+        <%= f.text_field_tag :hours %>
+        <%= f.text_field_tag :mins %>
+  	
+    <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+  </div>
+  </div>
+ <div class="row justify-content-md-center">
+  <div class="col-xs px-5">
+  <%= link_to 'Back', labtickets_path, class: "btn btn-primary", style: "width: 100px" %>
+    </div>
+  </div>
+  </div>
+</div>
+<% end %>

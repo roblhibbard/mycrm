@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+ 	
+   
+    <div class="container-fluid m-5">
+    <h1>Labtech Client Info</h1>
+   
+ 	<div class="table-row header">
+ 	
+	<div class="text2 width5">ClientID</div>
+	<div class="text1 width5">Name</div>
+	
+		    </div>  
+	     <div class="table-row">	
+	       <div class="text2 width5"><%= @labtech_client.id%></div>
+	       <div class="text1 width5"><%= @labtech_client.name%></div>
+	      
+	        </div>
+	        </br><div class="flex-center">
+	        	
+ 		<%= link_to 'Back', labtech_clients_path, class: "btn btn-primary" %>
+ 	</div>
+	
+	</div>
+ 	

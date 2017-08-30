@@ -1,0 +1,83 @@
+
+  <div class="col-12">
+   <div class="row justify-content-md-center m-3" >
+   
+      <%= form_tag clients_path, method: :get do %>
+        <div class="col-xs-3 pb-3 px-3">
+          <div class="form-inline">
+            <%= text_field_tag :query, nil, class: 'mb-3', style: "height: 31px" %>  
+   
+          <div class="px-3 pb-3">   <%= submit_tag 'Search', class: 'btn btn-primary' %></div>
+          <% end %>
+          </div> 
+        </div>
+        <div class="col-xs-3 pb-3 px-3">
+           <%= link_to 'New Client', new_client_path, class: "btn btn-primary" %> 
+        </div>
+   </div> 
+      <div class="row align-items-start align-center"> <%= paginate @clients %>  </div> 
+      <div class="col-xs col-md-12">
+        <div class="table-row header">
+            
+		      <div class="col-xs col-md-2">ID</div>
+		   
+		      <div class="col-xs col-md-2">Client</div>
+		      <div class="col-xs col-md-3">Email</div>
+		     
+		      <div class="col-xs col-md-2">Phone #</div>
+		     
+		      <div class="col-xs col-md-2">Address</div>
+		      <div class="col-xs col-lg-1 hidden-lg-down">City</div>
+	  
+		</div>  
+		   
+	    <% @clients.each do |client| %>
+	       <div class="table-row"> 
+	       	
+	      	 <div class="col-xs col-md-2"><%= client.id %></div>
+	      	
+	      	 <div class="col-xs col-md-2"><%= link_to client.full_name, client %></div>
+	      	 
+	         <div class="col-xs col-md-3"><%= mail_to client.email %></div>
+	         <div class="col-xs col-md-2"><%= client.phone_number %></div>
+        	 <div class="col-xs col-lg-2 hidden-md-down"> <%= 
+	           if client.address.present? and client.city.present? 
+	            link_to client.address, 'http://google.com/maps/search/'+client.address+','+client.city, :target => "_blank"
+	           else
+	            client.address 
+	           end %> </div>
+	       <div class="col-xs col-md-1 hidden-lg-down"><%= 
+	           if client.city.present?
+	            client.city 
+	           else
+	            "not listed"
+	           end %>
+	           
+	       </div>
+	      
+	     </div>
+	   
+           <% end %>
+	     </div>  
+		<div class="row align-items-start align-center"> <%= paginate @clients %>  </div> 
+	
+	<div class="row justify-content-md-center">
+       
+	     <% if current_user.admin? %>
+	       <%= form_tag import_clients_path, multipart: true do %>
+	         <div class="col-xs-3 mb-3">
+	         	<div class="form-inline">
+	              <%= file_field_tag :file, class: "mb-3" %>
+	              <%= submit_tag "Import CSV", class: "mb-3"%>
+	      <% end %>  
+	     <% end %>
+	            </div> 
+	         </div>
+	   <% if current_user.admin %>  
+	     </form></div><br/>
+	     <%= render partial: 'dup' %>
+	     <% end %>
+	</div>
+
+	
+		

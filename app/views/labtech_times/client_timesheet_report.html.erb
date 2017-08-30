@@ -1,0 +1,88 @@
+ <%= form_tag({controller => "labtech_time", :action => "client_timesheet_report" }, method: "get") %>
+	<p id="notice"><%= notice %></p>
+  <div class="container">
+	<div class="row align-items-start align-center">		
+      <form class="form-inline">
+
+      
+       <%= text_field_tag(:labmonth, "", placeholder: 'Enter Month Number', class: 'ml-1 p-2 m-1', style: 'height: 31px')%>
+       <%= text_field_tag(:client_id, "", placeholder: 'Enter Client ID', class: 'ml-1 p-2 m-1', style: 'height: 31px')%>
+     
+       <%= submit_tag "Get Report", class: "btn btn-primary form-control ml-3", style: "width: 150px" %> 
+      </form>
+   </div>
+ <div class="row align-items-start align-center"> <%= paginate @client_timesheets %>  </div>
+ <table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>name</th>
+       <th> time_id</th>
+        <th>TicketID</th>
+       <th> hours</th>
+       <th> mins</th>
+       <th> date </th>
+      
+      
+     </tr>
+  </thead>
+
+  <tbody> 
+  	
+  	
+<% @client_timesheets.each do |id, name, time_id, ticketid, hours, mins, labdate | %> 
+  <tr>
+  <td><%= id %></td>
+   <td><%= name %></td>
+   <td><%= time_id %></td>
+   <td><%= ticketid %></td>
+   <td><%= hours %></td>
+   <td><%= mins %></td>
+   <td><%= labdate %></td>
+   
+   
+ </tr>
+ <% end %>
+ 
+ 
+ </tbody>
+
+ 
+  <thead>
+    <tr>
+     
+        <th> hours</th>
+       <th> mins</th>
+       <th> TTL Hours</th>
+       <th> Support Hours</th>
+        <th> +/-</th>
+   </tr>
+  </thead>
+
+  <tbody>       
+<% @ttl_hours.each do |hours, mins, support | %>
+<tr>
+   <td><%= hours %></td>
+   <td><%= mins %></td>
+   <% if (hours).nil? %> 
+   <%elsif (mins).nil?%>
+   <% 0 %>
+   <% else %>
+   <% ttl_hours = (hours + mins) %>
+  
+  <td><%= number_with_precision((ttl_hours/3600.00), precision: 2) %></td> 
+ 
+  <td><%= support %></td>
+  <td><%= number_with_precision(support - (ttl_hours/3600.00), precision: 2) %></td> 
+<% end %>
+ <% end %>
+ </tr>
+ </tbody>
+</table>
+   
+
+<% if current_user.admin? %>
+     <div class="align-center m-1"><%= render partial: 'sync_timeslips' %></div>
+      <div class="align-center m-1"><%= render partial: 'update_timeslips' %></div>
+    <% end %>
+    </div>

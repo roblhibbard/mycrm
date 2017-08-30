@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></div>
+
+<div class="table-row header hidden-xs-down"> 
+ <div class="col-xs col-sm-2 col-md-2"> Phone </div>
+  <div class="col-xs col-sm-4 col-md-4"> Details </div>
+  <div class="col-xs col-sm-1 col-md-1"> Ticket </div>
+  <div class="col-xs col-sm-2 col-md-2">Date/Created</div>
+  
+  </div>
+  
+   <div class="table-row">  
+  <div class="col-xs col-sm-2 col-md-2"> <%= @dispatch.phone %> </div>
+  <div class="col-xs col-sm-4 col-md-4"><%= @dispatch.details %> </div>
+   <div class="col-xs col-sm-1 col-md-1"><%= @dispatch.ticket %> </div>
+   <div class="col-xs col-sm-2 col-md-2"> <%= @dispatch.created_at %> </div>
+  </div>
+
+<div class="col-md-4">
+<%= link_to 'Edit', edit_dispatch_path(@dispatch) %> |
+<%= link_to 'Back', dispatches_path %>
+</div>

@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Charge:</strong>
+  <%= @service_list.charge %>
+</p>
+
+<p>
+  <strong>Workstation:</strong>
+  <%= @service_list.workstation %>
+</p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @service_list.server %>
+</p>
+
+<p>
+  <strong>Antivirus:</strong>
+  <%= @service_list.antivirus %>
+</p>
+
+<p>
+  <strong>Backup:</strong>
+  <%= @service_list.backup %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @service_list.hours %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @service_list.email %>
+</p>
+
+<p>
+  <strong>Office:</strong>
+  <%= @service_list.office %>
+</p>
+
+<p>
+  <strong>Reoccurrence:</strong>
+  <%= @service_list.reoccurrence %>
+</p>
+
+<p>
+  <strong>Monthly:</strong>
+  <%= @service_list.monthly %>
+</p>
+
+<p>
+  <strong>Yearly:</strong>
+  <%= @service_list.yearly %>
+</p>
+
+<p>
+  <strong>2year:</strong>
+  <%= @service_list.2year %>
+</p>
+
+<p>
+  <strong>One time:</strong>
+  <%= @service_list.one_time %>
+</p>
+
+<%= link_to 'Edit', edit_service_list_path(@service_list) %> |
+<%= link_to 'Back', service_lists_path %>

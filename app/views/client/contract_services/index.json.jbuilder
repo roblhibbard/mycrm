@@ -1,0 +1,1 @@
+json.array! @client_contract_services, partial: 'client_contract_services/client_contract_service', as: :client_contract_service

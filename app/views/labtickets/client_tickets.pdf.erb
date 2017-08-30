@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+	
+      <th>ID</th>
+       <th>Name</th>
+        <th>TicketID</th>
+        <th>Subject</th>
+         
+         
+   </tr>
+  </thead>
+   <tbody>
+    <% @results.each do |row| %>
+     <tr>
+          <td><%= row['ClientID'] %></td>
+           <td><%= row['Name'] %></td>
+           <td><%= row['TicketID'] %></td>
+            <td><%=  row['Subject']%></td> 
+           
+            
+          
+      </tr>
+     <% end %>
+   </tbody>
+</table>
+    
+	</div><div class="align-center m-1"> <%= link_to 'create PDF', client_tickets_labtickets_path, object: @result, format: :pdf, class: "btn btn-primary" %> </div>
+<div class="align-center m-1"> <%= link_to 'Download', client_tickets_labtickets_path(@result, format: :pdf), download: "", class: "btn btn-primary" %> </div>
+</div>
+</div>

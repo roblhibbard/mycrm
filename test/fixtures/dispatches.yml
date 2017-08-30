@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone: MyString
+  details: MyText
+  ticket: 1
+  calendar: false
+  billable_time: 1
+  non_billable: 1
+
+two:
+  phone: MyString
+  details: MyText
+  ticket: 1
+  calendar: false
+  billable_time: 1
+  non_billable: 1

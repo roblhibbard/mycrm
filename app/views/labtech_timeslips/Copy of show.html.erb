@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @labtech_timeslip.name %>
+</p>
+
+<p>
+  <strong>Labtime:</strong>
+  <%= @labtech_timeslip.labtime %>
+</p>
+<div class="table-row header">
+	
+     <div class="col-xs col-md-1">TimeSlipID</div>
+      <div class="col-xs col-md-1">UserID</div>
+      <div class="col-xs col-md-1">ClientID</div>
+      <div class="col-xs col-md-1">TicketID</div>
+      <div class="col-xs col-md-1">Hours</div>
+      <div class="col-xs col-md-1">Mins</div>
+      <div class="col-xs col-md-1">Done</div>
+      <div class="col-xs col-md-1">Date</div>
+      <div class="col-xs col-md-2">Description</div>
+     
+      
+   </div> 
+  <% @timeslips['value'].each do |key| %>
+     <div class="table-row">	
+          <div class="col-xs col-md-1"><%= key['TimeSlipID'] %></div>
+         <div class="col-xs col-md-1"><%= key['UserID'] %></div>
+          <div class="col-xs col-md-1"><%= key['ClientID'] %></div>
+           <div class="col-xs col-md-1"><%= key['TicketID'] %></div>
+           <div class="col-xs col-md-1"><%= key['Hours'] %></div>
+          <div class="col-xs col-md-1"><%= key['Mins'] %></div>
+           <div class="col-xs col-md-1"><%= key['Done'] %></div>
+           <div class="col-xs col-md-1"><%= key['Date'] %></div>
+           <div class="col-xs col-md-2"><%= key['Description'] %></div>
+           
+       </div> 
+        
+    
+    <% end %>  
+
+
+<%= link_to 'Edit', edit_labtech_timeslip_path(@labtech_timeslip) %> |
+<%= link_to 'Back', labtech_timeslips_path %>

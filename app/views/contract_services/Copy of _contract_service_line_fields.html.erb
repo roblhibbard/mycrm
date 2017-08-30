@@ -1,0 +1,11 @@
+  	
+   <tr class='nested-fields'>
+	
+      <td><%= f.input :qty, label: false %></td>
+       <td><%= f.collection_select :service_list_id, service_list_charge, :id, :name, :include_blank => true %></td>
+       <td><%= f.input :line_comment, label: false %></td>   
+       <td><%= link_to_remove_association "Remove Line", f, :class => 'remove_fields btn btn-small btn-danger' %></td>
+     
+  </tr>
+  
+        <%= f.hidden_field :client_id, value: session[:client] %>   

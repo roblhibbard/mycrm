@@ -1,0 +1,25 @@
+
+repair_categorie
+
+repairs_all
+
+scope : repairs_malware, -> { where('repair_categorie = 2'}
+repairs_malware
+
+repair_wipe_and_load_no_docs
+
+
+repair_wipe_and_load_with_docs
+
+diagnostic only
+load with no data
+load and save data
+malware
+
+
+Nameserver
+NS37.DOMAINCONTROL.COM
+NS38.DOMAINCONTROL.COM
+
+
+

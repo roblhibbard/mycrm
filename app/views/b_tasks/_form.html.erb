@@ -1,0 +1,38 @@
+<%= simple_form_for([@b_task.backup, @b_task]) do |f| %>
+  <% if @b_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@b_task.errors.count, "error") %> prohibited this b_task from being saved:</h2>
+
+      <ul>
+      <% @b_task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      
+      </ul>
+    </div>
+  <% end %>
+  
+   <form class="form-inline">
+	<div class="form-group col-sm-3">
+		
+  
+    <%= f.input :backup_id, :as => :hidden %><br /> 
+    <%= f.association :status, class: 'form-control'%>
+   
+    <%= f.label :details, class: 'control-label' %>    
+    <%= f.text_area :details, class: 'form-control', placeholder: 'Details' %>
+    <%= f.association :communication , class: 'form-control' %>
+    <%= f.label :description, class: 'control-label' %>
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Description' %><br />
+    <%= f.input :task_time, priority: [15], collection: [0,15,30,45,60] %><br />
+    
+    
+    
+   	<br></br>
+    <%= f.button :submit, "Submit Task", class: "btn btn-primary form-control" %><br></br>
+    
+    </div>
+
+    </form>
+   
+<% end %>

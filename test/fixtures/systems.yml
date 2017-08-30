@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  serial_number: MyString
+  user_login: MyString
+  user_password: MyString
+  other_items: MyString
+  system_type: MyString
+  client: one
+  ticket: one
+
+two:
+  make: MyString
+  model: MyString
+  serial_number: MyString
+  user_login: MyString
+  user_password: MyString
+  other_items: MyString
+  system_type: MyString
+  client: two
+  ticket: two

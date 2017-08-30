@@ -1,0 +1,38 @@
+
+<%= simple_form_for @client do |f| %>
+  <%= f.error_notification %>
+  <div class="col-med-3">
+  <form class="form-inline">
+	<div class="form-group col-sm-3">
+    	
+    <%= f.label :company, class: 'control-label' %>
+    <%= f.text_field :company, class: 'form-control', placeholder: 'Company' %>
+    <%= f.label :backup_account, class: 'control-label' %>
+    <%= f.text_field :backup_account, class: 'form-control', placeholder: 'Backup Account' %>
+    
+    <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
+    <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+    <%= f.text_field :primary_contact, class: 'form-control', placeholder: 'Primary Contact' %>
+    <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Phone Number' %>
+    <%= f.text_field :fax, class: 'form-control', placeholder: 'Fax' %>
+    <%= f.text_field :cell, class: 'form-control', placeholder: 'Cell Phone' %>
+    <%= f.text_field :secondary_contact, class: 'form-control', placeholder: 'Secondary Contact' %>
+    <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+    
+     </div>
+     <div class="form-group col-sm-3">
+    <%= f.text_field :address, class: 'form-control', placeholder: 'Address' %>
+    <%= f.text_field :city, class: 'form-control', placeholder: 'City' %>
+    <%= f.text_field :state, class: 'form-control', placeholder: 'State' %>
+    <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Zip Code' %>
+    
+     <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+     
+     </div>
+     <div></div>
+  
+  </form>
+	
+   </div>
+  
+<% end %>

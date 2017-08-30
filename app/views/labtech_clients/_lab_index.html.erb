@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+ <div class="container-margin">
+<h1>Labtech Clients</h1>
+
+<%= @clientid %>
+
+ 	<div class="table-row header">
+  	
+ 	
+	<div class="text2 width5">ClientID</div>
+	<div class="text1 width5">Name</div>
+	<div class="text2 width5">First Name</div>
+	<div class="text2 width5">Last Name</div>
+	<div class="text2 width4">Company</div>
+	<div class="text2 width5">Phone</div>
+	<div class="text1 width5">Address</div>
+		    </div>  
+		     
+		     <% @response['value'].each do |key| %>
+	      <div class="table-row">	
+	       <div class="text2 width5"><%= key['ClientID']%></div>
+	       <div class="text1 width5"><%= key['Name']%></div>
+	       <div class="text2 width5"><%= key['Firstname']%></div>
+	       <div class="text2 width5"><%= key['LastName']%></div>
+	       <div class="text2 width4"><%= key['Company']%></div>
+	       <div class="text2 width5"><%= key['Phone']%></div>
+	       <div class="text1 width5"><%= key['Address1']%></div>
+	        </div>
+	      
+	     
+   			 <% end %>
+ 
+<%= link_to 'New Labtech Client', new_labtech_client_path %>
+</div>

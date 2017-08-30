@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+ <div class="table-row header">
+      
+      <div class="col">Name</div>
+      <div class="col">Comments</div>
+      <div class="col">Licences</div>
+      <div class="col">Charge</div>
+      <div class="col">Total</div>
+      
+  </div>
+        <% @contract_service_lines.each do |contract_service_line| %>
+        <div class="table-row mb-2 hidden-xs-down"> 
+      	 
+          <div class="col"><%= contract_service_line.service_list.name %></div>
+          <div class="col"><%= contract_service_line.line_comment %></div>
+          <div class="col"><%= contract_service_line.qty %></div>
+          <div class="col"><%= number_to_currency contract_service_line.price %></div>
+          <div class="col"><%= number_to_currency contract_service_line.total_price %></div>
+    </div>
+    
+            <% end %>
+ 
+       
+    <div class="col m-1">
+     <div class="d-flex justify-content-center"> Total = <%= number_to_currency @contract_service_lines.to_a.sum(&:sub_total) %></div> <br/>
+ </div> 

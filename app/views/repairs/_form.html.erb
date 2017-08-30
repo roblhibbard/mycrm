@@ -1,0 +1,22 @@
+<%= simple_form_for(@repair) do |f| %>
+  <%= f.error_notification %>
+<div class="col-med-3">
+  <form class="form-inline">
+	<div class="form-group col-sm-3">
+  	<%= f.association :repair_category, prompt: "Choose Category" %>
+  	<div>
+  	<% if repair.repair_category_id = 4  %>
+  	   <%= f.simple_fields_for :malwares do |p| %>
+  	   		<%= f.input :percent_complete %>
+    		<%= f.input :jrt %>
+    <% end %>
+    </div>
+
+    <%= f.label :submit, class: 'control-label' %>
+    <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+  </div>
+   
+  </form>
+  </div>
+<% end %>
+<% end %>

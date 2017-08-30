@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Mycrm" %></title>
+    <%= csrf_meta_tags %>
+    
+   
+    <%= stylesheet_link_tag "application", :media => "all", 'data-turbolinks-track' => true %>
+    <%= wicked_pdf_stylesheet_link_tag "bootstrap", :media => "all", 'data-turbolinks-track' => true %>
+    
+
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+     <%=    wicked_pdf_javascript_include_tag "number_pages", 'data-turbolinks-track' => true %>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  
+  </head>
+
+  <body>
+  	
+
+<nav class="navbar fixed-top navbar-toggleable-md navbar-dark bg-primary">
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+        data-target="#mynavbar" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">☰</span>       
+    </button>	
+    <a class="navbar-brand ml-5" href="http://192.168.1.23:3000/">Core PC </a> 
+    <div class="collapse navbar-collapse ml-3" id="mynavbar">
+      <ul class="navbar-nav mr-auto">
+       <li class="nav-item">
+         <a class="nav-link" <%= link_to 'Tickets', tickets_path %> </a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" <%= link_to 'Clients', clients_path %> </a>
+       </li>
+       <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Labtech</a>
+    
+          <div class="dropdown-menu" aria-labelledby="Preview" >
+           <a class="dropdown-item" href="http://192.168.1.23:3000/labtech_clients"> Labtech Clients</a>
+           <a class="dropdown-item" href="http://192.168.1.23:3000/labtickets">Labtech Tickets</a>
+           <a class="dropdown-item" href="http://192.168.1.23:3000/labtech_times">Labtech TimeSlips</a>
+           <a class="dropdown-item" href="http://192.168.1.23:3000/labtickets/new">Labtech Ticket New</a>
+           <a class="dropdown-item" href="http://192.168.1.23:3000/labtech_timeslips/new">Labtech TimeSlip New</a>
+         </div>
+       </li>
+       
+       <li class="nav-item">
+         <a class="nav-link" <%= link_to 'Contract Services', contract_services_path %> </a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" <%= link_to 'Admin', rails_admin_path %> </a>
+       </li>
+   
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to 'Dispatch', dispatches_path %> </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Backups</a>
+          <div class="dropdown-menu" >
+             <a class="dropdown-item" href="http://192.168.1.23:3000/backups"> Backup Accounts</a>
+             <a class="dropdown-item" href="http://192.168.1.23:3000/todo_lists">Todo_List</a>
+             <a class="dropdown-item" href="http://192.168.1.23:3000/b_tasks">Backup Tasks</a>
+
+          </div>
+      </li>
+         <li class="nav-item">
+       <a class="nav-link" <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></a>
+      </li> 
+     </ul>
+ </div>
+
+</nav>
+ <div class="margin-top">
+  
+</div>
+
+    <%= yield %>
+
+
+   </body>
+
+ 
+</html>

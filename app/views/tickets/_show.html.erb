@@ -1,0 +1,87 @@
+ 
+ 
+ <div class="container-fluid" style="margin-top: 60px">
+   <p id="notice"><%= notice %></p>
+   
+   <div class="align-center"><h4><%= current_user.first_name %> <%= current_user.last_name %> 
+  	Submitted On <%= @ticket.created_at.strftime("%m-%d-%Y") %> at <%= @ticket.created_at.strftime("%I:%M:%S %p") %></div></h4>
+   		
+           	<div><h4>Ticket Details</h4></div>
+  
+                 <div class="table-row header">         
+                 <div class="text1 width2">Client</div>
+                 
+                 <div class="text1 width4">description</div>
+                  <div class="text1 width3">Title</div>                  
+                  <div class="text1 width1">Priority</div>
+                  <div class="text1 width1">issue</div>
+                  
+                  <div class="text width2">Due Date</div>
+                  
+                  </div>
+                  
+                  <div class="table-row">      	
+                  <div class="text1 width2"><%= link_to @ticket.client.full_name, client_path( @client ) %></div>
+                  
+                  
+                  <div class="text1 width4"><%= 
+                   if @ticket.description.present?
+	                  @ticket.description.truncate(75) 
+	               else
+	               "N/A"
+	               end
+	               %></div>
+                  <div class="text1 width3"><%= 
+                  
+                   if @ticket.priority.blank?
+                  	"N/A"
+                   else
+                  	@ticket.priority.name 
+                    end		
+                  %></div>                
+                  <div class="text1 width1"><%= 
+                    if @ticket.ticket_title.present?
+                  	@ticket.ticket_title
+                  	else
+                     "N/A" 
+                    end
+                  %></div>
+                  <div class="text1 width1"><%= 
+                  if @ticket.issue.blank?
+                  "N/A"
+                  else
+                  @ticket.issue.name
+                  end 
+                  %> </div>
+                  
+                  <div class="text width2"><%= @ticket.due_date %> </div>
+                 
+                </div>
+            
+ 		<div class="flex-center">
+           <div class="flex-ticket-padding"><%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-primary" %> </div>
+           <div class="flex-ticket-padding"><%= link_to 'Back', tickets_path, class: "btn btn-primary" %> </div>
+          </div>
+     		 	
+     			<div> <%= render partial: "diagnostics_index", object: @diagnostics %> </div><br/>
+     			<div class="flex-center"> <h4>Ticket Activity Comments </h4></div>
+     			<ul>
+		  <%= render(partial: 'comments/comment', collection: @ticket.comments) %>
+		</ul>
+  		
+	<div><h3>Comments</h3>
+		
+		<%= form_for [@ticket, Comment.new] do |f| %>
+		<%= f.text_area :body, placeholder: "Add a comment" %><br/>
+		<%= f.submit "Add Comment" %>
+		<% end %>
+		
+		
+     	     
+     </div>	
+      <div class="col-xs font-size">
+ 	 		<%= render "show"  %>
+ 	 		</div>
+    </div>
+       
+        

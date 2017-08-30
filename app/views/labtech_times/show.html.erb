@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Timeslipid:</strong>
+  <%= @labtech_time.timeslipid %>
+</p>
+
+<p>
+  <strong>Ticketid:</strong>
+  <%= @labtech_time.ticketid %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @labtech_time.hours %>
+</p>
+
+<p>
+  <strong>Mins:</strong>
+  <%= @labtech_time.mins %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @labtech_time.done %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @labtech_time.lab_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @labtech_time.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @labtech_time.user %>
+</p>
+
+<p>
+  <strong>Labticket:</strong>
+  <%= @labtech_time.labticket %>
+</p>
+
+<p>
+  <strong>Labtech client:</strong>
+  <%= @labtech_time.labtech_client %>
+</p>
+
+<%= link_to 'Edit', edit_labtech_time_path(@labtech_time) %> |
+<%= link_to 'Back', labtech_times_path %>

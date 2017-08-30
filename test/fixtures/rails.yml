@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  g: MyString
+  scaffold: MyString
+  Service_Type: MyString
+  name: MyString
+  email_note1: MyString
+  email_note2: MyString
+  email_note3: MyString
+  email_note4: MyString
+  client: one
+
+two:
+  g: MyString
+  scaffold: MyString
+  Service_Type: MyString
+  name: MyString
+  email_note1: MyString
+  email_note2: MyString
+  email_note3: MyString
+  email_note4: MyString
+  client: two

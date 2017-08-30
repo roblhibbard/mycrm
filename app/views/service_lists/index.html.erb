@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Service Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Charge</th>
+      <th>Workstation</th>
+      <th>Server</th>
+      <th>Antivirus</th>
+      <th>Backup</th>
+      <th>Hours</th>
+      <th>Email</th>
+      <th>Office</th>
+      <th>Reoccurrence</th>
+      <th>Monthly</th>
+      <th>Yearly</th>
+      <th>2year</th>
+      <th>One time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_lists.each do |service_list| %>
+      <tr>
+        <td><%= service_list.charge %></td>
+        <td><%= service_list.workstation %></td>
+        <td><%= service_list.server %></td>
+        <td><%= service_list.antivirus %></td>
+        <td><%= service_list.backup %></td>
+        <td><%= service_list.hours %></td>
+        <td><%= service_list.email %></td>
+        <td><%= service_list.office %></td>
+        <td><%= service_list.reoccurrence %></td>
+        <td><%= service_list.monthly %></td>
+        <td><%= service_list.yearly %></td>
+        <td><%= service_list.2year %></td>
+        <td><%= service_list.one_time %></td>
+        <td><%= link_to 'Show', service_list %></td>
+        <td><%= link_to 'Edit', edit_service_list_path(service_list) %></td>
+        <td><%= link_to 'Destroy', service_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service List', new_service_list_path %>

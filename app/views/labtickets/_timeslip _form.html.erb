@@ -1,0 +1,28 @@
+<%= simple_form_for(@timeslip) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+  	<div class="col-sm-4">
+    <%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+                     "Choose Client", include_blank: false %>
+    <%= f.input :labtech_location %>
+    <%= f.input :labtech_computer %>                
+    <%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+        <%= f.input :started_date %>
+        <%= f.input :subject %>
+    </div>
+  <div class="form-group col-sm-3">
+        <%= f.input :requestor_email %>
+        <%= f.association :labtech_timeslip, label_method: :name, value_method: :labtime, prompt:
+                     "Choose Categorie", include_blank: false %>
+        <%= f.input :hours %>
+        <%= f.input :mins %>
+  	
+    <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+  </div>
+  <div class="flex-center col-sm-12">
+  <%= link_to 'Back', labtickets_path %>
+  </div>
+  </div>
+<% end %>

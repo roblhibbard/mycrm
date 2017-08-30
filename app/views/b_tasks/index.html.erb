@@ -1,0 +1,80 @@
+<div class="container-fluid m-2 p-2"> 
+ <!-- Nav tabs -->
+<ul class="nav nav-tabs m-2 p-1" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#All" role="tab">All Tasks</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#New" role="tab">New Tasks</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Progress" role="tab">In Progress</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Completed" role="tab">Completed</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#Waiting" role="tab">Waiting on Client</a>
+  </li>
+  
+</ul>
+<!-- Tab panes -->
+  <div class="tab-content">
+	<div class="tab-pane active" id="All" role="tabpanel">
+    
+	  <div class="align-center"> Open Backup Tasks = <%= @open_tasks %>
+	 </div> 
+<div class="align-center"><%= paginate @b_tasks %></div>
+ <div class="col-xs col-md-12">	
+   <div class="table-row header"> 	 
+     <div class="col-xs col-md-2">Backup account</div>
+     <div class="col-xs col-md-2">Created</div>
+     <div class="col-xs col-md-1">Status</div>
+     <div class="col-xs col-md-3">Details</div>
+     <div class="col-xs col-md-1">Method</div>
+     <div class="col-xs col-md-1">system</div>
+     <div class="col-xs col-md-1">Time</div>
+     <div class="col-xs col-md-1">Show</div>
+ </div>
+ 
+  <% @b_tasks.each do |b_task| %>
+   <div class="table-row"> 
+    <div class="col-xs col-md-2"><%= link_to b_task.backup.backup_account, backup_path(b_task.backup_id) %></div>
+    <div class="col-xs col-md-2"><%= b_task.created_at.strftime("%m-%d-%Y-%I:%M:%S %p") %></div>
+    <div class="col-xs col-md-1"><%= b_task.status.name %></div>
+    <div class="col-xs col-md-3"><%= b_task.details %></div>
+    <div class="col-xs col-md-1"><%= b_task.communication.name %></div>
+     <div class="col-xs col-md-1"><%= b_task.system %></div>
+    <div class="col-xs col-md-1"><%= b_task.task_time %></div>
+    <div class="col-xs col-md-1"><%= link_to 'Show', [b_task.backup, b_task] %></div>
+  </div>
+<% end %>
+</div>
+<div class="align-center"><%= paginate @b_tasks %></div> 
+
+<div class="align-center">
+	  <%= form_tag import_b_tasks_path, multipart: true do %>
+	    <%= file_field_tag :file %>
+	    <%= submit_tag "Import CSV" %>
+	  <% end %></div></br>
+   
+   </div>
+<div class="tab-pane" id="New" role="tabpanel">
+  	<%= render partial: "new_b_tasks" %>
+  	</div>
+   
+  <div class="tab-pane" id="Progress" role="tabpanel">
+  	 <%= render partial: "in_progress_b_tasks" %>
+  </div>
+  
+  <div class="tab-pane" id="Completed" role="tabpanel">
+  <%= render partial: "completed_b_tasks" %>
+  </div>
+  <div class="tab-pane" id="Waiting" role="tabpanel">
+  <%= render partial: "waiting_b_tasks" %>
+  
+  
+  </div>
+  </div>
+</div>  
+ 

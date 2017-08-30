@@ -1,0 +1,2 @@
+module LabticketsHelper
+end

@@ -1,0 +1,32 @@
+<%= form_tag({controller => "labtech_client", :action => "lab_client" }, method: "get") %>
+	<div class="row align-items-start align-center">		
+      <form class="form-inline">
+
+      
+    
+       <%= text_field_tag(:company, "", placeholder: 'Enter Company', class: 'ml-1 p-2 m-1', style: 'height: 31px')%>
+     
+       <%= submit_tag "Show Client", class: "btn btn-primary form-control ml-3", style: "width: 150px" %> 
+      </form>
+      
+   </div>
+   
+    <div class="container-fluid m-5">
+    <h1>Labtech Client Info</h1>
+
+ 	<div class="table-row header">
+ 	
+	<div class="text2 width5">ClientID</div>
+	<div class="text1 width5">Name</div>
+	
+		    </div>  
+		 
+		  
+	      <div class="table-row">	
+	       <div class="text2 width5"><%= @labtech_client.id%></div>
+	       <div class="text1 width5"><%= @labtech_client.name%></div>
+	      
+	        </div>
+	 
+	</div>
+ 

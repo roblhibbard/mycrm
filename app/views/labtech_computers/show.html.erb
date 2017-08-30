@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Computer:</strong>
+  <%= @labtech_computer.id %>
+</p>
+
+<p>
+  <strong>Labtech client:</strong>
+  <%= @labtech_computer.labtech_client %>
+</p>
+
+<p>
+  <strong>Labtech location:</strong>
+  <%= @labtech_computer.labtech_location %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @labtech_computer.name %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @labtech_computer.username %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @labtech_computer.os %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @labtech_computer.domain %>
+</p>
+
+<%= link_to 'Edit', edit_labtech_computer_path(@labtech_computer) %> |
+<%= link_to 'Back', labtech_computers_path %>

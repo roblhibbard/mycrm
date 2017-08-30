@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<%= @result %></br></br>
+ <%= @result %></br></br>
+ 
+<p>
+ 
+  <strong>Subject:</strong>
+  <%= @labticket.subject %>
+  <%= @labticket.lab_clientid %>
+   <%= @labticket.started_date %>
+   
+  <%= response.code %>
+  
+  
+</p>
+<div class="container-fluid p-4">
+	
+<h3>Labtech Ticket</h3>
+
+
+<div class="table-row header">
+	
+     <div class="col-xs col-md-1">TicketID</div>
+      <div class="col-xs col-md-2">Client</div>
+      <div class="col-xs col-md-1">ClientID</div>
+      <div class="col-xs col-md-1">Computer</div>
+      <div class="col-xs col-md-1">ID</div>
+      <div class="col-xs col-md-2">Subject</div>
+      <div class="col-xs col-md-1">Status</div>
+      <div class="col-xs col-md-3">Date</div>
+      
+   </div> 
+
+ 
+    <% @last_ticket['value'].each do |key| %>
+     <div class="table-row">	
+          <div class="col-xs col-md-1"><%= key['TicketID'] %></div>
+         <div class="col-xs col-md-2"><%= key['Client'] %></div>
+          <div class="col-xs col-md-1"><%= key['ClientID'] %></div>
+           <div class="col-xs col-md-1"><%= key['Computer'] %></div>
+           <div class="col-xs col-md-1"><%= key['ComputerID'] %></div>
+          <div class="col-xs col-md-2"><%= key['Subject'] %></div>
+           <div class="col-xs col-md-1"><%= key['Status'] %></div>
+           <div class="col-xs col-md-3"><%= key['StartedDate'].to_datetime.strftime("%m-%d-%Y %I:%M:%S %p") %></div>
+           
+       </div> 
+        
+    
+    <% end %>
+	
+
+</div>
+
+<%= link_to 'Edit', edit_labticket_path(@labticket) %> |
+<%= link_to 'Back', labtickets_path %>

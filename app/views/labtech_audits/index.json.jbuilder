@@ -1,0 +1,1 @@
+json.array! @labtech_audits, partial: 'labtech_audits/labtech_audit', as: :labtech_audit

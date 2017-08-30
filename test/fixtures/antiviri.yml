@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  rep: MyString
+  username: MyString
+  password: MyString
+  lic_number: 1
+  computer: MyString
+  computer: one
+  service_type: one
+  service_list: one
+
+two:
+  client: two
+  rep: MyString
+  username: MyString
+  password: MyString
+  lic_number: 1
+  computer: MyString
+  computer: two
+  service_type: two
+  service_list: two

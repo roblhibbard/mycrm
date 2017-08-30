@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  make: MyString
+  model: MyString
+  operating_system: MyString
+  user_login: MyString
+  user_password: MyString
+  other_items: MyString
+  computer_id: 1
+  labtech_name: MyString
+
+two:
+  client: two
+  make: MyString
+  model: MyString
+  operating_system: MyString
+  user_login: MyString
+  user_password: MyString
+  other_items: MyString
+  computer_id: 1
+  labtech_name: MyString

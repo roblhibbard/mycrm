@@ -1,0 +1,1 @@
+json.partial! "labtech_audits/labtech_audit", labtech_audit: @labtech_audit

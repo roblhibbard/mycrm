@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<%= form_for ([@ticket, @diagnostic]) do |f| %>
+  <% if @diagnostic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@diagnostic.errors.count, "error") %> prohibited this diagnostic from being saved:</h2>
+
+      <ul>
+      <% @diagnostic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h4>Hardware Diagnostics</h4>
+  <div class="flex-space-around">
+    <%= f.label :hard_drive %> <%= f.check_box :hard_drive %>   <%= f.label :mem_test %>  <%= f.check_box :mem_test %>   <%= f.label :mobo %>  <%= f.check_box :mobo %><br> 
+    </div>
+    <div class="flex-space-around">
+    <%= f.number_field :dumps, class: 'col-sm-3', placeholder: "Dumps" %>  
+    <%= f.number_field :scans, class: 'col-sm-3', placeholder: "Virus Scans" %>
+    <%= f.text_field :temp, class: 'col-sm-3', placeholder: "Temp Files" %>
+    </div><br>
+    <div class="flex-space-around">    
+      <%= f.number_field :chkdsk, class: 'col-sm-3', placeholder: "Chkdsk" %>
+      <%= f.number_field :policies, class: 'col-sm-3', placeholder: "Policies Removed" %>
+      </div><br>
+      <div class="flex-space-around">    
+    <%= f.text_area :details, class: 'col-sm-8', placeholder: "Diagnostic Details" %>
+    <div class="flex-padding"></div><%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<% end %>
+

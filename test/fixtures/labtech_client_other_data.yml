@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lclient_id: 1
+  name: MyString
+  contract_rep: MyString
+  monthly_billable_time: MyString
+  monthly_emergency_time: MyString
+  monthly_non_billable_time: MyString
+  servers_under_contract: 1
+  workstations_under_contract: 1
+  labtech_client: one
+
+two:
+  lclient_id: 1
+  name: MyString
+  contract_rep: MyString
+  monthly_billable_time: MyString
+  monthly_emergency_time: MyString
+  monthly_non_billable_time: MyString
+  servers_under_contract: 1
+  workstations_under_contract: 1
+  labtech_client: two

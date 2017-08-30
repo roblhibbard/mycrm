@@ -1,0 +1,1 @@
+json.partial! "labtickets/labticket", labticket: @labticket

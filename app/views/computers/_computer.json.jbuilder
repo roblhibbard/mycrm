@@ -1,0 +1,2 @@
+json.extract! computer, :id, :make, :model, :serial_number, :user_login, :user_password, :other_items, :system_type, :client_id, :ticket_id, :created_at, :updated_at
+json.url computer_url(computer, format: :json)

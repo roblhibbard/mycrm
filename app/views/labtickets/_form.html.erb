@@ -1,0 +1,50 @@
+<div class="container">
+<%= simple_form_for(@labticket) do |f| %>
+  <%= f.error_notification %>
+
+<h3>New Labticket</h3>
+
+    
+ 
+  <div class="col-sm col-md">
+  	
+  	 <div class="col-sm-4 col-md-6">	
+    <%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+                     "Choose Client", include_blank: false %> 
+                     
+    <%= f.input :requestor_email %>
+     <%= f.input :labtechloc %>
+    <%= f.input :labtechpc %>            
+    <%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+     <%= f.input :started_date %>
+       
+         
+  </div>
+ 	   <div class="col-sm-4 col-md-4 push-md-1">
+        <%= f.input :subject %>
+        <%= f.input :time_subject %>
+        <%= f.association :labtech_timeslip, label_method: :name, value_method: :labtime, prompt:
+                     "Choose Categorie", include_blank: false %>
+        <%= f.association :lab_ticket_status, label_method: :name, value_method: :lab_status, prompt:
+                     "Choose Status", include_blank: false %>             
+         <%= f.input :hours %>
+         <%= f.input :mins %>
+   
+  	 </div>
+  	  </div>
+  	  <div class="align-center m-1">
+  <div class="col-sm-2 col-md-2"> 
+    <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+  </div>
+</div>
+  
+ <div class="row justify-content-md-center">
+  <div class="col-xs px-5">
+  <%= link_to 'Back', labtickets_path, class: "btn btn-primary", style: "width: 100px" %>
+    </div>
+  </div>
+
+
+<% end %>
+</div>

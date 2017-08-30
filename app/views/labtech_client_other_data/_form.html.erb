@@ -1,0 +1,19 @@
+<%= simple_form_for(@labtech_client_other_datum) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :lclient_id %>
+    <%= f.input :name %>
+    <%= f.input :contract_rep %>
+    <%= f.input :monthly_billable_time %>
+    <%= f.input :monthly_emergency_time %>
+    <%= f.input :monthly_non_billable_time %>
+    <%= f.input :servers_under_contract %>
+    <%= f.input :workstations_under_contract %>
+    <%= f.association :labtech_client %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

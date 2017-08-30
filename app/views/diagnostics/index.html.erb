@@ -1,0 +1,39 @@
+<h1>Listing diagnostics</h1>
+
+<table>
+  <tr>
+    <th>Hard drive</th>
+    <th>Mem test</th>
+    <th>Mobo</th>
+    <th>Dumps</th>
+    <th>Scans</th>
+    <th>Temp</th>
+    <th>Chkdsk</th>
+    <th>Policies</th>
+    <th>Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @diagnostics.each do |diagnostic| %>
+  <tr>
+    <td><%= diagnostic.hard_drive %></td>
+    <td><%= diagnostic.mem_test %></td>
+    <td><%= diagnostic.mobo %></td>
+    <td><%= diagnostic.dumps %></td>
+    <td><%= diagnostic.scans %></td>
+    <td><%= diagnostic.temp %></td>
+    <td><%= diagnostic.chkdsk %></td>
+    <td><%= diagnostic.policies %></td>
+    <td><%= diagnostic.details %></td>
+    <td><%= link_to 'Show', [diagnostic.ticket, diagnostic] %></td>
+    <td><%= link_to 'Edit', edit_ticket_diagnostic_path(diagnostic.ticket, diagnostic) %></td>
+    <td><%= link_to 'Destroy', [diagnostic.ticket, diagnostic], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Diagnostic', new_ticket_diagnostic_path(params[:ticket_id]) %>

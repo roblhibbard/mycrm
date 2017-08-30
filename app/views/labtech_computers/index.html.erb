@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid m-3 p-3">
+
+<h1>Labtech Computers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Computer</th>
+      <th>Labtech client</th>
+      <th>Labtech location</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Os</th>
+      <th>Domain</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labtech_computers.each do |labtech_computer| %>
+      <tr>
+        <td><%= link_to labtech_computer.id, labtech_computer %></td>
+        <td><%= link_to labtech_computer.lclient_id, labtech_client_path(labtech_computer.lclient_id) %></td>
+        <td><%= link_to labtech_computer.lablocation_id, labtech_location_path(labtech_computer.lablocation_id) %></td>
+        <td><%= labtech_computer.name %></td>
+        <td><%= labtech_computer.username %></td>
+        <td><%= labtech_computer.os %></td>
+        <td><%= labtech_computer.domain %></td>
+        <td><%= link_to 'Show', labtech_computer %></td>
+        <td><%= link_to 'Edit', edit_labtech_computer_path(labtech_computer) %></td>
+        <td><%= link_to 'Destroy', labtech_computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labtech Computer', new_labtech_computer_path %>
+<%= link_to 'Sync Computers', sync_computers_labtech_computers_path %>
+</div>

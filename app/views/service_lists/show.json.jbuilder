@@ -1,0 +1,1 @@
+json.partial! "service_lists/service_list", service_list: @service_list

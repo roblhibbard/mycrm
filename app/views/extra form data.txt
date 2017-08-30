@@ -1,0 +1,16 @@
+<td><%= link_to 'Show', backup %></td>
+        <td><%= link_to 'Edit', edit_backup_path(backup) %></td>
+        <td><%= link_to 'Destroy', backup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		
+		<%= f.label :submit, class: 'control-label' %>
+    <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+	
+	<%= debug(params) if Rails.env.development? %>
+	
+	in backup _form
+	
+	<%= f.association :client, label_method: :backup_account, include_blank: false %>
+	<%= f.input :qty %>
+  	<%= f.input :price %>
+  	
+    <%= f.input :notes %>

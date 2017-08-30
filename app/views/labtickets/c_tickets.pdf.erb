@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container p-4 pdf_body"> 
+	<h3>Client Open Tickets</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	
+      <th>ID</th>
+       <th>Name</th>
+        <th>TicketID</th>
+        <th>Subject</th>
+         
+         
+   </tr>
+  </thead>
+  
+  <tbody>
+    <% @results.each do |row| %>
+     <tr>
+          <td><%= row['ClientID'] %></td>
+           <td><%= row['Name'] %></td>
+           <td><%= row['TicketID'] %></td>
+            <td><%=  row['Subject']%></td> 
+           
+            
+          
+      </tr>
+     <% end %>
+   </tbody>
+</table>
+	</div>
+
+
+</div>

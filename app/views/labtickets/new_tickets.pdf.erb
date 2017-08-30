@@ -1,0 +1,39 @@
+ 
+<div class="container-fluid">
+	
+<h3>New Tickets</h3>
+
+
+<table class="table table-sm table table-striped">
+  <thead>
+    <tr>
+	
+      <th>TicketID</th>
+      <th>Client</th>
+      <th>ID</th>
+     
+      <th>Computer ID</th>
+      <th>Subject</th>
+      <th>Ticket Age</th>
+      <th>Submitted</th>
+      
+   </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |row| %>
+     <tr>
+          <td><%= row['Ticket ID'] %></td>
+          <td><%= row['Company'] %></td>
+          <td><%= row['ClientID'] %></td>
+          
+          <td><%= row['ComputerID'] %></td>
+          <td><%= row['Ticket Subject'] %></td>
+           <td><%= row['Ticket Age'] %></td>
+          <td><%= row['Ticket Started Date'].strftime("%b-%e-%y") %></td>
+        
+      </tr>
+     <% end %>
+   </tbody>
+</table>	
+
+</div>

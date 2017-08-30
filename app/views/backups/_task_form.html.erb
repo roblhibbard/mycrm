@@ -1,0 +1,27 @@
+<%= simple_form_for(@task) do |f| %>
+ <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      
+      </ul>
+    </div>
+  <% end %>
+<form class="form-inline">
+	<div class="form-group col-sm-3">
+    <%= f.hidden_field :client_id, :value => params[:client_id] %>
+    
+    <%= f.input :name %>
+ <br><br>
+  
+ <%= f.button :submit, "Submit Task", class: "btn btn-primary form-control" %><br></br>
+  
+    </div>
+
+  
+ </form>
+<% end %>

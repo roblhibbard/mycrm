@@ -1,0 +1,36 @@
+<div class="container-fluid" style="margin-top: 10px">
+<h4>Diagnostics Results</h4>
+	  <div class="table-row header">
+	  	<div class="text1 width3">ID</div>
+	    <div class="text1 width3">HD</div>
+	    <div class="text1 width3">Mem</div>
+	    <div class="text1 width3">Mobo</div>
+	    <div class="text1 width3">Dumps</div>
+	    <div class="text1 width3">Scans</div>
+	    <div class="text1 width3">Temp</div>
+	    <div class="text1 width3">Chkdsk</div>
+	    <div class="text1 width3">Policies</div>
+	    <div class="text1 width2">Details</div>
+	 
+	  </div>
+		<% @diagnostics.each do |diagnostic| %>
+		 <div class="table-row">
+		 	<div class="text1 width3"><%= link_to diagnostic.id, [diagnostic.ticket, diagnostic] %></div>
+		    <div class="text1 width3"><%= diagnostic.hard_drive %></div>
+		    <div class="text1 width3"><%= diagnostic.mem_test %></div>
+		    <div class="text1 width3"><%= diagnostic.mobo %></div>
+		    <div class="text1 width3"><%= diagnostic.dumps %></div>
+		    <div class="text1 width3"><%= diagnostic.scans %></div>
+		    <div class="text1 width3"><%= diagnostic.temp %></div>
+		    <div class="text1 width3"><%= diagnostic.chkdsk %></div>
+		    <div class="text1 width3"><%= diagnostic.policies %></div>
+		    <div class="text1 width2"><%= diagnostic.details %></div>
+			</div>
+		
+		<% end %>
+		
+		</div>
+		
+
+		
+		<div class="flex-space-around"> <%= link_to 'New Diagnostic', new_ticket_diagnostic_path(@ticket), class: "btn btn-primary" %> </div>

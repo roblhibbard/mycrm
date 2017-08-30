@@ -1,0 +1,35 @@
+<%= simple_form_for(@timselip, layout: :horizontal) do |f| %>
+  <% if @timeslip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+        <ul>
+    </div>
+      <% @timeslip.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+ 		</ul>
+    </div>
+  	  <% end %>
+  	  
+	<div class="form-group">
+		<div class="col-sm-3">
+   
+    <%= f.input :ticket_title, label: "Ticket Title" %> 
+    <%= f.association :client, label: "Client", label_method: :full_name, prompt: "Choose Client"%> 
+    <%= f.association :system, label: "Ticket Status", label_method: :computer, prompt: "Choose System"%>
+    <%= f.association :issue, prompt: "Choose Issue" %>
+    <%= f.association :priority, prompt: "Choose Priority" %>
+    <%= f.text_area :description %><br /><br />
+    <%= f.date_select :due_date %>
+    <%= f.association :status, label: "Ticket Status", label_method: :name %>
+    <%= f.association :user, selected: :current_user, label_method: :email, value_method: :id, prompt: "Choose Tech", include_blank: false %>
+    
+    
+ <br></br>
+    <%= f.button :submit %>
+     </div>
+     </div>
+
+    
+ 
+   <% end %>

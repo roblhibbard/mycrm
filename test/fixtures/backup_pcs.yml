@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notes: MyText
+  active: false
+  labtech_computer: 
+  to: MyString
+  labtech_client: 
+  to: MyString
+  labtech_computer: 
+  to: MyString
+  service_list: 
+  to: MyString
+  contract_service: 
+  to: MyString
+
+two:
+  notes: MyText
+  active: false
+  labtech_computer: 
+  to: MyString
+  labtech_client: 
+  to: MyString
+  labtech_computer: 
+  to: MyString
+  service_list: 
+  to: MyString
+  contract_service: 
+  to: MyString

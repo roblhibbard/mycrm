@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+ 	<div class="container">
+ 		 <div class="row flex-space-around font-size table-row header">
+ 		
+ 	 <div class="col-xs font-size">Client</div>
+ 	 
+	 <div class="col-xs font-size hidden-xs-down">Computers</div>
+ 	 <div class="col-xs font-size hidden-xs-down">Users</div>
+ 	 </div>
+     <div class="table-row">
+ 	 <div class="col-xs font-size"><%= @labtech_client.name %></br>
+ 	  <%= @labtech_client.phone%></br> 	 
+ 	  <%= link_to @labtech_client.address1, 'http://google.com/maps/search/'+@labtech_client.address1+','+@labtech_client.city, :target => "_blank"%>
+ 	   </br>
+ 	   <%= @labtech_client.city %>, <%= @labtech_client.state %> </div>
+ 	   
+ 	   <div class="col-xs hidden-xs-down">blank </div>
+ 	   <div class="col-xs hidden-xs-down">blank </div>
+ 	   </div>
+ 	   
+ 	
+ 	<div class="row align-items-start align-center">
+ 	 <form class="form-inline">	
+ 	     <%= form_tag labtech_clients_path, method: "get" %>
+	     <%= text_field_tag :search, params[:search], placeholder: 'Enter Company ID', class: 'ml-1 p-2 m-1', style: 'height: 31px'%>
+         <%= submit_tag "Show Client", :name => nil, class: "btn btn-primary form-control ml-3", style: "width: 150px" %> 
+     </form>
+  
+    </div>
+   
+   

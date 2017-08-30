@@ -1,0 +1,11 @@
+<%= form_tag({controller => "labtech_time", :action => "import_timeslips" }, method: "get") %>
+	<div class="row align-items-start align-center">		
+      <form class="form-inline">
+
+      
+    
+       <%= text_field_tag(:labmonth, "", placeholder: 'Enter Month Number', class: 'ml-1 p-2 m-1', style: 'height: 31px')%>
+     
+       <%= submit_tag "Sync TimeSlips", class: "btn btn-primary form-control ml-3", style: "width: 150px" %> 
+      </form>
+   </div>

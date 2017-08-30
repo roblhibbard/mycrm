@@ -1,0 +1,46 @@
+<%= simple_form_for(@todo_list) do |f| %>
+  <%= f.error_notification %>
+    <%= f.association :client, label_method: :full_name, value_method: :id, label: false, prompt: "Choose Client" %> 
+  
+  	<div class="form-inline m-3">
+  	<div class="col-xs-2 col-md-3">  <%= f.association :user, label_method: :email, data_method: :id, label: false, prompt: "Choose User"  %> </div>
+    <div class="col-xs-2 col-md-3"> <%= f.input :name, label: false, prompt: "Enter Task" %> </div>
+    <div class="col-xs-2 col-md-3"> <%= f.input :complete, checked_value: true, unchecked_value: false, label: false %> </div>
+    </div>
+
+  <div class="col-xs-12 col-md-12">
+     <div class="table-row header hidden-xs-down">
+        
+        <div class="col-xs-1 col-md-4">Description</div>
+        <div class="col-xs-1 col-md-2">Completed</div>
+        <div class="col-xs-1 col-md-2">Line Actions</div>
+     </div>   
+    </div>
+     
+       <div class="table-row">
+       	<div class='col-xs col-md tasks'> 
+       		
+         <%= f.simple_fields_for :tasks do |builder| %>
+           <%= render 'task_fields', f: builder %>
+           
+         <% end %>
+        
+       </div>
+      </div>
+  
+   
+   <div class="col-12">
+      <div class="form-actions">
+      	<div class="col-xs col-md">
+         <%= f.button :submit, class: "btn btn-primary m-1" %>
+      </div>
+      <div class="col-xs-12 col-md-12">     	
+        <div class="links"> 
+           <%= link_to_add_association 'Add Task', f, :tasks, class: 'btn btn-primary m-1', style: "width: 150px", data: { association_insertion_node: '.tasks', association_insertion_method: :append } %>
+        </div>
+      </div>
+      </div>
+   </div>
+
+<% end %>
+

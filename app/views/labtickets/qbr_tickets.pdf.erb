@@ -1,0 +1,39 @@
+ 
+<div class="container-fluid">
+	
+<h3>Open Tickets over 30 Days</h3>
+
+
+<table class="table table-condensed table table-bordered">
+  <thead class="thead-inverse">
+    <tr>
+	
+      <th>TicketID</th>
+      <th>Client</th>
+      <th>ID</th>
+     
+      <th>Comp ID</th>
+      <th>Subject</th>
+      <th>Tech</th>
+      <th>Submitted</th>
+      
+   </tr>
+  </thead>
+  <tbody>
+    <% @qbr['value'].each do |key| %>
+     <tr>
+          <td><%= key['TicketID'] %></td>
+          <td><%= key['Client']['Name'] %></td>
+          <td><%= key['ClientID'] %></td>
+          
+          <td><%= key['ComputerID'] %></td>
+          <td><%= key['Subject'] %></td>
+          <td><%= key['UserID'] %></td>
+          <td><%= Date.parse(key['StartedDate']).strftime("%b-%e-%y") %></td>
+        
+      </tr>
+     <% end %>
+   </tbody>
+</table>	
+
+</div>

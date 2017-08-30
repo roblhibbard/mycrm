@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @labtech_location.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @labtech_location.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @labtech_location.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @labtech_location.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @labtech_location.zip %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @labtech_location.phone %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @labtech_location.fax %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @labtech_location.comments %>
+</p>
+
+<%= link_to 'Edit', edit_labtech_location_path(@labtech_location) %> |
+<%= link_to 'Back', labtech_locations_path %>

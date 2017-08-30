@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid" style="margin-top: 60px">
+   <div class="row m-3 p-3">  
+   	<div class="col-12">
+   <div class="align-center"> Total Contracts = <%= @contract_services_count %></div>
+    
+    <div class="align-center"> Total Monthly $ = <%= ContractService.sum(:total) %></div>
+ <div class="align-center"> <%= paginate @contract_services %>  </div>
+   
+<h3>Contract Services</h3>
+    </div>
+   	
+
+<div class="table-row header mb-2 hidden-xs-down">
+      
+      <div class="col-xs-2 col-md-1">ID</div>	
+      <div class="col-xs-3 col-md-3">Client</div>	
+      <div class="co1-xs-1 col-md-1">Ttl Charge</div>
+      
+      <div class="col-xs-3 col-md-2">Service Date</div>
+      <div class="col-xs-3 col-md-2">Next Service Date</div>
+      <div class="col-xs-1 col-md-1">Show</div>
+      <% if current_user.admin? %>
+      <div class="col-xs-1 col-md-1">Destroy</div>
+      <% end %>
+      
+</div>
+  
+    <% @contract_services.each do |contract_service| %>
+       <div class="table-row">
+          <div class="col-xs-2 col-md-1"> <%=  contract_service.id %> </div>
+      	  <div class="col-xs-3 col-md-3"><%= link_to contract_service.client.try(:full_name), controller: "clients", action: "show", id: contract_service.client %></div>
+          <div class="col-xs-1 col-md-1"><%= number_to_currency contract_service.sub_total %></div>
+          <div class="col-xs-3 col-md-2"><% if contract_service.service_date.nil? %>
+          	N/A
+          	<%else%>
+          	<%= contract_service.service_date.strftime("%m-%d-%Y") %>
+          	<%end%> </div>
+          	
+           <div class="col-xs-3 col-md-2">
+          	<% if contract_service.next_service_date.nil? %>
+          	 N/A
+          	<%else%>
+          	<%= contract_service.next_service_date.strftime("%m-%d-%Y") %>
+          	<%end%>
+          	  </div>
+        
+        <div class="col-xs-1 col-md-1"><%= link_to 'Show', contract_service %></div>
+        <div class="col-xs-1 col-md-1 hidden-xs-down"><%= link_to 'Destroy', contract_service, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+        
+        
+      </div>
+    
+    <% end %>
+     
+   <div class="col-12">
+   <div class="align-center"> <%= paginate @contract_services %>  </div>
+    <div class="align-center">
+    	<% if current_user.admin %>  
+	     <%= render partial: 'dup' %>
+	     <% end %>
+	</div>     
+  
+   <div class="col-12">  
+   	  <div class="align-center">
+   	 	<%= link_to "Non Active Contracts", index2_contract_services_path, object: @non_active, class: 'btn btn-primary' %>
+   	  </div>
+   	</div>
+   	</div>
+   </div>
+ </div>
+
+

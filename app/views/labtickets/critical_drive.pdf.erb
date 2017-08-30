@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid p-4">
+	
+<h3>Drive Space Critical</h3>
+
+
+<table class="table table table-striped">
+  <thead>
+    <tr>
+	
+     <th>TicketID</th>
+      <th>Client</th>
+      <th>ClientID</th>
+      <th>Computer</th>
+      <th>ID</th>
+      <th>Subject</th>
+      <th>Status</th>
+      
+   </tr>
+  </thead>
+  <tbody>
+
+ 
+    <% @critical_drive['value'].each do |key| %>
+     <tr>
+          <td><%= key['TicketID'] %></td>
+        <td><%= key['Client'] %></td>
+         <td><%= key['ClientID'] %></td>
+           <td><%= key['Computer'] %></td>
+           <td><%= key['ComputerID'] %></td>
+          <td><%= key['Subject'] %></td>
+           <td><%= key['Status'] %></td>
+           
+       </div> 
+        
+    
+    <% end %>
+	</tbody>
+</table>	
+
+</div>

@@ -1,0 +1,59 @@
+id	first_name	last_name	phone_number	address	state	zip_code	email	created_at	updated_at	user_id	company	primary_contact	fax	cell	secondary_contact	backup_account	city
+8	Robert	Hibbard	2084679360	2513 e spicewood ave	Idaho	83687	robezbc@gmail.com	2016-07-02 04:31:26	2016-07-02 04:31:26	1							
+9	Bobby	Jenner	2084126897	2216 W State St	Boise	83706	bobby@example.com	2016-07-02 05:43:24	2016-07-02 05:43:24	1							
+10	George	Carlin	2086154723	1005 S Indiana Ave	ID	83607	george@example.com	2016-07-02 13:38:04	2016-07-02 13:38:04	1							
+11	Fred	Flinstone	2084593206	2516 W Birch st	Nampa	83607	flinstone@example.com	2016-07-12 06:22:32	2016-07-12 06:22:56								
+66	Debbie	Roedel	455-0857	202 E. Ash St	ID	83605	debbie@aa-abouthomecare.com	2016-07-19 14:35:25	2016-07-19 14:35:25		A & A  About Home Care	Debbie Roedel	455-7918			debbie@aa-abouthomecare.com	Caldwell
+67	Chris and Al	Whitney	208-375-3544	3085 N Cole suite 107	ID	83704	Chris@a-c-accounting.com	2016-07-19 14:35:25	2016-07-19 14:35:25		A & C Accounting					ACAccounting	Boise
+68	Jenn		475-5110	909 3rd St. S.	ID	83651	healthycleancarpet@live.com	2016-07-19 14:35:25	2016-07-19 14:35:25		A1 Chem Dry	Jenn Hitchcock		447-9430	Lynn - owner	AOne-Chemdry	Nampa
+69	Dan	Richter	208-939-0343 main office	18454 N. Mcleod way	ID	83714	benm@avimor.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Avimor	Dan Richter			949-9295	avimorBoise	Boise
+70	Wally	Sanchez	208-453-9675	6618 Cleveland Blvd, Suite B	ID	83607	Lana@bdemployment.net	2016-07-19 14:35:25	2016-07-19 14:35:25		BD Employment	Wally Sanchez		Cell 559-5164	Lana	BDEmployment	Caldwell
+71	Debbie	Lee	208-467-7958 Nampa	9757 Hwy 45	ID	83686	gcasper@biowest.ag	2016-07-19 14:35:25	2016-07-19 14:35:25		Bio Flora / Bio West	Brian Wiebu or Judi		208-397-4515 aberdeen	servr cks to Judy/Invs to dlee	BioWest	Nampa
+72	Chris	Burke	(208)642-2148	P.O. Box 28	ID	83661	cburke_4@msn.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Burke Electric	Chris Burke			Cindy Burke	BurkeElectric	Payette
+73	Sis	Lincoln	208-899-5497	PO Box 99	ID	83676	choicefeed@frontier.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Choice Feed Inc.					ChoiceFeed	Wilder
+74	Chuck	Francis	208-867-8426	1546 N. Shadypark Ave.	ID	83616	cfrancis560@gmail.com	2016-07-19 14:35:25	2016-07-19 14:35:25		CJF Enterprises, LLC	Chuck Francis				ChuckFrancis	Eagle
+75	Charlotte	Coley	541-881-8151	254 SE 2nd Street	OR	97914	coleyglass@fmtc.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Coley Glass					coleyglass	Ontario
+76	Barb	Higinbotham	541-889-1060	49 NW 1st St Suite #6	OR	97914	Heather@cina.team	2016-07-19 14:35:25	2016-07-19 14:35:25		Community in Action	Barb Huiginbotham				CommunityInAction	Ontario
+77	Connie	Keller	208-739-0464	3415 Hwy 30 W	ID	83655	conniescleaning@live.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Connie's Cleaning Service	Connie Keller				ConnieCleanning	New Plymouth
+78	Darlene	Johnson	208-465-6155	1224 2nd Street South	ID	83651	frontdesk@darlenesprinting.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Darlene's Printing	Darlene Johnson			Keri or Tamara	Darlenes	Nampa
+79	John	Dillon	208-466-8994	1117 E Plaza Dr Ste G	ID	83616	DArcher@dillontoyotalift.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Dillon Toyota-Lift	John Dillon	208-461-3532	AP 475-1820	Stacey Thompson	DTL	Eagle
+80	Todd	Dinsmore	541-889-6619				docdinsmore@hotmail.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Dinsmore Chiropractic					Dinsmore	
+81	Shelley	Redican	208-466-1174	823 E. Fargo Ave	ID	83687	shelley@redicandistributing.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Dreyers of Idaho	Dawn Radican			Senthia Don	Dreyers	Nampa
+82	Robin	Cusma	541-889-5578	251 W Idaho Ave #15	OR	97914	robin@idahomtg.com	2016-07-19 14:35:25	2016-07-19 14:35:25		EOC, Inc.	Robin Cusma				EOCInc	Ontario
+83	Tim	Fox	342-7957	1515 S. Shoshone St.	ID	83705	timfox@foxlandsurveys.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Fox Land Surveys	Tim Fox	timfox@foxlandsurveys	Tim cell 921.1504	Donna 869-9221	foxland	Boise
+84	Ross	Barton	(208)739-0105 Tina Cell	1011 12th Ave. S	ID	83661	guardian@gotoguardian.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Guardian Management	Ross Barton		(208)642-4643 Office		Guardian	Payette
+85	Kara	Currey	(208)452-6003	127 N. Whitley	ID	83619	kcurrey@guildmortgage.net	2016-07-19 14:35:25	2016-07-19 14:35:25		Guild Mortgage	Kara Currey		cell (208)740-9071	Chad	Guild	Fruitland
+86	Ron	Hershey	208-642-1100	34 South Main	ID	83660	chris@hershey2.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Hershey Investments	Ron Hershey		Chris - 208.794.6399		hersheyinvestments	Payette
+87	Cathy	Zacharias	541-216-1839	1210 A Street West	OR	97918	homecraftedcreations@gmail.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Home Crafted Creations					HomeCraftedCreations	Vale
+88	Alma	Hasse	208-674-3478	2945 1st Lane East	ID	83660	horizonattachments@msn.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Horizon Machine & Attachments	Alma and Jim Hasse		cell 208-695-1556		HorizonJim	Parma
+89	Mary Ann	and Fran	208-384-9194	1175 West Boise Ave.	ID	83706	IdEye@aol.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Idaho Eyecare Center	Mary Ann Muto			Fran	Ideye	Boise
+90	Jim	Archer	208-891-3280	6526 Conagher	ID	83616	jimarcher_5@msn.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Infinity Homes					JimArcher	Eagle
+91	Lonny	Hytrek	541-889-5318	2880 SW 4th Ave #1	OR	97914	lhytrek@hytrekCPA.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Lonny Hytrek CPA	Lonny Hytrek				HytrekCPA	Ontario
+92	Margarette	Horton-Breeding	208-459-7171	22506 Old Hwy 30	ID	83607	mlmh1222@aol.com	2016-07-19 14:35:25	2016-07-19 14:35:25		M D Horton Bookkeeping & Tax, Inc	Margarette Horton	208-454-4149			MDHortonTax	Caldwell
+93	Shay	Myers	541-610-0410	1445 N 3rd St	OR	97913	shay@owyheeproduce.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Owyhee Produce					OwyheeProduce	Nyssa
+94	Robert	Goodwin	208-642-1000	560 S. 16th Street Suite A	ID	83661	reception@payettecte.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Payette Co Title and Escrow		208-642-1018			PayetteCountyTitle	Payette
+95	Renee	Roe	541-889-9133	1085 N. Oregon Street	OR	97914	mmccrea@phsrehab-ontario.org	2016-07-19 14:35:25	2016-07-19 14:35:25		Presbyterian Community Care Center					PCCC	Ontario
+96	Hilary	Beasley	208-412-7296	7539 Madden Dr	ID	83686	hilary@hilaryshousecleaning.com	2016-07-19 14:35:25	2016-07-19 14:35:25		RAFFLE TIX	Hilary Beasley				hilary@hilaryshousecleaning.com	Nampa
+97	Stephanie	Rohrdanz	208-459-4326	2805 Blaine St., Suite 200	ID	83605	bookkeeper@silverhawkrealty.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Silverhawk Realty	Stephanie Rohrdanz	Stephanie cell 867-27	Debbie Kerr - OM	Tracy Kaspe - other owner	Silverhawk	Caldwell
+98	Lori	Badiola	208-337-4634	P.O. Box 489	ID	83676	lori@badiolacompanies.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Snake River Co	Lori Badiola		573-8456 cell	Bryan Badiola	OwyheeRealty	Wilder
+99	Dave	Ellis	208-337-3744	Homedale, ID  83628		83628	daveellis@frontiernet.net	2016-07-19 14:35:25	2016-07-19 14:35:25		Snake River RV Resort	Dave Ellis				SnakeRiverRVResort	
+100	James	Hart	866-782-8723	13897 W Wainwright	ID	83713	jamesh@statpads.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Stat Pads LLC					Statpads	Boise
+101	Leslie	Hickam	208-459-4821	14068 Sunny Slope Road	ID	83607	leslie@symmsfruit.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Symms Fruit Ranch					SymmsFruitRanch	Caldwell
+102	David	Gray	208-642-9311	26 S. Main	ID		mtribble@threeriversagency.net	2016-07-19 14:35:25	2016-07-19 14:35:25		Three Rivers Insurance	David Gray	Mike Cell 707-5555	Melanie Tribble	Mike Holcomb	ThreeRivers	
+103	Joann	White	208-642-2268	15 S 16th St	ID		tiffanyglove@fmtc.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Tiffany Glove					TiffanyGlove	Payette
+104	Dave	Burt	208-452-3648	2250 North Whitley Drive	ID	83619	info@tvplumbdrain.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Treasure Valley Plumbing	Dave Burt			Maurine	TVPlumbing	Fruitland
+105	Ken	Priebe	208-452-5700	P.O. Box 726			ken@treasurevalleytax.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Treasure Valley Tax Services	Ken Priebe	#938-5600 Eagle	#401-8822 Deb's phone	Ken cell 870-5275	TreasureValleyTax	
+106	Dick	Brotherton	541-889-0037	1765 North Oregon Street	OR	97914	dickbrotherton@gmail.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Treasure Valley Windshields	Dick Brotherton				TVWindshield	Ontario
+107	David	Maria	503.521.6895	4660 Culbertson Drive	OR	97041	dmaria@vorticesdesign.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Vortices Design	David Maria				VorticesDesign	Mount Hood Parkdale
+108	Joey	Carpenter	541-889-9063	1398 Malheur Drive	OR	97914	joey@warringtonirrigation.net	2016-07-19 14:35:25	2016-07-19 14:35:25		Warrington Irrigation, Inc.					Warrington	Ontario
+109	Patrick	Nauman	(208) 414-0452	309 State Street	ID	83672	info@weiserchamber.com	2016-07-19 14:35:25	2016-07-19 14:35:25		Weiser Chamber of Commerce	Patrick Nauman				WeiserCC	Weiser
+110	Casey	Bonner	541-881-9956	1294 S.W. 4th Ave.	OR	97914	heidiaeb@gmail.com	2016-07-19 14:35:25	2016-07-19 14:35:25		World Fitness	Casey Bonner		208-629-9894 heidi	Derrick Cell 208-371-7525	Worldfitness	Ontario
+111	Bill	Prather	cell 208-941-0352	2618 Bannock Ave	ID	83686	cwcontracting1@msn.com	2016-07-19 14:35:25	2016-07-19 14:35:25			Bill Prather		home 208-461-3940		BillPrather	Nampa
+112	Clarissa	Helliwell	541.212.3037	4431 Casa Rio Dive	OR	97914	clarissa_helliwell@us.aflac.com	2016-07-19 14:35:25	2016-07-19 14:35:25							ClarissaHelliwell	Ontario
+113	Dale	Klinchuch	208-859-8944	13680 Crisholm Rd	ID	83607	dklinchuch@cableone.net	2016-07-19 14:35:25	2016-07-19 14:35:25							DKlinchuch	Caldwell
+114	Denny	Snyder	205-463-9106	332 N. Westminster Street	ID	83651	dgsnyder@cableone.net	2016-07-19 14:35:25	2016-07-19 14:35:25			Denny Snyder				DennySnyder	Nampa
+115	Glenwood	Garvey	208-258-7413	2386 West Chateau Drive	ID		glgarvey@glga-intl.com	2016-07-19 14:35:25	2016-07-19 14:35:25					310.612.2300		GlenwoodGarvey	Meridian
+116	Kelley	Phipps	208-949-7569	1209 NW 19th Street	ID	86619	info@centerpointlearningsolutions.com	2016-07-19 14:35:25	2016-07-19 14:35:25			Kelley Phipps				KelleyPhipps	Fruitland
+117	Pam	Huddleston	208-861-2020	11004 W. Napia St	ID	83709	huddp1213@gmail.com	2016-07-19 14:35:25	2016-07-19 14:35:25			Pam Huddleston				PamHudd	Boise
+118	Terry	Andrade	208-599-3409	2150 Old Hornet Rd	ID	83612	twandra3@aol.com	2016-07-19 14:35:25	2016-07-19 14:35:25							TerryAndrade	Council
+119	Vicki	Knapp		504 N Grove Way	ID	83651	vknapp4321@yahoo.com	2016-07-19 14:35:25	2016-07-19 14:35:25							VickiKnapp	Nampa ID 83651

@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid m-5">
+	
+
+ 
+<h1>Labtech Times</h1>
+<div class="row align-items-start align-center"> <%= paginate @labtech_times %>  </div>  
+<table class="table table-responsive">
+  <thead>
+    <tr>
+     
+      <th>ID</th>	
+      <th>Name</th>
+      <th>Timeslipid</th>
+      <th>Ticketid</th>
+      <th>Hours</th>
+      <th>Mins</th>
+      
+      <th>Done</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>User</th>
+     
+      
+       <th>Show</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labtech_times.each do |labtech_time| %>
+      <tr>
+      	
+      	<td><%= labtech_time.lclient_id %></td>     	
+      	<td><%= labtech_time.labtech_client.try(:company_name) %></td>
+        <td><%= labtech_time.timeslip_id %></td>
+        <td><%= labtech_time.ticketid %></td>
+        <td><%= labtech_time.hours %></td>
+        <td><%= labtech_time.mins %></td>
+        
+        <td><%= labtech_time.done %></td>
+        <td><%= labtech_time.lab_date.strftime("%b %e, %l:%M %p") %></td>
+        <td><%= labtech_time.description.truncate(100) %></td>
+        <td><%= labtech_time.labtech_id %></td>
+        <td><%= link_to 'Show', labtech_time %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<% if current_user.admin? %>
+      <div class="align-center m-1"><%= render partial: 'sync_timeslips' %></div>
+     <div class="align-center m-1"><%= render partial: 'update_timeslips' %></div>
+   
+    <div class="align-center m-1"> <%= link_to "Support Hours Report", support_hours_report_labtech_times_path, object: @total_hours, class: 'btn btn-primary' %></div>
+    <div class="align-center m-1"> <%= link_to "Client Timesheet Report", client_timesheet_report_labtech_times_path, object: @client_timesheets, class: 'btn btn-primary' %></div>
+    <% end %>
+    </div>

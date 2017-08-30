@@ -1,0 +1,22 @@
+<%= simple_form_for(@labtech_audit) do |f| %>
+  <%= f.error_notification %>
+<div class="form-group">
+		<div class="col-sm-3">
+  <div class="form-inputs">
+    
+    
+    <%= f.input :technician %>
+    <%= f.input :category %>
+    
+    <%= f.input :cal_ticket %>
+    <%= f.input :cal_time %>
+    
+    <%= f.input :details %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  </div>
+  </div>
+<% end %>

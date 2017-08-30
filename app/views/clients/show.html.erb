@@ -1,0 +1,97 @@
+	<div class="container-fluid">
+	<div class="row m-1 p-1 pt-3">
+		
+		<div class="col-xs-3 p-1"><%= link_to 'Edit', edit_client_path(@client), class: "btn btn-primary", style: "width: 120px"%></div>
+		<div class="col-xs-3 p-1 hidden-xs-down"><%= link_to 'Back', clients_path, class: "btn btn-primary", style: "width: 120px" %></div>
+		<div class="col-xs-3 p-1"><%= link_to "New Ticket", new_client_ticket_path(@client), class: "btn btn-primary", style: "width: 120px" %></div>
+		<div class="col-xs-3 p-1"><%= link_to "New Backup", new_client_backup_path(@client), class: "btn btn-primary", style: "width: 120px"%></div>
+	    <div class="col-xs-3 p-1"><%= link_to 'New Contract', new_client_contract_service_path(@client, @contract_service), class: "btn btn-primary", style: "width: 120px" %> </div>
+		<div class="col-xs-3 p-1"><%= link_to "New System", new_computer_path(@client), class: "btn btn-primary", style: "width: 120px"%></div>
+    
+     </div>
+ 
+	 <div class="row m-1 p-1">
+		    <div class="table-row header mb-2">
+             <div class="col-xs-6 col-md-4">Client</div>
+              <div class="col-xs-6 col-md-4 hidden-xs-down">Communication</div>
+ 	           </div>
+                 <div class="col-xs-6 col-md-4">
+                    <div class="col-xs"><%= @client.full_name %></div>
+                    <div class="col-xs">  <%= number_to_phone(@client.phone_number) %></div>
+                    <div class="col-xs"> <%= @client.address %> </div>
+                    <div class="col-xs"> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %> </div>
+                    <div class="col-xs"> <%= @client.email %></div>
+                 </div>
+              
+          
+                <div class="col-xs-6 col-md-4 hidden-xs-down">
+             	  <%= form_for [@client, Comment.new] do |f| %>
+		          <%= f.text_area :body, placeholder: "Add a comment", style: "width: 100%"  %><br/>
+		          <%= f.submit "Add Comment", class: "btn btn-primary mx-auto", style: "width: 135px" %>
+		          <% end %>
+               </div>
+ 	           <div class="col-md-4 hidden-xs-down">
+ 	           	
+ 	           </div>
+ 	         </div>
+ 	   <% if @client.comments.present? %>
+ 	     <div class="row m-1 p-1 hidden-xs-down">
+  		      <div class="table-row header">
+  		      
+                <div class="col"> Comment</div>
+                <div class="col"> Date</div>
+                <div class="col"> Time</div>
+ 	          </div> 
+ 	          
+ 	          <div class="table-row">
+ 	    	    <%= render(partial: 'comments/comment', collection: @client.comments) %> 
+ 	    	  </div>
+ 	   <% else %>
+ 	     <div class="hidden-xs-up">
+ 	   	</div>
+ 	   <% end %>
+  	     </div>
+  	     
+ 
+  	  
+  	 <% if @tickets.present? %>
+ 	   <div class="row m-1 p-1 mt-3">
+ 	    	<%= render partial: "tickets/tickets_index", :ticket_id => @client.id  %>	    	
+ 	   </div>
+ 	   <% else %>
+ 	    <div class="hidden-xs-up">
+ 	   	</div>
+ 	   <% end %>
+ 	   <% if @computers.present? %>
+ 	 	<div class="row m-1 p-1 mt-3">
+ 	 		<%= render "computers/computers_index", :computer_id => @client.id  %>
+ 	 	 </div>
+ 	 	 <% else %>
+ 	 	  <div class="hidden-xs-up">
+ 	   	 </div>
+ 	     <% end %>
+ 	     <% if @contract_services.present? %>
+ 	 	<div class="row m-1 p-1 mt-3">
+ 	    	  <%= render partial: "contract_services/contract_service_show", object: @contract_services.active %>	    	
+ 	 	  </div>
+ 	 	  <% else %>
+ 	 	  <div class="hidden-xs-up">
+ 	   	 </div>
+ 	   	  <% end %>
+ 	   <% if @anti_viri.present? %> 
+ 	    <div class="row m-1 p-1 mt-3">
+ 	    	<%= render partial: "anti_viri/antiviri_index", object: @anti_viri %>	    	
+ 	 	</div>
+ 	   <% else %>
+ 	     <div class="hidden-xs-up">
+ 	   	 </div>
+ 	   <% end %>
+ 	   <% if @backups.present? %> 
+        <div class="row m-1 p-1 mt-3">
+ 	    	<%= render partial: "backups/clients_index", object: @backups %>	    	
+ 	 	</div>
+ 	   <% else %>
+ 	     <div class="hidden-xs-up">
+ 	   	 </div>
+ 	   <% end %>
+ 	 	</div>

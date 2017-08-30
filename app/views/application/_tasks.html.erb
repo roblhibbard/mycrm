@@ -1,0 +1,36 @@
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+  <tr>
+    <th>Backup account</th>
+    <th>Status</th>
+    <th>Details</th>
+    <th>Communication</th>
+    <th>Description</th>
+   
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @b_tasks.each do |b_task| %>
+   <tr>
+    <td><%= link_to b_task.backup.backup_account, backup_path(b_task.backup_id) %></td>
+    <td><%= b_task.status.name %></td>
+    <td><%= b_task.details %></td>
+    <td><%= b_task.communication.name %></td>
+    <td><%= b_task.description %></td>
+    
+    <td><%= link_to 'Show', [b_task.backup, b_task] %></td>
+    <td><%= link_to 'Edit', edit_backup_b_task_path(b_task.backup, b_task) %></td>
+    <td><%= link_to 'Destroy', [b_task.backup, b_task], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New B task', new_backup_b_task_path(params[:backup_id]) %>

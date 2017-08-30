@@ -1,0 +1,1 @@
+json.partial! "repair_categories/repair_category", repair_category: @repair_category

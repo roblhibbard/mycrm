@@ -1,0 +1,71 @@
+
+	<%= form_tag({controller => "labtech_times", :action => "support_hours_report" }, method: "get") %>
+	<p id="notice"><%= notice %></p>
+  <div class="container">
+	<div class="row align-items-start align-center">		
+      <form class="form-inline">
+
+      
+    
+       <%= text_field_tag(:labmonth, "", placeholder: 'Enter Month Number', class: 'ml-1 p-2 m-1', style: 'height: 31px')%>
+     
+       <%= submit_tag "Get Report", class: "btn btn-primary form-control ml-3", style: "width: 150px" %> 
+      </form>
+   </div>
+
+<div class="align-center"> Total Billable Time = <%= @total_hours_mins %> </div>
+<div class="col-sm-12 col-md-12">
+	<div class="row align-items-start align-center"> <%= paginate @total_hours %>  </div>  
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Hours</th>
+      <th>Mins</th>
+      <th>TTL Hours</th>
+      <th>Support Hrs</th>
+      <th> +/-</th>
+     </tr>
+  </thead>
+
+  <tbody> 
+  	
+<% @total_hours.each do |id, name, hours, mins, support | %>
+  <tr>
+  <td><%= id %></td>
+   <td><%= name %></td>
+   <td><%=  hours%></td>
+   
+   <td><%= mins %></td>
+   <% ttl_hours = (hours + mins) %>
+   <td><%= number_with_precision((ttl_hours/3600.00), precision: 2) %></td>
+   <td><%= support %></td>
+    <td><%= number_with_precision(support - (ttl_hours/3600.00), precision: 2) %></td>
+   
+ </tr>
+ <% end %>
+ <% @no_hours.each do |id, name, hours, mins, support | %>
+  <tr>
+  <td><%= id %></td>
+   <td><%= name %></td>
+   <td><%=  hours%></td>
+   
+   <td><%= mins %></td>
+   <% ttl_hours = (hours + mins) %>
+   <td><%= number_with_precision((ttl_hours/3600.00), precision: 2) %></td>
+   <td><%= support %></td>
+    <td><%= number_with_precision(support - (ttl_hours/3600.00), precision: 2) %></td>
+   
+ </tr>
+ <% end %>
+ </tbody>
+</table>
+ </div>
+
+
+<% if current_user.admin? %>
+     <div class="align-center m-1"><%= render partial: 'sync_timeslips' %></div>
+      <div class="align-center m-1"><%= render partial: 'update_timeslips' %></div>
+    <% end %>
+    </div>

@@ -1,0 +1,2 @@
+json.extract! client_anti_virus, :id, :rep, :username, :password, :lic_number, :computer, :computer_id, :service_type_id, :service_list_id, :created_at, :updated_at
+json.url client_anti_virus_url(client_anti_virus, format: :json)

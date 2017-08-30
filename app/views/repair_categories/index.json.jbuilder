@@ -1,0 +1,1 @@
+json.array! @repair_categories, partial: 'repair_categories/repair_category', as: :repair_category

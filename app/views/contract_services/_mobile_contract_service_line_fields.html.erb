@@ -1,0 +1,9 @@
+   <div class='nested-fields'>
+   	
+      <div class="col-xs-2"><%= f.input :qty, label: "Enter Quantity" %></div>
+       <div class="col mb-2"><%= f.collection_select :service_list_id, service_list_charge, :id, :name, :include_blank => true, prompt: "Choose Service" %></div>
+       <div class="col"><%= f.input :line_comment, label: "Enter Comment" %></div>   
+       <div class="col"><%= link_to_remove_association "Remove Line", f, :class => 'remove_fields btn btn-small btn-danger', style: "width: 50%" %></div>
+   </div>
+   
+      <%= f.hidden_field :client_id, value: session[:client] %>

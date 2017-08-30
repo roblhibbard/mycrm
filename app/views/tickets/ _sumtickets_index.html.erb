@@ -1,0 +1,43 @@
+
+	
+ 
+  <p id="notice"><%= notice %></p>
+
+	<div class="table-row">
+	    
+	      
+	    <% @tickets.each do |ticket| %>
+	      
+	       <%= ticket.id %>
+	       <%= ticket.ticket_title %>
+	      
+	        
+	                    
+	        <td><%= 
+	        if @ticket.issue.present?
+	        @ticket.issue.name 
+	        else
+	        	"N/A"
+	        end
+	        %></td>
+	        
+	        <td><%= ticket.description %></td>
+	        <td><%= ticket.due_date %></td>
+	       
+	        
+	        <td><%= link_to 'Show', ticket %></td>
+	        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+	        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	</div>
+	<br>
+	<%= link_to 'New Ticket', new_ticket_path %>
+	</div>
+  </div>
+ </div>
+
+
+

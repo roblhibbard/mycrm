@@ -1,0 +1,2 @@
+module AntiViriHelper
+end

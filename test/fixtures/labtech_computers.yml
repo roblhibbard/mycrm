@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  computer: 
+  labtech_client: 1
+  labtech_location: 1
+  name: MyString
+  username: MyString
+  os: MyString
+  domain: MyString
+
+two:
+  computer: 
+  labtech_client: 1
+  labtech_location: 1
+  name: MyString
+  username: MyString
+  os: MyString
+  domain: MyString

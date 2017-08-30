@@ -1,0 +1,2 @@
+json.extract! service_list, :id, :charge, :workstation, :server, :antivirus, :backup, :hours, :email, :office, :reoccurrence, :monthly, :yearly, :2year, :one_time, :created_at, :updated_at
+json.url service_list_url(service_list, format: :json)

@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<div class="col-xs-4 col-sm-12 col-md-12">
+
+<div class="flex-center h3"><%= link_to 'New Dispatch', new_dispatch_path %> </div><br/>
+<div class="flex-center"> Calls With Tickets Created: <%= Dispatch.ticketed_dispatch.count%></div>
+<div class="flex-center"> Total Calls: <%= Dispatch.count%> | Percent = <%= (Dispatch.ticketed_dispatch.count.to_f /
+                         Dispatch.count.to_f  * 100) %>  </div>
+<div class="flex-center"> Total Calls Today: <%= Dispatch.daily_phone_calls.count%></div> 
+    <div class="flex-center"> Total Calls Yesterday: <%= Dispatch.yesterday_phone_calls.count%></div>   
+    <div class="flex-center"> Total Calls This Week: <%= Dispatch.this_week.count %></div>
+    <div class="flex-center"> Total Calls Last Week: <%= Dispatch.last_week.count %></div>                      
+    <div class="align-center">
+            
+     <form class="form-inline">   
+       <%= form_tag dispatches_path, method: :get do %>
+     
+       <%= label_tag(:q, "Search for:") %>
+       <%= text_field_tag :q, nil, class: 'input-group m-1' %> 
+       <%= submit_tag 'Search', class: 'btn btn-primary input-group' %>
+     <% end %>
+     </form>
+    </div>
+   
+    <div class="align-center"> <%= paginate @dispatches %>  </div>
+      <div class="table-row header hidden-xs-down"> 
+
+        <div class="col-xs col-sm-2 col-md-2">Phone</div>
+        <div class="col-xs col-sm-4 col-md-4">Details</div>
+        <div class="col-xs col-sm-1 col-md-1">Tech</div>
+        <div class="col-xs col-sm-1 col-md-1">Ticket</div>      
+        <div class="col-xs col-sm-2 col-md-2">Date/Created</div>
+        <div class="col-xs col-sm-1 col-md-1">Show</div>
+        <div class="col-xs col-sm-1 col-md-1 hidden-sm-down">Edit</div>
+      </div>
+   
+
+    
+    <% @dispatches.each do |dispatch| %>
+      <div class="table-row mb-2"> 
+        <div class="col-xs col-sm-2 col-md-2"><%= dispatch.phone %></div>
+        <div class="col-xs col-sm-4 col-md-4"><%= dispatch.details %></div>
+        <div class="col-xs col-sm-1 col-md-1"><%= dispatch.user.try(:first_name) %></div>
+        <div class="col-xs col-sm-1 col-md-1"><%= dispatch.ticket %></div>       
+        <div class="col-xs col-sm-2 col-md-2"><%= dispatch.created_at.strftime("%m-%d-%Y-%I:%M:%S %p") %></div>
+        <div class="col-xs col-sm-1 col-md-1"><%= link_to 'Show', dispatch %> </div>
+        <div class="col-xs col-sm-1 col-md-1 hidden-sm-down"><%= link_to 'Edit', edit_dispatch_path(dispatch) %></div>
+        </div>
+       
+    
+    <% end %>
+    <div class="align-center"> <%= paginate @dispatches %>  </div>
+ 

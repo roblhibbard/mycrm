@@ -1,0 +1,37 @@
+<h1>Listing systems</h1>
+
+<table>
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Operating system</th>
+    <th>User login</th>
+    <th>User password</th>
+    <th>Other items</th>
+    <th>Computer</th>
+    <th>Labtech name</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+<% @systems.each do |system| %>
+  <tr>
+    <td><%= system.make %></td>
+    <td><%= system.model %></td>
+    <td><%= system.operating_system %></td>
+    <td><%= system.user_login %></td>
+    <td><%= system.user_password %></td>
+    <td><%= system.other_items %></td>
+    <td><%= system.computer %></td>
+    <td><%= system.labtech_name %></td>
+    <td><%= link_to 'Show', [system.client, system] %></td>
+    <td><%= link_to 'Edit', edit_client_system_path(system.client, system) %></td>
+    <td><%= link_to 'Destroy', [system.client, system], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New System', new_client_system_path(:client => @client) %>

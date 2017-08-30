@@ -1,0 +1,19 @@
+<%= simple_form_for(@create_ticket) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+  	<div class="col-sm-4">
+    <%= f.input :client_id %>
+    <%= f.input :subject %>
+      
+    <%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+        <%= f.input :started_date, as: :string, input_html: {type: :date} %>
+        <%= f.input :requestor_email %>
+       
+  
+  
+    <%= f.button :submit %>
+  </div>
+</div>
+<% end %>

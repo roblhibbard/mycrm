@@ -1,0 +1,1 @@
+json.partial! "labtech_timeslips/labtech_timeslip", labtech_timeslip: @labtech_timeslip

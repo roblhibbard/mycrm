@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container p-4 pdf_body"> 
+	
+<h3>Extra Client Data</h3>
+
+
+<table class="table table-sm table table-striped">
+  <thead>
+    <tr>
+	
+      <th>Client ID</th>
+       <th>Name</th>
+        <th>Rep</th>
+        <th>Contract Hours</th>
+         <th>Hours Used</th>
+         <th>Hours Remaining</th>
+         
+   </tr>
+  </thead>
+  
+  <tbody>
+    <% @results.each do |row| %>
+     <tr>
+          <td><%= row['ClientID'] %></td>
+           <td><%= row['Name'] %></td>
+           <td><%= row['Contract Rep'] %></td>
+            <td><%= number_with_precision(row['SupportMins']/60, precision: 2) %></td> 
+            <td><%= number_with_precision(row['Hours_Used'], precision: 2) %></td> 
+           <td><%= number_to_currency(row['SupportMins']/60 - row['Hours_Used'], format: '%n') %></td>
+            
+          
+      </tr>
+     <% end %>
+   </tbody>
+</table>
+	</div>
+<div class="align-center"> <h3> Clients with No Hours Used </h3> </div>
+	<div class="container p-4 pdf_body"> 
+	<table class="table table-sm table table-striped">
+  <thead>
+  	<tr>
+	
+       <th>Client ID</th>
+       <th>Name</th>
+       <th>Rep</th>
+       <th>Sup Hrs</th>
+       <th>Billable Time</th>
+       <th>Hours Remaining</th>
+   </tr>
+  </thead>
+    <tbody>
+    <% @results1.each do |row| %>
+     <tr>
+          <td><%= row['clientid'] %></td>
+           <td><%= row['name'] %></td>
+           <td><%= row['Contract Rep'] %></td>
+           <td><%= number_with_precision(row['SupportMins']/60, precision: 2) %></td>
+           <td><%= number_with_precision(row['Monthly Billable Time'], precision: 2) %></td> 
+           <td><%= number_with_precision(row['SupportMins']/60, precision: 2) %></td>
+      </tr>
+     <% end %>
+   </tbody>
+</table>	
+
+<div class="align-center m-1"> <%= link_to 'Download', extra_data_labtickets_path("", format: :pdf), download: "", class: "btn btn-primary" %> </div>
+</div>

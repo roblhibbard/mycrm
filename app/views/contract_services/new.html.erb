@@ -1,0 +1,5 @@
+<div class="container-fluid">
+  <%= render 'form', contract_service: @contract_service %>
+</div>
+  <div class="row m-2 p-4"><%= link_to 'Back', client_contract_services_path(@contract_service.client), :class => "btn btn-primary" %>
+  </div>

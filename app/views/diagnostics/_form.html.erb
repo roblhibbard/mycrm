@@ -1,0 +1,56 @@
+<%= form_for([@diagnostic.ticket, @diagnostic]) do |f| %>
+  <% if @diagnostic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@diagnostic.errors.count, "error") %> prohibited this diagnostic from being saved:</h2>
+
+      <ul>
+      <% @diagnostic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ 	<div class="align-center"><h3>New diagnostic</h3></div>
+    <div class="flex-wrap">
+  <div class="diagnostic-item width-100">
+    <%= f.label :hard_drive %><br />
+    <%= f.check_box :hard_drive %>
+  </div>
+  <div class="diagnostic-item width-100">
+    <%= f.label :mem_test %><br />
+    <%= f.check_box :mem_test %>
+  </div>
+  <div class="diagnostic-item width-100">
+    <%= f.label :mobo %><br />
+    <%= f.check_box :mobo %>
+  </div>
+  <div class="diagnostic-item width-100">
+    <%= f.label :dumps %><br />
+    <%= f.number_field :dumps %>
+  </div>
+  <div class="diagnostic-item width-100">
+    <%= f.label :scans %><br />
+    <%= f.number_field :scans %>
+  </div>
+  <div class="diagnostic-item width-100">
+    <%= f.label :temp %><br />
+    <%= f.text_field :temp %>
+  </div>
+   <div class="diagnostic-item width-100">
+    <%= f.label :chkdsk %><br />
+    <%= f.number_field :chkdsk %>
+  </div>
+  <div class="diagnostic-item width-100">
+    <%= f.label :policies %><br />
+    <%= f.number_field :policies %>
+  </div>
+  <div class="diagnostic-item width-300">
+    <%= f.label :details %><br />
+    <%= f.text_area :details %> <br></br>
+    <div class="align-center"> <%= f.button :submit, class: "btn btn-primary" %> </div>
+  </div>
+    </div>
+ 
+   
+<% end %>

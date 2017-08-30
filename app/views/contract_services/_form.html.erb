@@ -1,0 +1,82 @@
+
+   <%= simple_form_for([@contract_service.client, @contract_service]) do |f| %>
+   <div class="row m-1 p-1 mt-3">
+   <% if @contract_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contract_service.errors.count, "error") %> prohibited this contract_service from being saved:</h2>
+      <ul>
+      <% @contract_service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   
+    <%= f.association :client, selected: session[:client], label: false, 
+                                 label_method: :full_name, as: :hidden %> 
+
+      
+         <div class="col-md-10 align-center"> 
+           <h3> Contract for
+        	<% if @client.company.present? %>
+        	  <%= @client.try(:company)%>
+            <% else %>
+        	  <%= @client.first_name %> <%= @client.last_name %>  
+        	<% end %>
+        </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 form-inline m-2">	
+         	 <div class="col-xs-1 col-sm-1 col-md-2"><%= f.association :user, label: false, label_method: :email, value_method: :id, include_blank: "Select Tech" %> </div>
+         	 <div class="col-xs-1 col-md-1"><%= f.input :active %> </div>
+         	 </div>
+         	 <div class="col-xs-12 col-sm-12 col-md-12 form-inline m-2">	
+         	 <div class="col-xs-1 col-md-1"> Service Date </div>
+             <div class="col-xs-4 col-md-3"> <%= f.input :service_date, label: false %> </div>
+             <div class="col-xs-1 col-md-1"> Bill Date </div>
+         	 <div class="col-xs-4 col-md-3"><%= f.input :next_service_date, label: false, selected: Date.today.at_beginning_of_month.next_month %> </div>
+         	 
+          </div>
+        
+      <div class="col-xs-12 col-md-12">
+       <div class="table-row header hidden-xs-down">
+       
+           
+             <div class="col-xs-1 col-md-1"> Qty </div>
+             <div class="col-xs-4 col-md-4"> Service </div>
+            
+             <div class="col-xs-5 col-md-5"> Line Comments </div>
+             <div class="col-xs-2 col-md-2">Line Actions </div>
+         </div>
+      
+         
+        
+         <div class="lines">
+          <div class="table-row"> 
+             <%= f.simple_fields_for :contract_service_lines do |contract_service_line| %>
+               <%= render "contract_service_line_fields", f: contract_service_line %>  
+             <% end %>
+           
+          </div>
+          </div> 
+          </div> 
+          
+          <div class="col-12">
+          <div class="form-actions">
+          	<div class="col-xs col-md">
+            <%= f.button :submit, class: "btn btn-primary m-1" %> 
+            </div>
+            <div class="col-xs-12 col-md-12">
+       	     <div class="links"><%= link_to_add_association 'Add Services', f, :contract_service_lines, class: 'btn btn-primary m-1', style: "width: 150px", 
+             data: { association_insertion_node: '.lines', association_insertion_method: :append} %>
+             </div>
+             </div>
+           </div>
+     </div>
+  
+      </div>
+    <% end %>
+ 
+
+
+
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_title: MyString
+  issue: MyString
+  priority: MyString
+  description: MyText
+  due_date: 2016-08-06
+  tech: MyString
+  client: one
+
+two:
+  ticket_title: MyString
+  issue: MyString
+  priority: MyString
+  description: MyText
+  due_date: 2016-08-06
+  tech: MyString
+  client: two

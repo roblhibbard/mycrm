@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid p-4 pdf_body"> 
+	
+<h3>Open QBR Tickets</h3>
+
+
+<table class="table table-condensed table table-bordered">
+  <thead class="thead-inverse">
+    <tr>
+	
+      <th>TicketID</th>
+      <th>Client</th>
+      <th>ID</th>
+     
+      <th>Comp ID</th>
+      <th>Subject</th>
+      <th>Tech</th>
+      <th>Submitted</th>
+      
+   </tr>
+  </thead>
+  <tbody>
+    <% @qbr['value'].each do |key| %>
+     <tr>
+          <td><%= key['TicketID'] %></td>
+          <td><%= key['Client']['Name'] %></td>
+          <td><%= key['ClientID'] %></td>
+          
+          <td><%= key['ComputerID'] %></td>
+          <td><%= key['Subject'] %></td>
+          <td><%= key['UserID'] %></td>
+          <td><%= Date.parse(key['StartedDate']).strftime("%b-%e-%y") %></td>
+        
+      </tr>
+     <% end %>
+   </tbody>
+</table>	
+<div class="align-center m-1"> <%= link_to 'Download', qbr_tickets_labtickets_path("", format: :pdf), download: "", class: "btn btn-primary" %> </div>
+</div>

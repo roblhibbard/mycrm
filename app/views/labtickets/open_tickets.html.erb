@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid p-4 pdf_body"> 
+	
+<h3>Open Tickets</h3>
+<div class="align-center m-1"> <%= link_to 'Download', open_tickets_labtickets_path("", format: :pdf), download: "", class: "btn btn-primary" %> </div>
+
+<table class="table table-sm table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+	
+      <th>TicketID</th>
+      <th>Client</th>
+      <th>ID</th>
+      <th>Computer</th>
+      <th>ID</th>
+      <th>Subject</th>
+      <th>Tech</th>
+      <th>Submitted</th>
+      
+   </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |row| %>
+     <tr>
+          <td><%= row['TicketID'] %></td>
+          <td><%= row['Company'] %></td>
+          <td><%= row['ClientID'] %></td>
+          <td><%= row['ComputerName'] %></td>
+          <td><%= row['ComputerID'] %></td>
+          <td><%= row['Subject'] %></td>
+          <td><%= row['UserName'] %></td>
+          <td><%= row['StartedDate'].strftime("%b-%e-%y") %></td>
+        
+      </tr>
+     <% end %>
+   </tbody>
+</table>	
+<div class="align-center m-1"> <%= link_to 'Download', open_tickets_labtickets_path("", format: :pdf), download: "", class: "btn btn-primary" %> </div>
+</div>

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hard drive:</b>
+  <%= @diagnostic.hard_drive %>
+</p>
+
+<p>
+  <b>Mem test:</b>
+  <%= @diagnostic.mem_test %>
+</p>
+
+<p>
+  <b>Mobo:</b>
+  <%= @diagnostic.mobo %>
+</p>
+
+<p>
+  <b>Dumps:</b>
+  <%= @diagnostic.dumps %>
+</p>
+
+<p>
+  <b>Scans:</b>
+  <%= @diagnostic.scans %>
+</p>
+
+<p>
+  <b>Temp:</b>
+  <%= @diagnostic.temp %>
+</p>
+
+<p>
+  <b>Chkdsk:</b>
+  <%= @diagnostic.chkdsk %>
+</p>
+
+<p>
+  <b>Policies:</b>
+  <%= @diagnostic.policies %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @diagnostic.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_ticket_diagnostic_path(@diagnostic.ticket, @diagnostic) %> |
+<%= link_to 'Back', ticket_diagnostics_path(@diagnostic.ticket) %>
+<%= link_to 'Destroy', [@ticket, @diagnostic], :confirm => 'Are you sure?', :method => :delete %></div>

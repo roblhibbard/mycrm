@@ -1,0 +1,20 @@
+<%= simple_form_for(@labtech_time) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :timeslipid %>
+    <%= f.input :ticketid %>
+    <%= f.input :hours %>
+    <%= f.input :mins %>
+    <%= f.input :done %>
+    <%= f.input :date %>
+    <%= f.input :description %>
+    <%= f.association :user %>
+    <%= f.association :labticket %>
+    <%= f.association :labtech_client %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
