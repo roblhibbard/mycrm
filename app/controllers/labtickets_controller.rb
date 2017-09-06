@@ -84,7 +84,6 @@ class LabticketsController < ApplicationController
        
        db = MyDb.conn 
        
-       
         sql = 'SELECT tickets.*, clients.*
         FROM tickets
         JOIN clients on tickets.clientid = clients.clientid
