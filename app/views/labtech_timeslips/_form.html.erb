@@ -1,22 +1,40 @@
+<div class="container">
 <%= simple_form_for(@labtech_timeslip) do |f| %>
   <%= f.error_notification %>
-
-   <div class="form-group">
-
+   <h1>New Labtech Timeslip</h1>
+    
+	<div class="col-sm col-md  ">
+  	
+  	 <div class="col-sm-4 col-md-7">	
+       
+        <%= f.input :started_date %>
+  		<%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
   		<%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
                      "Choose Client", include_blank: false %>
-        <%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
-                     "Choose Tech", include_blank: false %>
+        
+        
+          <%= f.input :subject %>       
+        
+        
+      </div>
+      <div class="col-sm-4 col-md-4 ml-md-auto">
+        <%= f.input :lab_ticketid %>         
         <%= f.input :labtime, collection: LabtechTimeslip.all, label_method: :name, value_method: :labtime, prompt: "Choose Categorie", include_blank: false %>
-        <%= f.input :started_date %>
-        <%= f.input :lab_ticketid %>            
-        <%= f.input :subject %>
         <%= f.input :hours %>
         <%= f.input :mins %>
-        
-  
+        </div>
+      </div>
+      <div class="align-center m-1">
+  <div class="col-sm-3 col-md-3"> 
  <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
  </div>
-    
+ </div>
+    <div class="row justify-content-md-center">
+  <div class="col-xs px-5">
+  <%= link_to 'Back', labtickets_path, class: "btn btn-primary", style: "width: 100px" %>
+    </div>
+  </div>
 
 <% end %>
+</div>

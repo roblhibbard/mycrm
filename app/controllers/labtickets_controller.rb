@@ -3,6 +3,7 @@ class LabticketsController < ApplicationController
  require 'httparty'
  require 'labtech'
  require 'my_db'
+ 
  before_action :set_labticket, only: [:show, :edit, :update, :destroy]
  #before_action :c_tickets
   
@@ -19,6 +20,7 @@ class LabticketsController < ApplicationController
    @offline = Labtech.offline_server
    @qbr = Labtech.qbr
    @hd = Labtech.get_hd
+   #@external_ticket = ExternalLabtech.where(ClientID: 1)
   # @ticket_open = Labtech.ticket_open 
    
 

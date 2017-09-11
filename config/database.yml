@@ -30,3 +30,13 @@ test:
   pool: 5
   password: Ezbc83651$
   encoding: utf8
+
+external_labtech:
+  adapter: mysql2
+  port: 3306
+  database: labtech
+  host: 192.168.1.7
+  username: robert
+  pool: 5
+  password: Chang3m3
+  encoding: utf8

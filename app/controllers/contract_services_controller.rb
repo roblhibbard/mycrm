@@ -30,7 +30,7 @@ class ContractServicesController < ApplicationController
     
      if @client.blank?
   
-      @contract_services = ContractService.active.all.includes(:client).order(:client_id).page params[:page]
+      @contract_services = ContractService.active.joins(:client).merge(Client.order(company: :asc)).page params[:page]
       
     else
     @contract_services = @client.contract_services.active.order(:client_id).page params[:page]

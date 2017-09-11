@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810210609) do
+ActiveRecord::Schema.define(version: 20170724201640) do
 
   create_table "anti_viri", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "client_id"
@@ -485,6 +485,8 @@ ActiveRecord::Schema.define(version: 20170810210609) do
     t.integer "lab_clientid"
     t.integer "lab_ticketid"
     t.integer "labtech_client_id"
+    t.integer "lab_ticket_status_id"
+    t.index ["lab_ticket_status_id"], name: "index_labtech_timeslips_on_lab_ticket_status_id"
     t.index ["labtech_client_id"], name: "index_labtech_timeslips_on_labtech_client_id"
   end
 
@@ -508,7 +510,7 @@ ActiveRecord::Schema.define(version: 20170810210609) do
     t.text "time_subject"
     t.integer "labtech_location_id"
     t.integer "labtech_computer_id"
-    t.bigint "lab_ticket_status_id"
+    t.integer "lab_ticket_status_id"
     t.index ["lab_ticket_status_id"], name: "index_labtickets_on_lab_ticket_status_id"
     t.index ["labtech_client_id"], name: "index_labtickets_on_labtech_client_id"
     t.index ["labtech_computer_id"], name: "index_labtickets_on_labtech_computer_id"
