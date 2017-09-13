@@ -5,7 +5,7 @@ class Labticket < ApplicationRecord
  before_save :token, :ticket
  after_save :travel_time
  #after_create :create_ticket
- 
+  belongs_to :labtech_dispatch
   belongs_to :labtech_client
   belongs_to :user
   belongs_to :labtech_timeslip

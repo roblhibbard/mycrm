@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="col-xs-4 col-sm-12 col-md-12">
-
+	
+<div class="flex-center h3"> Welcome, <%= current_user.first_name if current_user %></div><br/>
 <div class="flex-center h3"><%= link_to 'New Dispatch', new_dispatch_path %> </div><br/>
 
 <div class="flex-center"> Calls Today: <%= Dispatch.daily_phone_calls.count%></div> 

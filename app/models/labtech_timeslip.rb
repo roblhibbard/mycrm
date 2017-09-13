@@ -9,6 +9,7 @@ class LabtechTimeslip < ApplicationRecord
   belongs_to :labtech_client
   belongs_to :user
   belongs_to :lab_ticket_status
+  belongs_to :timeslip_category
   has_and_belongs_to_many :labtech_timeslips
   
   def token

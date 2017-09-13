@@ -8,7 +8,7 @@
   	
   	 <div class="col-sm-4 col-md-7">	
   	<%= f.input :started_date %> 
-  	<%= f.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+  	<%= f.association :user, selected: current_user.id, label_method: :email, value_method: :labtech_id, prompt:
                      "Choose Tech", include_blank: false %>
     <%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
                      "Choose Client", include_blank: false %> 

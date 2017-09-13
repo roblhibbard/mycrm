@@ -1,0 +1,32 @@
+<div class="container">
+
+ 
+
+  <div class="col-sm col-md"> 
+  	
+  	 <div class="col-sm-4 col-md-7">	
+  	<%= labticket.input :started_date %> 
+  	<%= labticket.association :user, selected: :current_user, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+    <%= labticket.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+                     "Choose Client", include_blank: false %> 
+     <%= labticket.input :requestor_email %>                   
+     <%= labticket.input :subject %>
+     <%= labticket.input :time_subject %>
+     </div>
+  </div>
+ 	   <div class="col-sm-4 col-md-4 ml-md-auto">
+ 	   	<%= labticket.input :labtechloc %>
+        <%= labticket.input :labtechpc %> 
+       
+        <%= labticket.association :labtech_timeslip, label_method: :name, value_method: :labtime, prompt:
+                     "Choose Categorie", include_blank: labticketalse %>
+        <%= labticket.association :lab_ticket_status, label_method: :name, value_method: :lab_status, prompt:
+                     "Choose Status", include_blank: labticketalse %>             
+         <%= labticket.input :hours %>
+         <%= labticket.input :mins %>
+   
+  	 </div>
+  	 
+  	  
+  

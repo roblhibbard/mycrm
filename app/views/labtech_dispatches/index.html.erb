@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Labtech Dispatches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phone</th>
+      <th>Subject</th>
+      <th>Started date</th>
+      <th>Update date</th>
+      <th>Requestor email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labtech_dispatches.each do |labtech_dispatch| %>
+      <tr>
+        <td><%= labtech_dispatch.phone %></td>
+        <td><%= labtech_dispatch.subject %></td>
+        <td><%= labtech_dispatch.started_date %></td>
+        <td><%= labtech_dispatch.update_date %></td>
+        <td><%= labtech_dispatch.requestor_email %></td>
+        <td><%= link_to 'Show', labtech_dispatch %></td>
+        <td><%= link_to 'Edit', edit_labtech_dispatch_path(labtech_dispatch) %></td>
+        <td><%= link_to 'Destroy', labtech_dispatch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labtech Dispatch', new_labtech_dispatch_path %>

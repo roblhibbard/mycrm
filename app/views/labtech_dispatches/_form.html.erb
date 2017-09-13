@@ -1,0 +1,41 @@
+<div class="container">
+<h1>New Labtech Dispatch</h1>
+<div class="col-sm col-md">
+	<div class="col-sm-4 col-md-7">
+<%= simple_form_for(@labtech_dispatch) do |f| %>
+  
+  
+    <%= f.input :phone %>
+  
+   <%= f.simple_fields_for :labtickets do |labticket| %>
+  	  <%= labticket.input :time_subject %>
+      <%= labticket.input :started_date %> 
+  	  <%= labticket.association :user, selected: current_user.id, label_method: :email, value_method: :labtech_id, prompt:
+                     "Choose Tech", include_blank: false %>
+      <%= labticket.association :labtech_client, selected: "1", collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+                     "Choose Client", include_blank: false %> 
+      <%= labticket.input :requestor_email, input_html: { value: current_user.email } %>                   
+      <%= labticket.input :subject, input_html: { value: "Dispatch Call: " }%> 
+      
+     </div>
+ 
+ 	   <div class="col-sm-4 col-md-4 ml-md-auto">
+ 	   	<%= labticket.input :labtechloc, input_html: { value: "1" }%>
+        <%= labticket.input :labtechpc, input_html: { value: "411" } %> 
+       
+        <%= labticket.association :timeslip_category, label_method: :name, value_method: :labtime, prompt:
+                     "Choose Categorie", include_blank: false %>
+        <%= labticket.association :lab_ticket_status, label_method: :name, value_method: :lab_status, prompt:
+                     "Choose Status", include_blank: false %>             
+         <%= labticket.input :hours %>
+         <%= labticket.input :mins %>
+   	</div>
+   	<% end %>
+</div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  
+  <%= link_to 'Back', labtech_dispatches_path %>
+<% end %>
+</div>

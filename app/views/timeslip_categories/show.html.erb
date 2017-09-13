@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @timeslip_category.name %>
+</p>
+
+<p>
+  <strong>Labtime:</strong>
+  <%= @timeslip_category.labtime %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_timeslip_category_path(@timeslip_category) %> |
+<%= link_to 'Back', timeslip_categories_path %>

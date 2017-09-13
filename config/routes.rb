@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :timeslip_categories
+  resources :labtech_dispatches
   resources :lab_ticket_statuses
   resources :backup_pcs
   resources :labtech_client_other_data

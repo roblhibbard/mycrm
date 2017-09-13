@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724201640) do
+ActiveRecord::Schema.define(version: 20170913205059) do
 
   create_table "anti_viri", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "client_id"
@@ -427,6 +427,16 @@ ActiveRecord::Schema.define(version: 20170724201640) do
     t.index ["labtech_location_id"], name: "index_labtech_computers_on_labtech_location_id"
   end
 
+  create_table "labtech_dispatches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "phone"
+    t.text "subject"
+    t.datetime "started_date"
+    t.datetime "update_date"
+    t.string "requestor_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "labtech_locations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "lclient_id"
     t.string "name"
@@ -486,8 +496,10 @@ ActiveRecord::Schema.define(version: 20170724201640) do
     t.integer "lab_ticketid"
     t.integer "labtech_client_id"
     t.integer "lab_ticket_status_id"
+    t.bigint "timeslip_category_id"
     t.index ["lab_ticket_status_id"], name: "index_labtech_timeslips_on_lab_ticket_status_id"
     t.index ["labtech_client_id"], name: "index_labtech_timeslips_on_labtech_client_id"
+    t.index ["timeslip_category_id"], name: "index_labtech_timeslips_on_timeslip_category_id"
   end
 
   create_table "labtickets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -511,11 +523,15 @@ ActiveRecord::Schema.define(version: 20170724201640) do
     t.integer "labtech_location_id"
     t.integer "labtech_computer_id"
     t.integer "lab_ticket_status_id"
+    t.bigint "labtech_dispatch_id"
+    t.bigint "timeslip_category_id"
     t.index ["lab_ticket_status_id"], name: "index_labtickets_on_lab_ticket_status_id"
     t.index ["labtech_client_id"], name: "index_labtickets_on_labtech_client_id"
     t.index ["labtech_computer_id"], name: "index_labtickets_on_labtech_computer_id"
+    t.index ["labtech_dispatch_id"], name: "index_labtickets_on_labtech_dispatch_id"
     t.index ["labtech_location_id"], name: "index_labtickets_on_labtech_location_id"
     t.index ["labtech_timeslip_id"], name: "index_labtickets_on_labtech_timeslip_id"
+    t.index ["timeslip_category_id"], name: "index_labtickets_on_timeslip_category_id"
   end
 
   create_table "locations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -748,6 +764,13 @@ ActiveRecord::Schema.define(version: 20170724201640) do
     t.index ["labtech_time_id"], name: "index_time_categories_on_labtech_time_id"
   end
 
+  create_table "timeslip_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "labtime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "todo_lists", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -816,6 +839,9 @@ ActiveRecord::Schema.define(version: 20170724201640) do
   add_foreign_key "labtech_times", "labtech_clients"
   add_foreign_key "labtech_times", "labtickets"
   add_foreign_key "labtech_times", "users"
+  add_foreign_key "labtech_timeslips", "timeslip_categories"
+  add_foreign_key "labtickets", "labtech_dispatches"
+  add_foreign_key "labtickets", "timeslip_categories"
   add_foreign_key "malwares", "repairs"
   add_foreign_key "priorities", "clients"
   add_foreign_key "service_types", "clients"

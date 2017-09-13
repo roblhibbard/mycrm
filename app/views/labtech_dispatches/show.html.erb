@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @labtech_dispatch.phone %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @labtech_dispatch.subject %>
+</p>
+
+<p>
+  <strong>Started date:</strong>
+  <%= @labtech_dispatch.started_date %>
+</p>
+
+<p>
+  <strong>Update date:</strong>
+  <%= @labtech_dispatch.update_date %>
+</p>
+
+<p>
+  <strong>Requestor email:</strong>
+  <%= @labtech_dispatch.requestor_email %>
+</p>
+
+<%= link_to 'Edit', edit_labtech_dispatch_path(@labtech_dispatch) %> |
+<%= link_to 'Back', labtech_dispatches_path %>
