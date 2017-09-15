@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913205059) do
+ActiveRecord::Schema.define(version: 20170914214425) do
 
   create_table "anti_viri", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "client_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.text "notes"
     t.boolean "active"
     t.integer "labtech_computer_id"
-    t.integer "labtech_client_id"
+    t.bigint "labtech_client_id"
     t.integer "service_list_id"
     t.integer "contract_service_id"
     t.datetime "created_at", null: false
@@ -348,7 +348,7 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.index ["ticket_id"], name: "index_items_on_ticket_id"
   end
 
-  create_table "lab_ticket_statuses", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "lab_ticket_statuses", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "lab_status"
     t.datetime "created_at", null: false
@@ -372,7 +372,7 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "labtech_client_other_data", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "labtech_client_other_data", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "lclient_id"
     t.string "name"
     t.string "contract_rep"
@@ -381,13 +381,13 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.string "monthly_non_billable_time"
     t.integer "servers_under_contract"
     t.integer "workstations_under_contract"
-    t.integer "labtech_client_id"
+    t.bigint "labtech_client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["labtech_client_id"], name: "index_labtech_client_other_data_on_labtech_client_id"
   end
 
-  create_table "labtech_clients", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "labtech_clients", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "company_name"
     t.string "first_name"
     t.string "last_name"
@@ -412,8 +412,8 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.string "username"
     t.string "os"
     t.string "domain"
-    t.integer "labtech_client_id"
-    t.integer "labtech_location_id"
+    t.bigint "labtech_client_id"
+    t.bigint "labtech_location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "backup_id"
@@ -430,14 +430,13 @@ ActiveRecord::Schema.define(version: 20170913205059) do
   create_table "labtech_dispatches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "phone"
     t.text "subject"
-    t.datetime "started_date"
-    t.datetime "update_date"
-    t.string "requestor_email"
+    t.bigint "timeslip_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["timeslip_category_id"], name: "index_labtech_dispatches_on_timeslip_category_id"
   end
 
-  create_table "labtech_locations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "labtech_locations", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "lclient_id"
     t.string "name"
     t.string "address"
@@ -447,7 +446,7 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.string "phone"
     t.string "fax"
     t.text "comments"
-    t.integer "labtech_client_id"
+    t.bigint "labtech_client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lablocation_id"
@@ -466,8 +465,8 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.datetime "lab_date"
     t.text "description"
     t.integer "user_id"
-    t.integer "labticket_id"
-    t.integer "labtech_client_id"
+    t.bigint "labticket_id"
+    t.bigint "labtech_client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lclient_id"
@@ -482,47 +481,47 @@ ActiveRecord::Schema.define(version: 20170913205059) do
     t.index ["user_id"], name: "index_labtech_times_on_user_id"
   end
 
-  create_table "labtech_timeslips", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "labtech_timeslips", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "labtime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "started_date"
     t.integer "mins"
     t.integer "hours"
     t.text "subject"
     t.integer "lab_clientid"
     t.integer "lab_ticketid"
-    t.integer "labtech_client_id"
-    t.integer "lab_ticket_status_id"
+    t.bigint "labtech_client_id"
+    t.bigint "lab_ticket_status_id"
     t.bigint "timeslip_category_id"
     t.index ["lab_ticket_status_id"], name: "index_labtech_timeslips_on_lab_ticket_status_id"
     t.index ["labtech_client_id"], name: "index_labtech_timeslips_on_labtech_client_id"
     t.index ["timeslip_category_id"], name: "index_labtech_timeslips_on_timeslip_category_id"
   end
 
-  create_table "labtickets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "labtickets", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "subject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "requestor_email"
     t.integer "lab_clientid"
     t.integer "status_id"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "started_date"
     t.integer "hours"
     t.integer "mins"
     t.integer "category"
-    t.integer "labtech_client_id"
-    t.integer "labtech_timeslip_id"
+    t.bigint "labtech_client_id"
+    t.bigint "labtech_timeslip_id"
     t.integer "labtechloc"
     t.integer "labtechpc"
     t.text "lab_request"
     t.text "time_subject"
-    t.integer "labtech_location_id"
-    t.integer "labtech_computer_id"
-    t.integer "lab_ticket_status_id"
+    t.bigint "labtech_location_id"
+    t.bigint "labtech_computer_id"
+    t.bigint "lab_ticket_status_id"
     t.bigint "labtech_dispatch_id"
     t.bigint "timeslip_category_id"
     t.index ["lab_ticket_status_id"], name: "index_labtickets_on_lab_ticket_status_id"
@@ -821,6 +820,7 @@ ActiveRecord::Schema.define(version: 20170913205059) do
   add_foreign_key "backup_pcs", "backups"
   add_foreign_key "backup_pcs", "clients"
   add_foreign_key "backup_pcs", "computers"
+  add_foreign_key "backup_pcs", "labtech_clients"
   add_foreign_key "backups", "clients"
   add_foreign_key "computers", "clients"
   add_foreign_key "computers", "labtech_computers"
@@ -836,11 +836,15 @@ ActiveRecord::Schema.define(version: 20170913205059) do
   add_foreign_key "diagnostics", "tickets"
   add_foreign_key "issues", "clients"
   add_foreign_key "labtech_client_other_data", "labtech_clients"
+  add_foreign_key "labtech_computers", "labtech_clients"
+  add_foreign_key "labtech_computers", "labtech_locations"
+  add_foreign_key "labtech_dispatches", "timeslip_categories"
   add_foreign_key "labtech_times", "labtech_clients"
-  add_foreign_key "labtech_times", "labtickets"
-  add_foreign_key "labtech_times", "users"
   add_foreign_key "labtech_timeslips", "timeslip_categories"
+  add_foreign_key "labtickets", "lab_ticket_statuses"
   add_foreign_key "labtickets", "labtech_dispatches"
+  add_foreign_key "labtickets", "labtech_locations"
+  add_foreign_key "labtickets", "labtech_timeslips"
   add_foreign_key "labtickets", "timeslip_categories"
   add_foreign_key "malwares", "repairs"
   add_foreign_key "priorities", "clients"
@@ -850,5 +854,4 @@ ActiveRecord::Schema.define(version: 20170913205059) do
   add_foreign_key "tasks", "todo_lists"
   add_foreign_key "ticket_comments", "tickets"
   add_foreign_key "tickets", "clients"
-  add_foreign_key "time_categories", "labtech_times"
 end

@@ -12,6 +12,7 @@ class Labticket < ApplicationRecord
   belongs_to :labtech_location
   belongs_to :labtech_computer
   belongs_to :lab_ticket_status
+  belongs_to :timeslip_category
   has_many   :labtech_times
  
   #belongs_to :client
@@ -42,11 +43,12 @@ class Labticket < ApplicationRecord
   @labrequest = self.requestor_email
   @hours = self.hours
   @mins = self.mins
-  @category = self.labtech_timeslip_id
+  #@category = self.labtech_timeslip_id
+  @category = self.timeslip_category_id
   @lablocation = self.labtechloc
   @labcomputer = self.labtechpc
   @time_subject = self.time_subject
-  
+ 
       
    @response = HTTParty.post('http://labtech.core-pc.com/WCC2/API/Tickets/',
    :headers =>  {'Content-Type' => 'application/json', "Authorization" => "LTToken  #{@token}",
@@ -74,7 +76,7 @@ class Labticket < ApplicationRecord
     "GUID": ""}.to_json
   )
  
-  
+  puts@response.body
   
   @getresult = HTTParty.get('http://labtech.core-pc.com/WCC2/API/Tickets/?$top=1&$orderby=TicketID desc',
   :headers =>  {'Content-Type' => 'application/json', "Authorization" => "LTToken  #{@token}",
@@ -83,6 +85,7 @@ class Labticket < ApplicationRecord
    @ticketid = @getresult['value'][0]['TicketID']
   
    puts @response.body
+   puts @category.inspect
   
    @response_request = HTTParty.post('http://labtech.core-pc.com/WCC2/API/TicketData/',
    :headers =>  {'Content-Type' => 'application/json', "Authorization" => "LTToken  #{@token}",
@@ -97,10 +100,8 @@ class Labticket < ApplicationRecord
   "UserID": @labuser,
   "TicketDataDate": @start
  }.to_json )
-  
-   
-   
-   @response = HTTParty.post('http://labtech.core-pc.com/WCC2/API/TimeSlips/',
+ 
+    @response = HTTParty.post('http://labtech.core-pc.com/WCC2/API/TimeSlips/',
       :headers => {'Content-Type' => 'application/json', "Authorization" => "LTToken  #{@token}",
                  "User-Agent" => "robert" },
        :body => {
@@ -120,7 +121,7 @@ class Labticket < ApplicationRecord
       end 
        
        def travel_time   
-      if self.labtech_timeslip_id == 5
+      if @category == 5
         
    @response1 = HTTParty.post('http://labtech.core-pc.com/WCC2/API/TimeSlips/',
       :headers => {'Content-Type' => 'application/json', "Authorization" => "LTToken  #{@token}",

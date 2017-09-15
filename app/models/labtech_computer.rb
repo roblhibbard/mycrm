@@ -1,5 +1,5 @@
 class LabtechComputer < ApplicationRecord
-    self.primary_key = "computerid"
+   # self.primary_key = "computerid"
   belongs_to :labtech_client
   belongs_to :labtech_location
   belongs_to :backup

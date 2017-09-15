@@ -3,13 +3,9 @@
 one:
   phone: MyString
   subject: MyText
-  started_date: 2017-09-12 06:49:48
-  update_date: 2017-09-12 06:49:48
-  requestor_email: MyString
+  timslip_category: one
 
 two:
   phone: MyString
   subject: MyText
-  started_date: 2017-09-12 06:49:48
-  update_date: 2017-09-12 06:49:48
-  requestor_email: MyString
+  timslip_category: two

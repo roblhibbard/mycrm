@@ -23,11 +23,12 @@
  	   	<%= f.input :labtechloc %>
         <%= f.input :labtechpc %> 
        
-        <%= f.association :labtech_timeslip, label_method: :name, value_method: :labtime, prompt:
+        <%= f.association :timeslip_category, label_method: :name, value_method: :labtime, prompt:
                      "Choose Categorie", include_blank: false %>
-        <%= f.association :lab_ticket_status, label_method: :name, value_method: :lab_status, prompt:
-                     "Choose Status", include_blank: false %>             
-         <%= f.input :hours %>
+        <%= f.association :lab_ticket_status, selected: "4", label_method: :name, value_method: :lab_status, prompt:
+                     "Choose Status", include_blank: false %>  
+        
+        <%= f.input :hours %>
          <%= f.input :mins %>
    
   	 </div>

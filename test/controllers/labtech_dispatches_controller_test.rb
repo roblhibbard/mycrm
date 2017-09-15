@@ -17,7 +17,7 @@ class LabtechDispatchesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create labtech_dispatch" do
     assert_difference('LabtechDispatch.count') do
-      post labtech_dispatches_url, params: { labtech_dispatch: { phone: @labtech_dispatch.phone, requestor_email: @labtech_dispatch.requestor_email, started_date: @labtech_dispatch.started_date, subject: @labtech_dispatch.subject, update_date: @labtech_dispatch.update_date } }
+      post labtech_dispatches_url, params: { labtech_dispatch: { phone: @labtech_dispatch.phone, subject: @labtech_dispatch.subject, timslip_category_id: @labtech_dispatch.timslip_category_id } }
     end
 
     assert_redirected_to labtech_dispatch_url(LabtechDispatch.last)
@@ -34,7 +34,7 @@ class LabtechDispatchesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update labtech_dispatch" do
-    patch labtech_dispatch_url(@labtech_dispatch), params: { labtech_dispatch: { phone: @labtech_dispatch.phone, requestor_email: @labtech_dispatch.requestor_email, started_date: @labtech_dispatch.started_date, subject: @labtech_dispatch.subject, update_date: @labtech_dispatch.update_date } }
+    patch labtech_dispatch_url(@labtech_dispatch), params: { labtech_dispatch: { phone: @labtech_dispatch.phone, subject: @labtech_dispatch.subject, timslip_category_id: @labtech_dispatch.timslip_category_id } }
     assert_redirected_to labtech_dispatch_url(@labtech_dispatch)
   end
 

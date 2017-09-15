@@ -13,11 +13,6 @@ class LabtechDispatchesController < ApplicationController
   # GET /labtech_dispatches/1
   # GET /labtech_dispatches/1.json
   def show
-    
-   # @labticket = @labtech_dispatch.labtickets.find(params[:id])
-   #@labticket = @labtech_dispatch.labticket.id
-   @labtickets = @labtech_dispatch.labtickets
-   @labticket = @labtech_dispatch.labtickets.where(labtech_dispatch_id: params[:labticket_id])
   end
 
   # GET /labtech_dispatches/new
@@ -77,16 +72,12 @@ class LabtechDispatchesController < ApplicationController
     def set_labtech_dispatch
       @labtech_dispatch = LabtechDispatch.find(params[:id])
     end
-    def set_labtech_dispatches
-      @labtech_dispatch = LabtechDispatch.labtickets.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def labtech_dispatch_params
       params.require(:labtech_dispatch).permit(:id, :phone, :subject, :started_date, :update_date, :requestor_email,
       labtickets_attributes: [:labticket_id, :subject, :lab_clientid, :labtech_client_id, :labtechloc, :labtechpc, 
                      :user_id, :started_date, :requestor_email, :hours, :mins, :category, :labtech_timeslip_id, :labtime,
-                     :lab_request, :time_subject, :c, :lab_ticket_status_id, :timeslip_category_id ],
-                     timeslip_category_attributes: [:id, :name, :labtime ])
+                     :lab_request, :time_subject, :c, :lab_ticket_status_id ])
     end
 end

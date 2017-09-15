@@ -1,11 +1,11 @@
-    <div class="container">
- <%= simple_form_for(@labtech_dispatch) do |f| %>
- 
-   <h1>New Labtech Dispatch</h1>
-    <div class="col-sm col-md">
+<div class="container">
+<h1>New Labtech Dispatch</h1>
+<div class="col-sm col-md">
 	<div class="col-sm-4 col-md-7">
-   <%= f.association :labtickets, label: false, value_method: :id, as: :hidden %>     
-   <%= f.input :phone %>
+<%= simple_form_for(@labtech_dispatch) do |f| %>
+  
+  
+    <%= f.input :phone %>
   
    <%= f.simple_fields_for :labtickets do |labticket| %>
   	  <%= labticket.input :time_subject %>
@@ -19,24 +19,22 @@
       
      </div>
  
- <div class="col-sm-4 col-md-4 ml-md-auto">
- 	  <%= labticket.input :labtechloc, input_html: { value: "1" }%>
-      <%= labticket.input :labtechpc, input_html: { value: "411" } %> 
+ 	   <div class="col-sm-4 col-md-4 ml-md-auto">
+ 	   	<%= labticket.input :labtechloc, input_html: { value: "1" }%>
+        <%= labticket.input :labtechpc, input_html: { value: "411" } %> 
        
-      <%= labticket.association :timeslip_category, selected: "7", label_method: :name, value_method: :labtime, prompt:
+        <%= labticket.association :labtech_timeslip, label_method: :name, value_method: :labtime, prompt:
                      "Choose Categorie", include_blank: false %>
-      <%= labticket.association :lab_ticket_status, selected: "4", label_method: :name, value_method: :lab_status, prompt:
+        <%= labticket.association :lab_ticket_status, label_method: :name, value_method: :lab_status, prompt:
                      "Choose Status", include_blank: false %>             
-      <%= labticket.input :hours, input_html: { value: 0 } %>
-      <%= labticket.input :mins, input_html: { value: 5 } %>
-  </div>
+         <%= labticket.input :hours %>
+         <%= labticket.input :mins %>
+   	</div>
    	<% end %>
 </div>
-    <div class="align-center m-1">
-  <div class="col-sm-3 col-md-3"> 
-    <%= f.button :submit, class: "btn btn-primary form-control" %><br></br>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary form-control" %>
   </div>
-</div>
   
   <%= link_to 'Back', labtech_dispatches_path %>
 <% end %>

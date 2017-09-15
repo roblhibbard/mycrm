@@ -517,14 +517,17 @@ WHERE AlertActionID=Agents.AlertAction) AS `Alert Template Comment`, Agents.`Int
     def labticket_params
       params.require(:labticket).permit(:subject, :lab_clientid, :labtech_client_id, :labtechloc, :labtechpc, 
                      :user_id, :started_date, :requestor_email, :hours, :mins, :category, :labtech_timeslip_id, :labtime,
-                     :lab_request, :time_subject, :c, :lab_ticket_status_id,
+                     :lab_request, :time_subject, :c, :lab_ticket_status_id, :timeslip_category_id,
                      
                      labtech_locations_attributes: [:labtech_location_id, :name, :labcomputer_id, :lclient_id, :labtech_client_id, :labtech_location_id, :lablocation_id, 
                      :address, :city, :state, :zip, :phone, :fax, :comments],
                      users_attributes: [:labtech_id, :first_name, :last_name, :email, :id],
                      labtech_client_attributes: [:id, :name, :lclient_id, :company_name, :first_name, :last_name, :address1, :address2,
                      :city, :state, :phone, :zip_code, :support_mins],
-                     lab_ticket_statuses_attributes: [:name, :lab_status, :lab_ticket_status_id ])
+                     lab_ticket_statuses_attributes: [:name, :lab_status, :lab_ticket_status_id ],
+                     timeslip_category_attributes: [:id, :name, :labtime ],
+                     timeslip_categories_attributes: [:id, :name, :labtime ]
+                     )
     end
     def getparams
       params.require(:make_labticket).permit(:subject, :lab_client, :labtech_client, :labtechloc, :labtechpc, 
@@ -535,7 +538,8 @@ WHERE AlertActionID=Agents.AlertAction) AS `Alert Template Comment`, Agents.`Int
                      user_attributes: [:labtech_id, :first_name, :last_name, :email, :user_id],
                      labtech_client_attributes: [:id, :name, :lclient_id, :company_name, :first_name, :last_name, :address1, :address2,
                      :city, :state, :phone, :zip_code, :support_mins],
-                     lab_ticket_statuses_attributes: [:name, :lab_status, :lab_ticket_status_id ] )
+                     lab_ticket_statuses_attributes: [:name, :lab_status, :lab_ticket_status_id ],
+                     timeslip_category_attributes: [:timeslip_category_id, :name, :labtime ] )
      
     end
 end
