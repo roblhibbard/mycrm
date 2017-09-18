@@ -1,17 +1,47 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+<p>
+  <strong>Name:</strong>
+  <%= @labtech_dispatch.name unless @labtech_dispatch.name.nil? %>
+  
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @labtech_dispatch.company unless @labtech_dispatch.company.nil? %>
+  
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @labtech_dispatch.email unless @labtech_dispatch.email.nil? %>
+  
+</p>
 
 <p>
   <strong>Phone:</strong>
-  <%= @labtech_dispatch.phone %>
-  <%= @labticket.subject %>
+  <%= @labtech_dispatch.phone unless @labtech_dispatch.phone.nil? %>
+  
 </p>
-
-
 <p>
   <strong>Started date:</strong>
   <%= @labtech_dispatch.created_at %>
+  
 </p>
+
+  
+ <% @labticket.each do |description, hours, mins, lticket_id| %>
+  
+  <div class="row"> <strong> Description: <%= description %>  </strong></div>
+   <div class="row"> <strong>Timeslip -- Hours: <%= hours %> and 
+                             Min:<%= mins %> </strong></div>
+    <div class="row"> <strong>Labtech TicketID: <%= lticket_id %> </strong></div>
+
+<% end %>
+ 
+
 
 
 <%= link_to 'Edit', edit_labtech_dispatch_path(@labtech_dispatch) %> |
 <%= link_to 'Back', labtech_dispatches_path %>
+</div>

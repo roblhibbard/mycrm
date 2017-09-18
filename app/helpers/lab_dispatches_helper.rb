@@ -1,0 +1,2 @@
+module LabDispatchesHelper
+end

@@ -1,4 +1,5 @@
 class Labticket < ApplicationRecord
+ has_many :lab_dispatches
  require 'httparty'
 
  require 'labtech'
@@ -28,9 +29,13 @@ class Labticket < ApplicationRecord
   def self.to_pdf
     WickedPdf.new.pdf_from_string(to_html)
   end
-   def self.get_tickets
-  
+  def self.get_tickets
+     
   end
+  def set_labtech_ticket_number
+    
+    self.lticket_id =  @ticketid
+  end  
   
   def ticket
   
@@ -83,6 +88,7 @@ class Labticket < ApplicationRecord
          "User-Agent" => "robert" } )
         
    @ticketid = @getresult['value'][0]['TicketID']
+   self.lticket_id = @ticketid
   
    puts @response.body
    puts @category.inspect
