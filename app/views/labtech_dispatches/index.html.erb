@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
-   
+<p id="notice"><%= notice %></p>  
 <div class="flex-center h3"><%= link_to 'New Dispatch', new_labtech_dispatch_path %> </div></br>
 <div class="row">
-<div class="col-sm col-md"> Calls Today: <%= LabtechDispatch.daily_phone_calls.count%></div> 
-    <div class="col-md-3 mr-md-auto"> Calls Yesterday: <%= LabtechDispatch.yesterday_phone_calls.count%></div>   
-    <div class="col-md-3 ml-md-auto"> Calls This Week: <%= LabtechDispatch.this_week.count %></div>
-    <div class="col-md-3 mr-md-auto"> Calls Last Week: <%= LabtechDispatch.last_week.count %></div>
+<div class="col-sm col-md"> <p style="color:green;"> Calls Today: <%= LabtechDispatch.daily_phone_calls.count%></p style="color:blue;"></div> 
+    <div class="col-md-3 mr-md-auto"> <p style="color:red;">Calls Yesterday: <%= LabtechDispatch.yesterday_phone_calls.count%></p style="color:red;"></div>   
+    <div class="col-md-3 ml-md-auto"> <p style="color:blue;">Calls This Week: <%= LabtechDispatch.this_week.count %></p style="color:red;"></div>
+    <div class="col-md-3 mr-md-auto"> <p style="color:purple;">Calls Last Week: <%= LabtechDispatch.last_week.count %></p style="color:red;"></div>
 </div>  </br>   
            
     <div class="align-center">

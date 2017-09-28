@@ -89,12 +89,12 @@ class ClientsController < ApplicationController
     #@System = Client.all.includes(:computers)
     #@systems = Computer.where(client_id: params[:id])
     #@computer = Client.all.includes(:computers)
-    @computers = Computer.where(client_id: params[:id])
+    @computers = Computer.where(client_id: params[:id]).limit(5)
     @backups = Backup.where(client_id: params[:id])
     #@anti_viri = AntiVirus.find_by_id(params[:anti_virus_id]) if params[:anti_virus_id]
     @anti_viri = @client.anti_viri
     @backups = @client.backups
-    @tickets = @client.tickets
+    @tickets = @client.tickets.last(3)
     @service_lists = @client.service_lists
     @contract_services = @client.contract_services
     @contract_service_lines = @client.contract_service_lines

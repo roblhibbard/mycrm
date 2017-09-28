@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
  <div class="table-row header">
@@ -25,3 +26,4 @@
     <div class="col m-1">
      <div class="d-flex justify-content-center"> Total = <%= number_to_currency @contract_service_lines.to_a.sum(&:sub_total) %></div> <br/>
  </div> 
+</div>
