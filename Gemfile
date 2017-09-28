@@ -82,11 +82,11 @@ gem 'jbuilder', '~> 2.7'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 1.0.0.rc2', group: :doc
-
-group :development, :test do
+gem 'pry-rails'
+#group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-end
+  #gem 'byebug', platform: :mri
+#end
 
 
 
@@ -97,6 +97,7 @@ gem 'web-console', '~> 3.5', '>= 3.5.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.1'
+
 end
 
 # Authentication resources

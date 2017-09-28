@@ -10,9 +10,9 @@
   	<%= f.input :started_date %> 
   	<%= f.association :user, selected: current_user.id, label_method: :email, value_method: :labtech_id, prompt:
                      "Choose Tech", include_blank: false %>
-    <%= f.association :labtech_client, collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
+    <%= f.association :labtech_client, selected: "1", collection: LabtechClient.order(:name), label_method: :name, value_method: :lclient_id, prompt:
                      "Choose Client", include_blank: false %> 
-     <%= f.input :requestor_email %>                   
+     <%= f.input :requestor_email, input_html: { value: current_user.email } %>                   
      <%= f.input :subject %>
      <%= f.input :time_subject %>
            
@@ -20,16 +20,16 @@
         
   </div>
  	   <div class="col-sm-4 col-md-4 ml-md-auto">
- 	   	<%= f.input :labtechloc %>
-        <%= f.input :labtechpc %> 
+ 	   	<%= f.input :labtechloc, input_html: { value: "1" } %>
+        <%= f.input :labtechpc, input_html: { value: "411" } %> 
        
-        <%= f.association :timeslip_category, label_method: :name, value_method: :labtime, prompt:
+        <%= f.association :timeslip_category, selected: "7", label_method: :name, value_method: :labtime, prompt:
                      "Choose Categorie", include_blank: false %>
         <%= f.association :lab_ticket_status, selected: "4", label_method: :name, value_method: :lab_status, prompt:
                      "Choose Status", include_blank: false %>  
         
-        <%= f.input :hours %>
-         <%= f.input :mins %>
+        <%= f.input :hours, input_html: { value: 0 } %>
+         <%= f.input :mins, input_html: { value: 15 } %>
    
   	 </div>
   	  </div>

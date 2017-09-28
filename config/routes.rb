@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
+  
   resources :timeslip_categories
   resources :labtech_dispatches do
-    resources :labtickets
+    collection do 
+      get  :autocomplete  
+     end
   end
   
   resources :lab_ticket_statuses
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
   end
    
   resources :labtickets do
+    resources :lab_dispatches
     get :open_tickets, :on => :collection
     get :qbr_tickets,  :on => :collection
     get :critical_drive,  :on => :collection

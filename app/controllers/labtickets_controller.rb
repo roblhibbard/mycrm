@@ -532,7 +532,7 @@ WHERE AlertActionID=Agents.AlertAction) AS `Alert Template Comment`, Agents.`Int
     def getparams
       params.require(:make_labticket).permit(:subject, :lab_client, :labtech_client, :labtechloc, :labtechpc, 
                      :started_date, :requestor_email, :hours, :mins, :category, :labtech_timeslip_id, :labtime,
-                     :lab_request, :time_subject, :labtech_id,
+                     :lab_request, :time_subject, :labtech_id, :lticket_id,
                      labtech_locations_attributes: [:labtech_location_id, :name, :labcomputer_id, :lclient_id, :labtech_client_id, :labtech_location_id, :lablocation_id, 
                      :address, :city, :state, :zip, :phone, :fax, :comments],
                      user_attributes: [:labtech_id, :first_name, :last_name, :email, :user_id],

@@ -48,6 +48,7 @@
            <a class="dropdown-item" href="http://192.168.1.23:3000/labtech_times">Labtech TimeSlips</a>
            <a class="dropdown-item" href="http://192.168.1.23:3000/labtickets/new">Labtech Ticket New</a>
            <a class="dropdown-item" href="http://192.168.1.23:3000/labtech_timeslips/new">Labtech TimeSlip New</a>
+           <a class="dropdown-item" href="http://192.168.1.23:3000/labtech_dispatches">Labtech Dispatches</a>
          </div>
        </li>
        
@@ -80,7 +81,7 @@
  <div class="margin-top">
   
 </div>
-
+<div class="flex-center h3"> Welcome, <%= current_user.first_name if current_user %></div> 
     <%= yield %>
 
 

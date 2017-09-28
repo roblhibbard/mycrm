@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Phone:</b>
+  <%= @lab_dispatch.phone %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @lab_dispatch.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_labticket_lab_dispatch_path(@lab_dispatch.labticket, @lab_dispatch) %> |
+<%= link_to 'Back', labticket_lab_dispatches_path(@lab_dispatch.labticket) %>
